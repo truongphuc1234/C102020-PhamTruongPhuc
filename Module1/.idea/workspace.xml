@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="" />
+    <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/1. MotaThuatToanChuyenDoiTienTe/Flowchart_Pseudocode.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/2. MotaThuatToanTinhDiemTrungBinh/Flowchart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/2. MotaThuatToanTinhDiemTrungBinh/Pseudocode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/3. MoTaThuatToanTimGiaTriLonNhatTrong3So/PseudoCode_FlowChart.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/4. MoTaThuatToanTimGiaTriLonNhatTrongDaySo/PseudoCode_FlowChart.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/BaiTap/5. MoTaThuatToanCauTrucCoDieuKien/PseudoCode_FlowChart.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/ThucHanh/ThuatToanChuyenDoiNhietDo/FlowChart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/ThucHanh/ThuatToanChuyenDoiNhietDo/PseudoCode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/ThucHanh/ThuattoanGameDemSo/FlowChart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MoTaThuatToanPseudoCodeFlowChart/ThucHanh/ThuattoanGameDemSo/PseudoCode.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NhapmonlaptrinhCanBan/Bai_tap/Hoàn thành khoá học 1 trên code.org/Screenshot certificate course 1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NhapmonlaptrinhCanBan/Bai_tap/Hoàn thành khoá học 2 trên code.org/Screenshot certificate course 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NhapmonlaptrinhCanBan/Bai_tap/abc.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hh.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +49,8 @@
       <updated>1603689140621</updated>
       <workItem from="1603689142800" duration="9000" />
       <workItem from="1603809956884" duration="10000" />
+      <workItem from="1603965302741" duration="51000" />
+      <workItem from="1604030537926" duration="3127000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+</head>
+<style>
+    body {
+        background-image: url("https://inlonggia.com/wp-content/uploads/Background-cong-nghe-dep.jpg");
+        opacity: 30%
+        font-family: Calibri;
+        font-size: 15px;
+    }
+    .input-label {
+        color: indianred;
+        font-style: oblique;
+        font-weight: bold;
+    }
+    .div-control {
+        margin : 30px;
+    }
+    h1 {
+        text-transform: uppercase;
+        padding: 15px;
+        background-color: darkviolet;
+        color: gold;
+        border-style: revert;
+        border-radius: 10px;
+
+    }
+    .form-control {
+        margin: 30px 30px 30px 900px;
+        background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        padding: 15px;
+        text-align: right;
+        border-style: groove;
+        border-radius: 15px;
+        opacity: 80%;
+    }
+    .input-control {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px chocolate ;
+        color: firebrick;
+        background: burlywood;
+    }
+    .btn-control {
+        background: #236ee8;
+        opacity: 0.5;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px green;
+        color: gold;
+        padding: 7px;
+        margin 0px 30px;
+    }
+</style>
+<body>
+<form class="form-control">
+    <h1>Đăng ký học viên</h1>
+    <div class="div-control">
+        <label class="input-label">Họ &amp; tên:</label>
+        <input class="input-control" type="text" name="fullname" placeholder="Điền tên của bạn" size="max"/>
+    </div>
+    <div class="div-control">
+        <label class="input-label">Ngày sinh:</label>
+        <input class="input-control" type="date" name="fullname" placeholder="Ngay sinh"/>
+    </div>
+    <div class="div-control">
+        <label class="input-label">Giới tính:</label>
+        <label><input class="input-control" name="gender" value="male" type="radio"/>Nam</label>
+        <label><input class="input-control" name="gender" value="female" type="radio"/>Nữ</label>
+    </div>
+    <div class="div-control">
+        <label class="input-label">Địa chỉ: </label><br>
+        <textarea class="input-control" name="address" rows="4" cols="25"></textarea>
+    </div>
+    <div class="div-control">
+        <label class="input-label">Lớp:</label>
+        <select class="input-control" name="class">
+            <option value disabled selected>--chọn lớp--</option>
+            <option value="A">Lớp A</option>
+            <option value="B">Lớp B</option>
+            <option value="C">Lớp C</option>
+        </select>
+    </div>
+    <div class="div-control">
+        <label class="input-label">Email:</label>
+        <input class="input-control" type="email" name="email" />
+    </div>
+    <div class="div-control">
+        <label class="input-label">Số điện thoại:</label>
+        <input class="input-control" type="text" name="tel" />
+    </div>
+    <div class="div-control">
+        <input class="btn-control" type="submit" value="Đăng ký"/>
+        <input class="btn-control" type="reset" value="Nhập lại"/>
+    </div>
+</form>
+</body>
+</html>

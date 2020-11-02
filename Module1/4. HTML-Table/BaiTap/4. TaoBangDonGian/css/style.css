@@ -1,0 +1,34 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: blue;
+    text-align: center;
+}
+#left {
+    float: left;
+    text-align: left;
+    margin-left: 15%;
+}
+#right {
+    float: right;
+    text-align: right;
+    margin-right: 15%;
+}
+table {
+    border-collapse: collapse;
+    width: 70%;
+    clear: both;
+    margin: 0px auto;
+    color: darkgreen;
+}
+tr, td, th {
+    border: 1px solid red;
+}
+tr:nth-child(even) {
+    background-color: red ;
+}
+.weekday {
+    background-color: coral;
+}
+.header2 {
+    background-color: cadetblue;
+}

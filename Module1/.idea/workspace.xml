@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/4. HTML-Table/ThucHanh/3. TaoBangCoBan/tablesimple.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4. HTML-Table/ThucHanh/4. TaoBangNangCao/advancetable.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,10 +30,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/4. HTML-Table/BaiTap/4. TaoBangDonGian" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/5. TongquanJS/ThucHanh/2. NhungJS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\5. TongquanJS\ThucHanh\2. NhungJS" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
     </key>
   </component>
@@ -67,7 +66,9 @@
       <workItem from="1604116545210" duration="15949000" />
       <workItem from="1604279372054" duration="4934000" />
       <workItem from="1604290074020" duration="2727000" />
-      <workItem from="1604298500299" duration="7828000" />
+      <workItem from="1604298500299" duration="9855000" />
+      <workItem from="1604371554636" duration="1316000" />
+      <workItem from="1604372890221" duration="3000" />
     </task>
     <servers />
   </component>

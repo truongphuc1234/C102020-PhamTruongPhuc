@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/6. BienDuLieuVaToanTu/BaiTap/2. Ungdungchuyendoitiente/currentConvert.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6. BienDuLieuVaToanTu/BaiTap/3. UngDungMayTinh/1. Co ban/calculator_basic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6. BienDuLieuVaToanTu/ThucHanh/1. KhaiBaoVaSuDungBien/Bai-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6. BienDuLieuVaToanTu/ThucHanh/1. KhaiBaoVaSuDungBien/Bai-2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +34,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/5. TongquanJS/ThucHanh/2. NhungJS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/6. BienDuLieuVaToanTu/BaiTap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\5. TongquanJS\ThucHanh\2. NhungJS" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\3. UngDungMayTinh\1. Co ban" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\1. BienKieuDuLieu" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\1. BienKieuDuLieu\Bai-1" />
     </key>
   </component>
   <component name="RunManager">
@@ -69,6 +79,11 @@
       <workItem from="1604298500299" duration="9855000" />
       <workItem from="1604371554636" duration="1316000" />
       <workItem from="1604372890221" duration="3000" />
+      <workItem from="1604373374658" duration="1083000" />
+      <workItem from="1604375907718" duration="683000" />
+      <workItem from="1604378071607" duration="16000" />
+      <workItem from="1604392849047" duration="5085000" />
+      <workItem from="1604398012283" duration="8199000" />
     </task>
     <servers />
   </component>
@@ -76,6 +91,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604411456329">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604411456329" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1604378082887">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604378082887" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1604051758509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -96,9 +119,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604289189161" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604290578313">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604395547547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604290578313" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604395547547" />
   </component>
 </project>

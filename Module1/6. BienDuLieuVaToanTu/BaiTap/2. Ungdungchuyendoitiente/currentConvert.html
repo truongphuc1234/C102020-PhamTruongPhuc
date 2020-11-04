@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình chuyển đổi tiền tệ</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="div-control">
+    <label for="amount" class="desc">Amount</label>
+    <input type="text" name="amount" id="amount" class="input-control"/>
+</div>
+<div class="div-control">
+    <label for="fromCurrency" class="desc">From Currency</label>
+    <select name="fromCurrency" id="fromCurrency" class="input-control">
+        <option value="VND">Vietnam Dong</option>
+        <option value="USD">US Dollar</option>
+        <option value="GPB">Pound</option>
+        <option value="EUR">Euro</option>
+    </select>
+</div>
+<div class="div-control">
+    <label for="toCurrency" class="desc">To Currency</label>
+    <select name="toCurrency" id="toCurrency" class="input-control">
+        <option value="VND">Vietnam Dong</option>
+        <option value="USD">US Dollar</option>
+        <option value="GPB">Pound</option>
+        <option value="EUR">Euro</option>
+    </select>
+</div>
+<div class="div-control">
+    <button id="convert" class="btn">Convert</button>
+</div>
+<p id="result"></p>
+</body>
+</html>
+<script src="script.js"></script>

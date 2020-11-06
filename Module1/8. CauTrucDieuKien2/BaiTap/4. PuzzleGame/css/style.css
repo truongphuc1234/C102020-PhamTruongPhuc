@@ -1,0 +1,14 @@
+.puzzle {
+    width: 400px;
+    height: 100px;
+    display: block;
+    margin: 5px;
+    border: 2px blue solid;
+}
+.puzzle2 {
+    width: 400px;
+    height: 100px;
+    display: block;
+    margin: 5px;
+    border: 2px red solid;
+}

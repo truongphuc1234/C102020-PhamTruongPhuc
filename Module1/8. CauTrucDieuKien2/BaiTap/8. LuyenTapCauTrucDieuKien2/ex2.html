@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 1-->
+
+<h2>Bài 1</h2>
+<p>Chuyển từ độ C sang độ F.</p>
+<label>Nhập độ Celcius </label><input id="celcius" type="number"/><br>
+<button type="button" id="check_1">Kiểm tra</button>
+<p id="result_1"></p>
+<hr>
+
+<!--Bài 2-->
+
+<h2>Bài 2</h2>
+<p>Chuyển từ mét sang feet: </p>
+<label>Nhập mét : </label><input id="meter" type="number"/><br>
+<button type="button" id="check_2">Kiểm tra</button>
+<p id="result_2"></p>
+<hr>
+
+<!--Bài 3-->
+
+<h2>Bài 3</h2>
+<p>Tính diện tích hình vuông khi biết cạnh a.: </p>
+<label>Nhập cạnh hình vuông </label><input id="side_square" type="number"/><br>
+<button type="button" id="check_3">Kiểm tra</button>
+<p id="result_3"></p>
+<hr>
+
+<!--Bài 4-->
+
+<h2>Bài 4</h2>
+<p>Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.</p>
+<label>Nhập cạnh a </label><input id="side_a" type="number"/><br>
+<label>Nhập cạnh b </label><input id="side_b" type="number"/><br>
+<button type="button" id="check_4">Kiểm tra</button>
+<p id="result_4"></p>
+<hr>
+
+<!--Bài 5-->
+
+<h2>Bài 5</h2>
+<p>Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</p>
+<label>Nhập cạnh a </label><input id="side_triangle_a" type="number"/><br>
+<label>Nhập cạnh b </label><input id="side_triangle_b" type="number"/><br>
+<button type="button" id="check_5">Kiểm tra</button>
+<p id="result_5"></p>
+<hr>
+<!--Bài 6-->
+
+<h2>Bài 6</h2>
+<p>Giải phương trình bậc 1.</p>
+<p>Phương trình có dạng ax + b = 0</p>
+<label>Nhập tham số a </label><input id="a_6" type="number"/><br>
+<label>Nhập tham số b </label><input id="b_6" type="number"/><br>
+<button type="button" id="check_6">Kiểm tra</button>
+<p id="result_6"></p>
+<hr>
+
+<!--Bài 7-->
+
+<h2>Bài 7</h2>
+<p>Giải phương trình bậc 2.</p>
+<p>Phương trình có dạng ax^2 + bx +c= 0</p>
+<label>Nhập tham số a </label><input id="a_7" type="number"/><br>
+<label>Nhập tham số b </label><input id="b_7" type="number"/><br>
+<label>Nhập tham số c </label><input id="c_7" type="number"/><br>
+<button type="button" id="check_7">Kiểm tra</button>
+<p id="result_7"></p>
+<hr>
+
+<!--Bài 8-->
+
+<h2>Bài 8</h2>
+<p>Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.</p>
+<label>Nhập số tuổi : </label><input id="age" type="number"/><br>
+<button type="button" id="check_8">Kiểm tra</button>
+<p id="result_8"></p>
+<hr>
+
+
+<!--Bài 9-->
+
+<h2>Bài 9</h2>
+<p> Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác.</p>
+<label>Nhập cạnh a </label><input id="a_9" type="number"/><br>
+<label>Nhập cạnh b </label><input id="b_9" type="number"/><br>
+<label>Nhập cạnh c </label><input id="c_9" type="number"/><br>
+<button type="button" id="check_9">Kiểm tra</button>
+<p id="result_9"></p>
+<hr>
+
+<h2>Bài 10</h2>
+<p>Viết chương trình tính giá điện.</p>
+<label>Nhập sản lượng điện tiêu thụ :</label><input id="kWh" type="number"/><br>
+<button type="button" id="check_10">Kiểm tra</button>
+<table border="1px">
+    <tr>
+        <th></th>
+        <th>Đơn giá (đồng /kWh)</th>
+        <th>Sản lượng (kWh)</th>
+        <th>Thành tiền</th>
+    </tr>
+    <tr>
+        <td>Bậc thang 1</td>
+        <td>1678</td>
+        <td id="level_1"></td>
+        <td id="amount_1"></td>
+    </tr>
+
+    <tr>
+        <td>Bậc thang 2</td>
+        <td>1734</td>
+        <td id="level_2"></td>
+        <td id="amount_2"></td>
+    </tr>
+
+    <tr>
+        <td>Bậc thang 3</td>
+        <td>2014</td>
+        <td id="level_3"></td>
+        <td id="amount_3"></td>
+    </tr>
+
+    <tr>
+        <td>Bậc thang 4</td>
+        <td>2536</td>
+        <td id="level_4"></td>
+        <td id="amount_4"></td>
+    </tr>
+
+    <tr>
+        <td>Bậc thang 5</td>
+        <td>2834</td>
+        <td id="level_5"></td>
+        <td id="amount_5"></td>
+    </tr>
+
+    <tr>
+        <td>Bậc thang 6</td>
+        <td>2927</td>
+        <td id="level_6"></td>
+        <td id="amount_6"></td>
+    </tr>
+</table>
+<p id ="total_amount"></p>
+<hr>
+
+<!--Bài 11-->
+
+<h2>Bài 11</h2>
+<p>Tính thuế thu nhập cá nhân</p>
+<label>Nhập thu nhập chịu thuế </label><input id="income" type="number"/><br>
+<button type="button" id="check_11">Kiểm tra</button>
+<p id="result_11"></p>
+<hr>
+
+
+<!--Bài 11-->
+
+<h2>Bài 12</h2>
+<p> Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</p>
+<label>Nhập số tiền ban đầu: </label><input id="initial" type="number"/><br>
+<label>Nhập số tháng: </label><input id="month" type="number"/><br>
+<label>Nhập lãi xuất </label><input id="interest_rate" type="number"/><br>
+<button type="button" id="check_12">Kiểm tra</button>
+<p id="result_12"></p>
+<hr>
+
+
+</body>
+</html>
+<script src="ex2.js"></script>

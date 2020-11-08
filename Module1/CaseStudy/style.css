@@ -5,12 +5,12 @@ body {
 }
 .container {
     margin: 15px;
-    opacity: 0.6;
+    opacity: 0.7;
     padding: 15px;
     display: flex;
 }
 .div-input {
-    background-color: rgb(20, 20, 20);
+    background-color: #321B1F;
     margin: 10px;
     padding: 15px;
     border-radius: 5px;
@@ -22,33 +22,35 @@ body {
 .desc {
     display: block;
     font-size:  100%;
-    color: #ffa704;
-    margin: 7px 0px 7px 10px;
+    color: #A9C8E7;
+    margin: 7px 0px 7px 20px;
     font-weight: bold;
 }
 .input-control {
-    width: 85%;
+    width: 70%;
     border-radius: 3px;
     border: none;
     height: 25 px;
     font-size: 100%;
-    color: #ffb305;
-    padding: 2px 2px;
+    color: #321B1F;
+    padding: 2px 5px;
+    margin-left: 5%;
+
 }
 .input-control:focus {
-    outline-color: goldenrod;
+    outline-color: #265094;
 }
 .btn {
     margin: 15px 10px;
     border: none;
     box-shadow: 1px 1px 1px ;
-    background-color: goldenrod;
-    color: honeydew;
+    background-color:#D9936A;
+    color: #590C04;
     height: 25px;
     width: 70px;
 }
 .show-info-block{
-    background-color: rgb(39, 135, 2);
+    background-color: #275398;
     margin: 10px;
     padding: 15px;
     border-radius: 5px;
@@ -58,14 +60,15 @@ body {
 .show-desc {
     display: block;
     font-size:  100%;
-    color: #fdfffb;
+    color: #D6CBDC;
     margin: 7px 0px 7px 10px;
     float: left;
+    font-weight: bold;
 }
 .info {
     display: block;
     font-size:  100%;
-    color: #ffda0a;
+    color: #EFCEFA;
     margin: 7px 0px 7px 10px;
     text-align: end;
     float:right;

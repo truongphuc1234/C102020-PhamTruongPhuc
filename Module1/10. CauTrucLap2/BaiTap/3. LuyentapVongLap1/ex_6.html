@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chia hết cho 7</title>
+</head>
+<body>
+<script>
+    let count = 0, total = 0, num = 1;
+    do {
+        if (num % 7 == 0) {
+            count++;
+            total += num;
+        }
+        num++;
+    } while (count != 30);
+    document.write(total);
+</script>
+</body>
+</html>

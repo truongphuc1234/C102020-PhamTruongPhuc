@@ -5,7 +5,7 @@ body {
 }
 .container {
     margin: 15px;
-    opacity: 0.7;
+    opacity: 0.6;
     padding: 15px;
     display: flex;
 }
@@ -16,6 +16,7 @@ body {
     border-radius: 5px;
     width: 30%;
 }
+
 .form-input {
     display: block;
 }
@@ -30,7 +31,7 @@ body {
     width: 70%;
     border-radius: 3px;
     border: none;
-    height: 25 px;
+    height: 25px;
     font-size: 100%;
     color: #321B1F;
     padding: 2px 5px;
@@ -50,12 +51,15 @@ body {
     width: 70px;
 }
 .show-info-block{
-    background-color: #275398;
+    display: none;
+    background-color: #131226;
     margin: 10px;
     padding: 15px;
     border-radius: 5px;
     width: 25%;
     height: fit-content;
+    animation-name: zoom;
+    animation-duration: 0.6s;
 }
 .show-desc {
     display: block;
@@ -82,6 +86,11 @@ body {
 }
 .selected {
     box-sizing: content-box;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
 }
 
 

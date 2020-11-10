@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+<script>
+    let multiTab = "<table border='1'>";
+    let i,j;
+    for ( j = 1; j< 10;j++){
+        multiTab +="<tr>";
+        for(i= 2; i <10;i++){
+            multiTab += "<td>"+i + 'x'+j+ "=" +(i*j)+"</td>";
+        }
+        multiTab +="</tr>";
+    }
+    document.write(multiTab);
+
+</script>
+</body>
+</html>

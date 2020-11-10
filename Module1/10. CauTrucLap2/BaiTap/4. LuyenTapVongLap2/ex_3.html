@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let side = prompt("Nhập độ dài cạnh góc vuông");
+    for (let i= 1; i <= side ; i++){
+        for( let j =1; j<= i; j ++ ){
+        document.writeln("*");
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("<br>");
+
+
+    for (let i= side; i >= 1 ; i--){
+        for( let j =1; j<= i; j ++ ){
+            document.writeln("*");
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("<br>");
+
+
+    for (let i= 1; i <= side ; i++){
+        for( let k =1; k<= side- i; k ++ ){
+            document.writeln("&nbsp;&nbsp;");
+        }
+        for( let j =1; j<= i; j ++ ){
+            document.writeln("*");
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("<br>");
+
+
+    for (let i= side; i >= 1 ; i--){
+        for( let k =1; k<= side- i; k ++ ){
+            document.writeln("&nbsp;&nbsp;");
+        }
+        for( let j =1; j<= i; j ++ ){
+            document.writeln("*");
+        }
+        document.writeln("<br>");
+    }
+    document.writeln("<br>");
+
+</script>
+</body>
+</html>

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/8. CauTrucDieuKien2/BaiTap/8. LuyenTapCauTrucDieuKien2/ex2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +30,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Howto/LightBox" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -91,7 +89,7 @@
       <workItem from="1604625075378" duration="1107000" />
       <workItem from="1604638803869" duration="161000" />
       <workItem from="1604645372596" duration="5445000" />
-      <workItem from="1604823601878" duration="8176000" />
+      <workItem from="1604823601878" duration="9496000" />
     </task>
     <servers />
   </component>
@@ -103,9 +101,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604411456329" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1604650820346">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1604852920438">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604852920438" />
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604650820346" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1604051758509">
       <screen x="0" y="0" width="1366" height="728" />

@@ -1,4 +1,3 @@
-
 /* get DOm from left panel */
 let name = document.getElementById("name");
 let identity = document.getElementById("identity");
@@ -45,9 +44,32 @@ function showInfo() {
     showRentDay.innerText = rentDay.value;
     showService.innerText = service.value;
     showRoomType.innerText = roomType.value;
-/* calculate amount of money from input */
-    amount.innerText = priceService[service.value] * parseFloat(rentDay.value) * (1 - parseFloat(discount.value)/100);
+    /* calculate amount of money from input */
+    amount.innerText = priceService[service.value] * parseFloat(rentDay.value) * (1 - parseFloat(discount.value) / 100);
+    document.getElementById("div-input").style.display = "none";
+    document.getElementsByClassName("show-info-block")[0].style.display = "block"
+
 }
 
 /* add event click in checking */
 document.getElementById("checkBtn").addEventListener('click', showInfo);
+
+/* show info from input in right panel*/
+function demoInfo() {
+    name.value = "Phạm Trường Phúc";
+    identity.value = "0123456789";
+    birthday.value = "1992-12-08";
+    email.value = "truongphucdn@gmail.com";
+    address.value = "Đà Nẵng";
+    customer.value = "diamond";
+    discount.disabled = true;
+    quantity.value = 4;
+    rentDay.value = 5;
+    service.value = "villa";
+    roomType.value = "business";
+    /* calculate amount of money from input */
+}
+
+/* add event click in checking */
+document.getElementById("checkBtn").addEventListener('click', showInfo);
+document.getElementById("demoInfo").addEventListener('click', demoInfo);

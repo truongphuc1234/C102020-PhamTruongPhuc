@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="play" type="button">Chơi</button>
+<script>
+    document.getElementById("play").addEventListener("click",playGame);
+    function playGame(){
+    let str = prompt("Nhập khoảng muốn đoán(2 số cách nhau bằng dấu ,): ");
+    let [a, b] = str.split(","), guess;
+    a = parseInt(a);
+    b = parseInt(b);
+    let randomNum = a + Math.floor(Math.random() * (b - a));
+    for (let i = 0; i < 3; i++) {
+        guess = parseInt(prompt("Nhập số bạn đoán: "))
+        if (guess == randomNum) {
+            alert("Bạn đã đoán đúng. Số được chọn là : " + randomNum);
+            break;
+        } else if (guess > randomNum)
+            alert("Số bạn đoán lớn hơn số được chon");
+        else
+            alert("Số bạn đoán nhỏ hơn số được chon");
+        alert("Bạn còn "+(3-i-1)+" lần chọn");
+    }
+    }
+</script>
+</body>
+</html>

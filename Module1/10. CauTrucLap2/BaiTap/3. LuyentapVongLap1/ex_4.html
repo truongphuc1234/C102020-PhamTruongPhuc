@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonaccy</title>
+</head>
+<body>
+<script>
+    let n1=1, n2=1;
+    do {
+        [n2, n1] = [n1+ n2, n2];
+    } while (n2 % 5);
+    document.writeln(n2);
+</script>
+</body>
+</html>

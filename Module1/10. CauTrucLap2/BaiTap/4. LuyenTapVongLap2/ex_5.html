@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<p> Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.</p>
+<label>Nhập số tiền ban đầu: </label><input id="initial" type="number"/><br>
+<label>Nhập số tháng: </label><input id="month" type="number"/><br>
+<label>Nhập lãi xuất </label><input id="interest_rate" type="number"/><br>
+<button type="button" id="check_12">Kiểm tra</button>
+<p id="result_12"></p>
+<hr>
+
+
+</body>
+</html>
+<script>
+
+    function interest() {
+        let initial = parseFloat(document.getElementById("initial").value);
+        let month = parseFloat(document.getElementById("month").value);
+        let interest_rate = parseFloat(document.getElementById("interest_rate").value);
+        let total = initial;
+        for (let i = 1; i <= month; i++) total += interest_rate * total;
+        document.getElementById("result_12").innerText = "Tổng số lãi phải trả là :" + total;
+
+    }
+
+    document.getElementById("check_12").addEventListener('click', interest);
+</script>

@@ -3,30 +3,36 @@ body {
     background-size: cover;
     font-family: Calibri;
 }
+
 .container {
     margin: 15px;
     opacity: 0.6;
     padding: 15px;
     display: flex;
 }
+
 .div-input {
     background-color: #321B1F;
     margin: 10px;
     padding: 15px;
     border-radius: 5px;
     width: 30%;
+    animation-name: zoom;
+    animation-duration: 0.6s;
 }
 
 .form-input {
     display: block;
 }
+
 .desc {
     display: block;
-    font-size:  100%;
+    font-size: 100%;
     color: #A9C8E7;
     margin: 7px 0px 7px 20px;
     font-weight: bold;
 }
+
 .input-control {
     width: 70%;
     border-radius: 3px;
@@ -38,19 +44,22 @@ body {
     margin-left: 5%;
 
 }
+
 .input-control:focus {
     outline-color: #265094;
 }
+
 .btn {
     margin: 15px 10px;
     border: none;
-    box-shadow: 1px 1px 1px ;
-    background-color:#D9936A;
+    box-shadow: 1px 1px 1px;
+    background-color: #D9936A;
     color: #590C04;
     height: 25px;
     width: 70px;
 }
-.show-info-block{
+
+.show-info-block {
     display: none;
     background-color: #131226;
     margin: 10px;
@@ -61,36 +70,54 @@ body {
     animation-name: zoom;
     animation-duration: 0.6s;
 }
+
 .show-desc {
     display: block;
-    font-size:  100%;
+    font-size: 100%;
     color: #D6CBDC;
     margin: 7px 0px 7px 10px;
     float: left;
     font-weight: bold;
 }
+
 .info {
     display: block;
-    font-size:  100%;
+    font-size: 100%;
     color: #EFCEFA;
     margin: 7px 0px 7px 10px;
     text-align: end;
-    float:right;
+    float: right;
     font-weight: bold;
 }
+
 .block-container {
     clear: both;
 }
+
 .capitalize {
     text-transform: capitalize;
 }
+
 .selected {
     box-sizing: content-box;
 }
 
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.material-icons {
+    font-size: 24px;
+    color: orangered;
+    display: none;
+    vertical-align: bottom;
+    margin-left: 10px;
+    user-select: none;
 }
 
 

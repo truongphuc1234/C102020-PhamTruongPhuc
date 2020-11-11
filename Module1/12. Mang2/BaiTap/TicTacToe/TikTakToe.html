@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+</head>
+<style>
+    .ceil {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .ceilX {
+        background-color: #0a28e7;
+        cursor: default;
+    }
+
+    .ceilO {
+        background-color: #9f0c05;
+        cursor: default;
+    }
+</style>
+<body>
+
+</body>
+<script>
+    // Xây dựng bàn cờ
+
+    let sideNum = prompt("Nhập số cạnh bàn cờ");
+    let checkBoardArr = new Array(sideNum);
+    let checkBoard = `<table border="1" cellspacing='0'  style="border-collapse: collapse;">`
+    for (let i = 0; i < sideNum; i++) {
+        checkBoard += "<tr>";
+        checkBoardArr[i] = new Array(sideNum);
+        for (let j = 0; j < sideNum; j++) {
+            checkBoard += `<td id="${i}-${j}" class ="ceil"> . </td>`;
+            checkBoardArr[i][j] = ".";
+        }
+        checkBoard += "</tr>";
+    }
+    checkBoard += "</table>";
+    document.write(checkBoard);
+    let user = "X";
+
+    //Click vào bàn cờ
+    ceils = document.querySelectorAll(".ceil");
+    ceils.forEach(ceil => ceil.addEventListener("click", clickCeil));
+
+    function clickCeil(evt) {
+        let x, y;
+        [x, y] = evt.target.id.split("-");
+        x = parseInt(x);
+        y = parseInt(y);
+        if (checkBoardArr[x][y] === ".") {
+            evt.target.innerText = user;
+            checkBoardArr[x][y] = user;
+            evt.target.classList.add(`ceil${user}`);
+
+            //kiểm tra theo chiều ngang
+            let count_h = 0;
+            for (let i = -4; i <= 4; i++) {
+                if (checkBoardArr[x + i] && checkBoardArr[x + i][y] === user) {
+                    count_h += 1;
+                    if (count_h === 5) {
+                        alert('Người chiến thằng là ' + user);
+                        return;
+                    }
+                } else
+                    count_h = 0;//reset count_h
+
+            }
+            //kiểm tra theo chiều dọc
+            let count_v = 0;
+            for (let i = -4; i <= 4; i++) {
+                if (checkBoardArr[x][y + i] === user) {
+                    count_v += 1;
+                    if (count_v === 5) {
+                        alert('Người chiến thằng là ' + user);
+                        return;
+                    }
+                } else
+                    count_v = 0;//reset count_h
+
+            }
+            //kiểm tra theo cheo thuan
+            let count_cross = 0;
+            for (let i = -4; i <= 4; i++) {
+                if (checkBoardArr[x + i] && checkBoardArr[x + i][y + i] === user) {
+                    count_cross += 1;
+                    if (count_cross === 5) {
+                        alert('Người chiến thằng là ' + user);
+                        return;
+                    }
+                } else
+                    count_cross = 0;//reset count_h
+            }
+            //kiem tra theo chieu cheo nghich
+
+            let count_reserve_cross = 0;
+            for (let i = -4; i <= 4; i++) {
+                if (checkBoardArr[x + i] && checkBoardArr[x + i][y -i] === user) {
+                    count_reserve_cross += 1;
+                    if (count_reserve_cross === 5) {
+                        alert('Người chiến thằng là ' + user);
+                        return;
+                    }
+                } else
+                    count_cross = 0;//reset count_h
+            }
+            if (user === "X")
+                user = "O";
+            else
+                user = "X";
+
+        }
+
+    }
+
+</script>
+</html>

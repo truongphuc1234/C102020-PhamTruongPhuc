@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Type anthing slowly</h2>
+<textarea id="txt"></textarea>
+</body>
+</html>
+<script>
+    let txt = document.getElementById("txt");
+    let str = "TÔI LÀ MỘT ĐỨA NGỐC !!"
+    txt.addEventListener("keyup", changeInput);
+
+    function changeInput() {
+        if (txt.value.length <= str.length) {
+            txt.value = str.substr(0,txt.value.length);
+        } else {
+            txt.value = "";
+        }
+        setTimeout("changeInput()",1);
+    }
+
+
+</script>

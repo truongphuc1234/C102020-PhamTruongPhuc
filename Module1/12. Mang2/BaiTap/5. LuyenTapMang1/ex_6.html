@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 6-
+    // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình tìm xem V có nằm trong mảng số nguyên không?
+    // Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+    let num;
+    let myArray = new Array();
+    do {
+        num = prompt(`Nhập phần tử thứ ${myArray.length} của mảng :\n(Cancel prompt hoặc không nhập giá trị để kết thúc.)`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray.push(parseInt(num));
+        }
+    } while (num)// Cancel prompt hoặc không nhập giá trị để kết thúc.
+
+    alert("Mảng bạn nhập là : \n" + myArray);
+
+    //Nhập giá trị nguyên
+    let guess
+    do {
+        guess = prompt("Nhập số nguyên :");
+    } while (!(guess && /^[-]{0,1}\d+$/.test(guess)));
+
+    //Kiểm tra giá trị có trong mảng
+    if (myArray.indexOf(parseInt(guess)) === -1){
+        alert("Số nhập vào không có trong mảng");
+    } else {
+        alert("Số nhập vào có trong mảng");
+    }
+
+</script>
+</body>
+</html>

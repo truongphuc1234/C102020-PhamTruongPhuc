@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array();
+    let msg;
+    do {
+        msg = prompt('Nhập giá trị của dãy: ');
+        console.log(msg);
+        if (msg) {
+            arr.push(msg);
+        }
+    } while (msg);
+    alert (arr.join(","));
+</script>
+
+</body>
+</html>

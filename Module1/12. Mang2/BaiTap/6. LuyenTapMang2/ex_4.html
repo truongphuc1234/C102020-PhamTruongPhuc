@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 4:
+    // Viết một chương trình để đếm số từ trong một chuỗi
+    let msg = prompt("Nhập chuỗi kí tự : ");
+    let countArr = [];
+    while (msg.length !== 0) {
+        if (msg[0] === " ") {
+            msg = msg.substr(1);
+        } else {
+            let i = 0;
+            let str = "";
+            while (msg[i] && msg[i] !== " ") {
+                str = str + msg[i];
+                msg = msg.substr(1);
+            }
+            countArr.push(str);
+        }
+    }
+    alert(countArr.length);
+</script>
+</body>
+</html>

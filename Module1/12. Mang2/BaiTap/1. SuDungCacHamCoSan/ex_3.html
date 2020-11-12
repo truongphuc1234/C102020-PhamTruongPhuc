@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập chuỗi kí tự: ");
+    let result = "";
+    for (let item of str) {
+        if (item === item.toUpperCase()) {
+            result += item.toLowerCase()
+        } else {
+            result += item.toUpperCase()
+        }
+    }
+    alert(result);
+</script>
+</body>
+</html>

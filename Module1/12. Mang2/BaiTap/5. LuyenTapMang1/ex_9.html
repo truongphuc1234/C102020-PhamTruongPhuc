@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Bài 9-
+    // Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+    // Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+    // Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c.
+    // Hiển thị mảng c.
+
+    //Nhập mảng a
+    let myArray_a = new Array();
+    let i = 0;
+    let num;
+    do {
+        num = prompt(`Nhập phần tử thứ ${i} :`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray_a[i] = parseInt(num);
+            i++;
+        }
+    } while (i < 10);
+
+    alert("Mảng a bạn nhập là : \n" + myArray_a);
+
+    //Nhập mảng b
+    let myArray_b = new Array();
+    i = 0;
+    do {
+        num = prompt(`Nhập phần tử thứ ${i} :`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray_b[i] = parseInt(num);
+            i++;
+        }
+    } while (i < 10);
+
+    alert("Mảng b bạn nhập là : \n" + myArray_b);
+
+    let myArray_c = myArray_a.concat(myArray_b);
+    alert("Mảng c là: " + myArray_c);
+
+</script>
+</body>
+</html>

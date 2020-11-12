@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 3-
+    // Viết chương trình khởi tạo mảng số nguyên.
+    // Hiển hiện giá trị lớn nhất trong mảng đó.
+    // In ra giá trị trung bình của các phần tử trong mảng.
+    let num;
+    let myArray = new Array();
+    do {
+        num = prompt(`Nhập phần tử thứ ${myArray.length} của mảng :`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray.push(parseInt(num));
+        }
+    } while (num)// Cancel prompt hoặc không nhập giá trị để kết thúc.
+
+    alert("Mảng bạn nhập là : \n" + myArray);
+
+    //Tìm phần tử lớn nhất
+
+    let max = myArray[0];
+    for (let i = 1; i < myArray.length; i++) {
+        if (myArray[i] > max) {
+            max = myArray[i];
+        }
+    }
+    alert(`phần tử lớn nhất trong mảng là ${max}`);
+
+    //Tìm giá trị trung bình
+
+    let sum = myArray.reduce((accumulation, currentElement) => accumulation + currentElement);
+    let average = sum / myArray.length;
+
+    alert("Giá trị trung bình là : " + average);
+
+</script>
+</body>
+</html>

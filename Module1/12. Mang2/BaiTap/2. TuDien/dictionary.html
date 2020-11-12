@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập từ cần tìm kiếm</label><br>
+<select id="select"></select>
+<button id="button">Kiểm tra</button>
+</body>
+</html>
+<script>
+    let en = ["people", "history", "way", "art",
+        "world", "information", "map", "two",
+        "family", "government", "health", "system",
+        "computer", "meat", "year", "thanks"];
+    let vi = ['Người', 'Lịch sử', 'Đường', 'Nghệ thuật',
+        'Thế giới', 'Thông tin', 'Bản đồ', 'Hai',
+        'Gia đình', 'Chính phủ', 'Sức khỏe', 'Hệ thống',
+        'Máy tính', 'Thịt', 'Năm', 'Lời cảm ơn'];
+
+    select = document.getElementById('select');
+
+    for (let i = 0; i < en.length; i++) {
+        let opt = document.createElement("option");
+        opt.value = en[i];
+        opt.innerHTML = en[i];
+        select.appendChild(opt);
+    }
+
+    document.getElementById("button").addEventListener("click", findDictionary);
+
+    function findDictionary() {
+        alert(vi[en.indexOf(select.value)]);
+    }
+
+
+
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 2-
+    // Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+    // Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.
+    let myArray = new Array();
+    let i = 0;
+    let num;
+    //Nhập mảng
+    do {
+        num = prompt(`Nhập phần tử thứ ${i} :`);
+        //Kiểm tra chuỗi kí tự nhập vào có phải là số nguyên
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            num = parseInt(num);
+            //Kiểm tra số nhập vào đã có trong dãy hay chưa
+            let flag = true;
+            for (let j = 0; j < myArray.length; j++) {
+                if (num === myArray[j]) {
+                    flag = false;
+                    alert("Phần tử đã có trong mảng!");
+                }
+            }
+            if (flag) {
+                myArray[i] = parseInt(num);
+                i++;
+            }
+        }
+    } while (i < 10);
+    alert("Mảng bạn nhập là : \n" + myArray);
+    let max=myArray[0];
+    let maxId = 0;
+    for (let i = 1; i < myArray.length ; i ++){
+        if (myArray[i] > max){
+            max = myArray[i];
+            maxId = i;
+        }
+    }
+    alert(`phần tử thứ ${maxId+1} lớn nhất trong mảng. Giá trị là ${max}`);
+
+</script>
+</body>
+</html>

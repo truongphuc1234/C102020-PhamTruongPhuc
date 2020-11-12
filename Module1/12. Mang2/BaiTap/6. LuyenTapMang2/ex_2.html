@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 2:
+    // Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+    // Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ]
+    // sau khi thực hiện đảo ngược sẽ là "162csc"
+
+    let str = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let lengthArr = Math.floor(Math.random() * 30);
+    let arr = new Array(lengthArr);
+    for (let i = 0; i < lengthArr; i++) {
+        arr[i] = str[Math.floor(Math.random() * str.length)];
+    }
+
+    alert("Mảng cho trước là \n "+JSON.stringify(arr));
+
+
+    //Mảng đảo ngược
+    let reserveArray = new Array();
+    for(let i= 0; i< arr.length; i++) {
+        reserveArray[i] = arr[arr.length -1 -i]
+    }
+    alert("Mảng đảo ngược là : \n" + JSON.stringify(reserveArray));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Bài 8-
+    // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+    // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+
+    //Nhập mảng
+    let myArray = new Array();
+    let i = 0;
+    let num;
+    do {
+        num = prompt(`Nhập phần tử thứ ${i} :`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray[i] = parseInt(num);
+            i++;
+        }
+    } while (i < 10);
+
+    alert("Mảng bạn nhập là : \n" + myArray);
+
+    //Sắp sếp thứ tự
+
+    myArray.sort((a, b) => b - a);
+    alert("Mảng theo thứ tự giảm dần : \n" + myArray);
+</script>
+</body>
+</html>

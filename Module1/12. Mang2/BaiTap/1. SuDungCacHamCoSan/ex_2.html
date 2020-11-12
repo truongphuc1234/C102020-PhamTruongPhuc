@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numStr;
+    do {
+        numStr = prompt("Nhập chuỗi số vào : ");
+    } while (!/^[0-9]+$/.test(numStr))
+
+    let result = '';
+    for (let i = 0; i < numStr.length - 1; i++) {
+        result += numStr[i];
+        if (parseInt(numStr[i]) % 2 === 0 && parseInt(numStr[i + 1]) % 2 === 0) {
+            result += "-";
+        }
+    }
+    result += numStr[numStr.length-1];
+    alert(result)
+</script>
+</body>
+</html>

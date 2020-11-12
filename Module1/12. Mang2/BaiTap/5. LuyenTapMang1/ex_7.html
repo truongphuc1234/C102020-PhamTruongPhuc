@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 7
+    // - Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
+    // (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+
+    //Nhập mảng
+    let myArray = new Array();
+    let i = 0;
+    let num;
+    do {
+        num = prompt(`Nhập phần tử thứ ${i} :`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray[i] = parseInt(num);
+            i++;
+        }
+    } while (i < 10);
+
+    alert("Mảng bạn nhập là : \n" + myArray);
+
+    //Nhập giá trị nguyên
+    let guess
+    do {
+        guess = prompt("Nhập số nguyên :");
+    } while (!(guess && /^[-]{0,1}\d+$/.test(guess)));
+
+    guess = parseInt(guess);
+
+    //Loại bỏ giá trị nguyên nếu có trong mảng
+    let index;
+    while ((index = myArray.indexOf(guess)) !== -1) {
+        for (let i = index; i < myArray.length-1; i++) {
+            myArray[i] = myArray[i+1]
+        }
+        myArray[myArray.length-1] = 0;
+    }
+    alert(`Chuỗi sau khi loại bỏ số ${guess} \n` +myArray)
+
+
+</script>
+</body>
+</html>

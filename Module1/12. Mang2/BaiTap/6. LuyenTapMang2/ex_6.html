@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let msg = prompt("Nhập chuỗi : ");
+    let result = "";
+    for (let i = 0; i < msg.length; i++) {
+        if (msg[i] === "-")
+            result += "_";
+        else
+            result += msg[i];
+    }
+    alert(result);
+
+</script>
+</body>
+</html>

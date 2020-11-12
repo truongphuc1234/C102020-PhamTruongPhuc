@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num;
+    let myArray = new Array();
+    do {
+        num = prompt(`Nhập phần tử thứ ${myArray.length} của mảng :\n(Cancel prompt hoặc không nhập giá trị để kết thúc.)`);
+        if (/^[-]{0,1}\d+$/.test(num)) {
+            myArray.push(parseInt(num));
+        }
+    } while (num)// Cancel prompt hoặc không nhập giá trị để kết thúc.
+    alert("Mảng bạn nhập là : \n" + myArray);
+
+    //Mảng đảo ngược
+    let reserveArray = new Array();
+    for(let i= 0; i< myArray.length; i++) {
+        reserveArray[i] = myArray[myArray.length -1 -i]
+    }
+    alert("Mảng đảo ngược là : \n" + reserveArray);
+</script>
+</body>
+</html>

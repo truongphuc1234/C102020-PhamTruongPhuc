@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Bài 1: Viết chương trình khởi tạo mảng 2 chiều,
+    // gồm một bộ các phần tử có sẵn,
+    // in ra các phần tử trong mảng.
+    // Chú ý: Sử dụng vòng lặp for lồng nhau
+
+    //Khởi tạo ngẫu nhiên chuỗi mảng kí tự 2 chiều
+    let rowNum = 5+ Math.floor(Math.random()*10);
+    let colNum =5+ Math.floor(Math.random()*10);
+    let myArray =new Array();
+    for(let i= 0; i < rowNum; i++){
+        myArray[i] =new Array();
+        for(let j= 0; j< colNum; j++) {
+            myArray[i][j] = Math.floor(Math.random()*100);
+        }
+    }
+    alert("Mảng cho trước là \n "+JSON.stringify(myArray));
+
+    //In phần tử trong mảng
+
+    for(let i= 0; i < myArray.length; i++){
+        document.writeln(`"row ${i}"<br>`)
+        for(let j= 0; j< colNum; j++) {
+            document.writeln( `" ${myArray[i][j]}"<br>`);
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 3:
+    // Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+    // Chương trình này đếm số ký tự số trong mảng.
+
+    //Khởi tạo ngẫu nhiên mảng
+    let str = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let lengthArr = Math.floor(Math.random() * 30);
+    let arr = new Array(lengthArr);
+    for (let i = 0; i < lengthArr; i++) {
+        arr[i] = str[Math.floor(Math.random() * str.length)];
+    }
+
+    alert("Mảng cho trước là \n "+JSON.stringify(arr));
+    let count = 0;
+    for (let i = 0; i < arr.length; i++){
+        if (/^\d+$/.test(arr[i])){
+            count ++;
+        }
+    }
+
+    alert("Số kí tự số là :"+count);
+</script>
+</body>
+</html>

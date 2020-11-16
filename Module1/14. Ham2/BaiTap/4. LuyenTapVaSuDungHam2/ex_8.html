@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = prompt("Nhập mảng cách nhau bằng dấu , : ");
+    arr = arr.split(",")
+    alert(reverse(arr));
+
+    function  reverse(arr) {
+        let result =[];
+        for( let index = arr.length -1; index >= 0; index--) {
+            result.push(arr[index])
+        }
+        return result;
+    }
+
+
+</script>
+</body>
+</html>

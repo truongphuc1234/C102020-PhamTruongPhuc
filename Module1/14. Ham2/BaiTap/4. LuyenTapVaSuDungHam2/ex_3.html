@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("nhập số nguyên :"));
+
+    function calculateFactorial(num) {
+        if (num == 0 || num == 1) {
+            return 1
+        } else
+            return num * calculateFactorial(num - 1);
+    }
+
+    alert(calculateFactorial(num));
+</script>
+</body>
+</html>

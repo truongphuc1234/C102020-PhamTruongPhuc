@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = prompt("Nhập mảng 2 số a, b, cách nhau bằng dấu , : ");
+    arr = arr.split(",").map(num => parseInt(num));
+    alert(swap(arr));
+
+    function swap([a,b]){
+        return [b,a];
+    }
+
+</script>
+</body>
+</html>

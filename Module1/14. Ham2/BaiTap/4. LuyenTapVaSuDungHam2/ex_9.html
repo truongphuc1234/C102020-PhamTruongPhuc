@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập chuỗi kí tự: ");
+    let char = prompt("Nhập kí tự cần kiểm tra:");
+    
+    function findIndex(str, char) {
+        for (let i = 0 ; i < str.length; i ++){
+            if (str[i] === char) return i;
+        }
+        return -1;
+    }
+
+    alert(findIndex(str, char));
+</script>
+</body>
+</html>

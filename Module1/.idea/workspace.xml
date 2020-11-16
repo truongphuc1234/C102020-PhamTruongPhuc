@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/11. Mang1/ThucHanh/4. TimGiaTriLonNhat/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/12. Mang2/BaiTap/5. LuyenTapMang1/ex_3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12. Mang2/BaiTap/TicTacToe/TikTakToe.html" beforeDir="false" afterPath="$PROJECT_DIR$/12. Mang2/BaiTap/3. TicTacToe/TikTakToe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseStudy/user case 2/user_case 2.html" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/user case 2/user_case 2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +35,17 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\12. Mang2\BaiTap" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\11. Mang1\ThucHanh\5. CoCaro" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\7. CauTrucDieuKien1\ThucHanh\1. Kiểm tra năm nhuận" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\3. UngDungMayTinh\1. Co ban" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\1. BienKieuDuLieu" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\5. TongquanJS\ThucHanh\2. NhungJS" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\12. Mang2\BaiTap" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\11. Mang1\ThucHanh\5. CoCaro" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\7. CauTrucDieuKien1\ThucHanh\1. Kiểm tra năm nhuận" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\3. UngDungMayTinh\1. Co ban" />
     </key>
   </component>
   <component name="RunManager">
@@ -96,7 +95,10 @@
       <workItem from="1604823601878" duration="9496000" />
       <workItem from="1605057487185" duration="8269000" />
       <workItem from="1605080032114" duration="7945000" />
-      <workItem from="1605144073890" duration="16375000" />
+      <workItem from="1605144073890" duration="19366000" />
+      <workItem from="1605239678202" duration="8791000" />
+      <workItem from="1605491277999" duration="5079000" />
+      <workItem from="1605507912171" duration="5522000" />
     </task>
     <servers />
   </component>
@@ -108,11 +110,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604411456329" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1605079264859">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1605260254157">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604852920438" />
-    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605079264859" />
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605260254157" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1604051758509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

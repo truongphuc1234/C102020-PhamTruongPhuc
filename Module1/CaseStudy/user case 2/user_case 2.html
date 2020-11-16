@@ -61,34 +61,67 @@
                     "10. Loại phòng thuê: ");
                 switch (choice_2) {
                     case "1":
-                        name = prompt("1. Họ và tên: ");
+                        do {
+                            name = prompt("1. Họ và tên: ");
+                        } while (!name);
+                        let nameArr = name.split(/\s+/);
+                        for (let i = 0; i < nameArr.length; i++) {
+                            nameArr[i] = nameArr[i][0].toUpperCase() + nameArr[i].substr(1);
+                        }
+                        name = nameArr.join(" ");
                         break;
                     case "2":
-                        identity = prompt("2. Số CMND: ");
+                        let re_identity = /^[0-9]{8}$/;
+                        do {
+                            identity = prompt("2. Số CMND: ");
+                        } while (!identity || !re_identity.test(identity));
                         break;
                     case "3":
-                        birthday = prompt("3. Ngày tháng năm sinh: ");
+                        let re_birthday = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+                        do {
+                            birthday = prompt("3. Ngày tháng năm sinh: ");
+                        } while (!birthday || !re_birthday.test(birthday));
                         break;
                     case "4":
-                        email = prompt("4. Email: ");
+                        let re_email = /^[A-Za-z0-9_]+@[A-Za-z0-9_]+\.[A-Za-z0-9_]+$/;
+                        do {
+                            email = prompt("4. Email: ");
+                        } while (!email || !re_email.test(email));
                         break;
                     case "5":
-                        address = prompt("5. Địa chỉ: ");
+                        do {
+                            address = prompt("5. Địa chỉ: ");
+                            address = address.split(/\s+/).join(" ");
+                        } while (!address);
                         break;
                     case "6":
-                        customer = prompt("6. Loại Customer: ");
+                        do {
+                            customer = prompt("6. Loại Customer: \nDiamond, Platinum, Gold, Silver, Member")
+                            customer = customer.toLowerCase().trim();
+                        } while (customer !== "diamond" && customer !== "platinum" && customer !== "gold" && customer !== "silver" && customer !== "member")
                         break;
                     case "7":
-                        quantity = prompt("7. Số lượng đi kèm: ");
+                        do {
+                            quantity = prompt("7. Số lượng đi kèm: ");
+                        } while (!quantity || !/^[1-9]\d*$/.test(quantity))
+                        quantity = parseInt(quantity);
                         break;
                     case "8":
-                        rentDay = prompt("8. Số ngày thuê: ");
+                        do {
+                            rentDay = prompt("8. Số ngày thuê: ");
+                        } while (!rentDay || rentDay < 0)
                         break;
                     case "9":
-                        service = prompt("9. Loại dịch vụ: ");
+                        do {
+                            service = prompt("9. Loại dịch vụ: \n Villa, House, Room")
+                            service = service.toLowerCase().trim();
+                        } while (service !== "villa" && service !== "house" && service !== "room");
                         break;
                     case "10":
-                        roomType = prompt("10. Loại phòng thuê: ");
+                        do {
+                            roomType = prompt("10. Loại phòng thuê: \n Vip, Business,  Normal")
+                            roomType = roomType.toLowerCase().trim();
+                        } while (roomType !== "vip" && roomType !== "business" && roomType !== "normal");
                         break;
                     default:
                         alert("Fail");
@@ -105,7 +138,7 @@
                     "9. Loại dịch vụ: " + service + "\n" +
                     "10. Loại phòng thuê: " + roomType);
             }
-            break;
+                break;
             case "3":
                 let price, discountByCity, discountByDays, discountByCustomer;
                 switch (service) {

@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div>
     <h2>Add New Product</h2>
     <input type="text" id ="product-input"/>
-    <button id="add">Add</button>
+    <button id="add" class="btn btn-primary btn-sm">Add</button>
 </div>
 <div>
     <h2>Display All Product</h2>
-    <table border=0 id="table">
-        <tr>
-            <th>Product Name</th>
+    <table id="table-product" class="table table-striped">
+        <thead>
+            <th>Product</th>
             <th></th>
             <th></th>
-            <th id="count">0 product(s)</th>
-        </tr>
+            <th id="count">0 Product</th>
+        </thead>
+        <tbody id="body-table">
+        </tbody>
     </table>
 </div>
 </body>

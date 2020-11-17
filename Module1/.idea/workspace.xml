@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/user case 2/user_case 2.html" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/user case 2/user_case 2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/managesystem.html" beforeDir="false" afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/managesystem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,9 @@
       <workItem from="1605144073890" duration="19366000" />
       <workItem from="1605239678202" duration="8791000" />
       <workItem from="1605491277999" duration="5079000" />
-      <workItem from="1605507912171" duration="5522000" />
+      <workItem from="1605507912171" duration="10107000" />
+      <workItem from="1605524213536" duration="9047000" />
+      <workItem from="1605575704464" duration="242000" />
     </task>
     <servers />
   </component>
@@ -131,6 +133,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1604051758508" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1605529655363">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1605529655363" />
     <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1604289189161">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

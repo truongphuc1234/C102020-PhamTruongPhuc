@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1200" height="550" style="border: 1px solid #0a28e7"></canvas>
+<script>
+
+    class Rectangle {
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+
+        getHeight() {
+            return this.height;
+        }
+
+        getWidth() {
+            return this.width;
+        }
+
+        setHeight(height) {
+            this.height = height;
+        }
+
+        setWidth(width) {
+            this.width = width;
+        }
+
+        calculateArea() {
+            return this.height * this.width;
+        }
+
+        calculatePerimeter() {
+            return 2 * (this.height + this.width);
+        }
+
+        showRectangle() {
+            let randomX = Math.floor(Math.random() * (1200 - this.width));
+            let randomY = Math.floor(Math.random() * (550 - this.height));
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.moveTo(randomX, randomY);
+            ctx.lineTo(randomX + this.width, randomY);
+            ctx.lineTo(randomX + this.width, randomY + this.height);
+            ctx.lineTo(randomX, randomY + this.height);
+            ctx.lineTo(randomX, randomY);
+            ctx.stroke();
+            ctx.font = " 10px Arial";
+            ctx.fillText(`width :${this.getWidth()} -height: ${this.getHeight()}-\n area: ${this.calculateArea()}-perimeter: ${this.calculatePerimeter()}`, randomX+10, randomY+15);
+        }
+    }
+
+    let a = new Rectangle(100, 200);
+    a.setHeight(50 + Math.floor(Math.random() * 200));
+    a.setWidth(100 + Math.floor(Math.random() * 300));
+    a.showRectangle();
+
+</script>
+</body>
+</html>

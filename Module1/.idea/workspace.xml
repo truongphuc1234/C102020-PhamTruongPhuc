@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/managesystem.html" beforeDir="false" afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/managesystem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/14. Ham2/BaiTap/5. UngDungQuanLySuDungHam/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +39,11 @@
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\BaiTap\1. HinhChuNhat" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\BaiTap" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\ThucHanh" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\12. Mang2\BaiTap" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\11. Mang1\ThucHanh\5. CoCaro" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\7. CauTrucDieuKien1\ThucHanh\1. Kiểm tra năm nhuận" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap\3. UngDungMayTinh\1. Co ban" />
     </key>
   </component>
   <component name="RunManager">
@@ -100,7 +98,9 @@
       <workItem from="1605491277999" duration="5079000" />
       <workItem from="1605507912171" duration="10107000" />
       <workItem from="1605524213536" duration="9047000" />
-      <workItem from="1605575704464" duration="242000" />
+      <workItem from="1605575704464" duration="2079000" />
+      <workItem from="1605584132700" duration="4923000" />
+      <workItem from="1605595645832" duration="25419000" />
     </task>
     <servers />
   </component>

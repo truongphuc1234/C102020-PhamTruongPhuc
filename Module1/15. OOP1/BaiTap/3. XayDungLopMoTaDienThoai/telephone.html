@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(battery) {
+            if (battery >= 100) {
+                throw new Error("battery is greater than 100 !");
+            } else {
+                this.battery = battery;
+                this.draftBox = new Array();
+                this.inbox = new Array();
+                this.outbox = new Array();
+                this.active = false;
+            }
+        };
+
+        checkStatus() {
+            return (this.active) ? "active" : "inactive";
+            this.useBattery();
+        }
+
+        turnOnOff() {
+            if (this.battery > 0) {
+                this.active = !this.active;
+            }
+        }
+
+        charge() {
+            this.battery = 100;
+        }
+
+        draftMail(text) {
+            if (this.active) {
+                this.draftBox.push(text);
+                this.useBattery();
+            }
+        }
+
+        sendMail(draftNumber, otherTelephone) {
+            if (this.active) {
+                if ((draftNumber > this.draftBox.length - 1) && (otherTelephone instanceof Mobile)) {
+                    alert("Không gửi được tin nhắn :")
+                    return false;
+                } else {
+                    this.outbox.push(this.draftBox[draftNumber]);
+                    this.draftBox.splice(draftNumber, 1);
+                    otherTelephone.receiveMail(this.outbox[this.outbox.length - 1]);
+                    this.useBattery();
+                    return true;
+                }
+            }
+        }
+
+        receiveMail(text) {
+            if (this.active) {
+                this.inbox.push(text);
+            }
+        }
+
+        showInbox() {
+            if (this.active) {
+                alert(this.inbox);
+                this.useBattery();
+            }
+        }
+
+        showOutbox() {
+            if (this.active) {
+                alert(this.outbox);
+                this.useBattery();
+            }
+        }
+
+        useBattery() {
+            this.battery--;
+            if (this.battery == 0) {
+                this.active = false;
+            }
+
+        }
+
+    }
+
+    let nokia = new Mobile(10);
+    let iphone = new Mobile(5);
+
+    nokia.turnOnOff();
+    iphone.turnOnOff();
+    alert(nokia.checkStatus());
+
+    nokia.draftMail(`This is Nokia mail`);
+    nokia.draftMail(`This is email to iphone`);
+
+    nokia.sendMail(1, iphone);
+
+    nokia.showOutbox();
+
+    iphone.showInbox();
+</script>
+</body>
+</html>

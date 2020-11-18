@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="coordinate"></p>
+<p id="score"></p>
+<canvas id="myCanvas" width="1300" height="500" style="border: 2px gold solid; position: absolute"></canvas>
+<canvas id="myCanvas2" width="1300" height="500" style="border: 2px gold solid; position: absolute"></canvas>
+<canvas id="myCanvas3" width="1300" height="500" style="border: 2px gold solid; position: absolute"></canvas>
+<img id="car" hidden src="images/car-right.png" width="50" height="50">
+<img id="gold" hidden src="images/gold.png" width="50" height="50">
+<img id="tree" hidden src="images/tree.png" width="50" height="50">
+
+</body>
+</html>
+<script>
+
+    window.onload = function () {
+        let myCar = new Car();
+        let arrObstacle = [];
+        for (let i = 0; i < 5; i++) {
+            arrObstacle[i] = new Obstacle(arrObstacle, myCar);
+        }
+        let reward = new Reward(arrObstacle, myCar);
+        window.addEventListener("keydown", evt => {
+            myCar.go(evt, arrObstacle, reward)
+        });
+
+
+    }
+
+    class Car {
+        constructor() {
+            this.coordX = Math.floor(Math.random() * 25) * 50;
+            this.coordY = Math.floor(Math.random() * 10) * 50;
+            this.carImg = document.getElementById("car");
+            this.ctx = document.getElementById("myCanvas").getContext('2d');
+
+            this.showCar();
+
+        }
+
+        go(evt, arrObstacle, reward) {
+            let x, y, rotation, control;
+            switch (evt.code) {
+                case 'ArrowRight':
+                    rotation = 'right';
+                    x = 10;
+                    y = 0;
+                    break;
+                case 'ArrowLeft':
+                    rotation = 'left';
+                    x = -10;
+                    y = 0;
+                    break;
+                case 'ArrowUp':
+                    rotation = 'up';
+                    x = 0;
+                    y = -10;
+                    break;
+                case 'ArrowDown':
+                    rotation = 'down';
+                    x = 0;
+                    y = 10;
+                    break;
+                default:
+                    return;
+            }
+            if (evt.ctrlKey) {
+                control = 5;
+            } else {
+                control = 1;
+            }
+            if (((this.coordX + x * control + 50 <= 1300) && (this.coordX + x * control >= 0)) && ((this.coordY + y * control + 50 <= 500) && (this.coordY + y * control >= 0))) {
+                this.coordX = this.coordX + x * control;
+                this.coordY = this.coordY + y * control;
+                this.carImg.src = `images/car-${rotation}.png`;
+                this.showCar();
+            }
+            this.checkObstacle(arrObstacle);
+            this.checkReward(reward, arrObstacle);
+            setTimeout("go()", 1);
+        }
+
+        showCar() {
+            this.ctx.clearRect(0, 0, 1300, 500);
+            this.ctx.drawImage(this.carImg, this.coordX, this.coordY, 50, 50);
+            document.getElementById("coordinate").innerText = this.coordX + " - " + this.coordY;
+        }
+
+        checkObstacle(arr) {
+            for (let item of arr) {
+                if (((this.coordX > item.coordX - 50) && (this.coordX < item.coordX + 50)) && ((this.coordY > item.coordY - 50) && (this.coordY < item.coordY + 50))) {
+                    alert("You hit the tree");
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+        checkReward(reward, arr) {
+            if (((this.coordX > reward.coordX - 50) && (this.coordX < reward.coordX + 50)) && ((this.coordY > reward.coordY - 50) && (this.coordY < reward.coordY + 50))) {
+                alert("You gain a gold");
+                return true;
+            } else
+                return false;
+
+        }
+
+    }
+
+    class Obstacle {
+        constructor(arr, car) {
+            let flag;
+            let x, y;
+            do {
+                flag = false;
+                x = Math.floor(Math.random() * 25) * 50;
+                y = Math.floor(Math.random() * 10) * 50;
+                if (((x > car.coordX - 50) && (x < car.coordX + 100)) && ((y > car.coordY - 50) && (y < car.coordY + 100))) {
+                    flag = true;
+                }
+                for (let item of arr) {
+                    if (((x > item.coordX - 50) && (x < item.coordX + 100)) && ((y > item.coordY - 50) && (y < item.coordY + 100))) {
+                        flag = true;
+                    }
+                }
+            } while (flag);
+            this.coordX = x;
+            this.coordY = y;
+
+            this.treeImg = document.getElementById("tree");
+            this.ctx = document.getElementById("myCanvas2").getContext('2d');
+            this.ctx.drawImage(this.treeImg, this.coordX, this.coordY, 50, 50);
+
+        }
+    }
+
+    class Reward {
+        constructor(arr, car) {
+            let flag;
+            let x, y;
+            do {
+                flag = false;
+                x = Math.floor(Math.random() * 25) * 50;
+                y = Math.floor(Math.random() * 10) * 50;
+                if (((x > car.coordX - 50) && (x < car.coordX + 100)) && ((y > car.coordY - 50) && (y < car.coordY + 100))) {
+                    flag = true;
+                }
+                for (let item of arr) {
+                    if (((x > item.coordX - 50) && (x < item.coordX + 100)) && ((y > item.coordY - 50) && (y < item.coordY + 100))) {
+                        flag = true;
+                    }
+                }
+            } while (flag);
+            this.coordX = x;
+            this.coordY = y;
+
+            this.goldImg = document.getElementById("gold");
+            this.ctx = document.getElementById("myCanvas3").getContext('2d');
+            this.ctx.clearRect(0, 0, 1300, 500);
+            this.ctx.drawImage(this.goldImg, this.coordX, this.coordY, 50, 50);
+
+        }
+    }
+
+
+</script>

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/16. OOP 2/BaiTap/1. GameDonGian/images/tree.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/15. OOP1/BaiTap/4. PhatTrienGameLaiXe/cardrive.html" beforeDir="false" afterPath="$PROJECT_DIR$/15. OOP1/BaiTap/4. PhatTrienGameLaiXe/cardrive.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,21 +31,24 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/16. OOP 2/BaiTap/3. CongTac" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\5. TongquanJS\ThucHanh\2. NhungJS" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\16. OOP 2\BaiTap" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\BaiTap\1. HinhChuNhat" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\BaiTap" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\15. OOP1\ThucHanh" />
       <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1" />
-      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\12. Mang2\BaiTap" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\16. OOP 2\BaiTap\3. CongTac" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\16. OOP 2\BaiTap\1. GameDonGian\images" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\6. BienDuLieuVaToanTu\BaiTap" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\5. TongquanJS\ThucHanh\2. NhungJS" />
+      <recent name="D:\C102020G1_Pham_Truong_Phuc\Module1\4. HTML-Table\BaiTap\4. TaoBangDonGian" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,6 +106,8 @@
       <workItem from="1605575704464" duration="2079000" />
       <workItem from="1605584132700" duration="4923000" />
       <workItem from="1605595645832" duration="25419000" />
+      <workItem from="1605662019721" duration="2950000" />
+      <workItem from="1605681277408" duration="7085000" />
     </task>
     <servers />
   </component>
@@ -112,11 +119,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="168" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604411456329" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1605260254157">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1605690027444">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604852920438" />
-    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605260254157" />
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605690027444" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1604051758509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -137,10 +144,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1605529655363" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1604289189161">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1605683831981">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604289189161" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605683831981" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605164350614">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

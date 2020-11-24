@@ -1,0 +1,8 @@
+.cell{
+    width: 15px;
+    height: 15px;
+    border: #11e209 1px solid;
+}
+table {
+    border-collapse: collapse;
+}

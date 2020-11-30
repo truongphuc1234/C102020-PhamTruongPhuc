@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CaseStudy/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseStudy/images/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseStudy/images/logo.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/Module1_AccountName.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/user case 2/user_case 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/17. Bouncing Game/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/17. Bouncing Game/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/React_Learn/2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -125,7 +112,9 @@
       <workItem from="1605767412765" duration="8454000" />
       <workItem from="1605796459424" duration="605000" />
       <workItem from="1605834968486" duration="8734000" />
-      <workItem from="1606184559917" duration="19565000" />
+      <workItem from="1606184559917" duration="23131000" />
+      <workItem from="1606273592489" duration="2939000" />
+      <workItem from="1606287600368" duration="305000" />
     </task>
     <servers />
   </component>
@@ -141,11 +130,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605839631354" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1605847427239">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1606287903807">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1604852920438" />
-    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605847427239" />
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606287903807" />
     <state width="1345" height="223" key="GridCell.Tab.0.bottom" timestamp="1604051758509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

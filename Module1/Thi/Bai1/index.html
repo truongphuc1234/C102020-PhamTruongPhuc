@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let n;
+    do {
+        n = parseInt(prompt("Nhập số phần tử: "));
+    } while (n > 50);
+
+    let a = new Array();
+
+    for (let i = 0; i < n; i++) {
+        a[i] = parseInt(prompt("Nhập phần tử của mảng: "));
+    }
+    alert("Mảng bạn nhập là: " + a);
+
+    let b =new Array();
+    for(let number of a) {
+        if(isPrime(number)){
+            b.push(number);
+        }
+    }
+    alert ("Mảng số nguyên tố là: "+ b);
+
+    function isPrime(num) {
+        if (num < 2) {
+            return false;
+        } else {
+            for (let i = 2; i< num-1; i++){
+                if (num %i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+</script>
+</body>
+</html>

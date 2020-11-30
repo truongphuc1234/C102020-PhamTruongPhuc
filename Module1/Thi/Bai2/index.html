@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Number {
+        constructor(tuSo, mauSo) {
+            this.tuSo = tuSo;
+            this.mauSo = mauSo;
+        }
+
+        isEqual(num) {
+            if ((num.tuSo * this.mauSo) === (num.mauSo * this.tuSo)) {
+                return true;
+            }
+            return false;
+        }
+
+    }
+
+    let a_tuSo = parseInt(prompt("Nhập tử số của a: "));
+    let a_mauSo = parseInt(prompt("Nhập mẫu số của a: "));
+
+    let b_tuSo = parseInt(prompt("Nhập tử số của b: "));
+    let b_mauSo = parseInt(prompt("Nhập mẫu số của b: "));
+
+    let a = new Number(a_tuSo, a_mauSo);
+    let b = new Number(b_tuSo, b_mauSo);
+
+    alert (a.isEqual(b));
+</script>
+</body>
+</html>

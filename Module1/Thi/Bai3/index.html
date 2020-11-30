@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="add">Add</button>
+<div id="display"></div>
+<script>
+    class SoTietKiem {
+        constructor(code, type, fullName, identity, openDate, amount) {
+            this.code = code;
+            this.type = type;
+            this.fullName = fullName;
+            this.identity = identity;
+            this.openDate = openDate;
+            this.amount = amount;
+        }
+    }
+
+    let arrAcount = new Array();
+
+    let key;
+
+    do {
+        key = prompt('Chọn lệnh trong menu: \n 1. Thêm sổ tiết kiệm \n 2. Xóa sổ tiết kiệm: \n 3 Thoát')
+        switch (key) {
+            case '1':
+                addNewAcount(arrAcount);
+                break;
+            case '2':
+                deleteAcount(arrAcount);
+                break;
+            case '3':
+                break;
+            default:
+                alert("Không có trong menu");
+                break;
+        }
+    } while (key !== '3')
+
+    function addNewAcount(arrAcount) {
+
+        let code;
+        let codeCheck;
+        do {
+            codeCheck= false;
+            code = prompt("Nhập mã sổ tiết kiệm: ");
+            for (let item of arrAcount) {
+                if (code === item.code) {
+                    alert("Mã sổ tiết kiệm này đã có sẵn");
+                    codeCheck = true;
+                }
+            }
+            if (code.length > 5) {
+                alert("Chuỗi lớn hơn 5 kí tự");
+                codeCheck = true
+            }
+        } while (codeCheck)
+
+        let type;
+        do {
+            type = prompt("Nhập loại sổ tiết kiệm:");
+            if (type.length > 10) {
+                alert("Số kí tự lớn hơn 10")
+            }
+        } while (type.length > 10);
+
+        let fullName;
+        do {
+            fullName = prompt("Nhập họ tên khách hàng:");
+            if (fullName.length > 30) {
+                alert("Số kí tự lớn hơn 30")
+            }
+        } while (fullName.length > 30)
+
+        let identity;
+        do {
+            identity = prompt("Nhập CMND:");
+            if (!/^[0-9]+$/.test(identity)) {
+                alert("Chứng minh nhân dân không phải kiểu số")
+            }
+        } while (!/^[0-9]+$/.test(identity));
+
+        let openDate;
+        do {
+            openDate = prompt("Nhập ngày mở sổ");
+            if (!/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(openDate)) {
+                alert("Không đúng format ngày");
+            }
+        } while (!/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(openDate));
+
+        let amount
+        do {
+            amount = prompt("Nhập số tiền gửi");
+            if (!/^[0-9]+$/.test(amount)) {
+                alert("Số tiền gửi không phải kiểu số");
+            }
+        } while (!/^[0-9]+$/.test(amount));
+
+        let acount = new SoTietKiem(code, type, fullName, identity, openDate, amount);
+        arrAcount.push(acount);
+        alert("Bạn đã thêm thành công sổ tiết kiệm:")
+
+        showAccount(arrAcount);
+
+    }
+
+    function deleteAcount(arrAcount) {
+
+        let code, index;
+        let flag = true
+        do {
+            code = prompt("Nhập mã sổ tiết kiệm: ");
+            for (let i = 0; i < arrAcount.length; i++) {
+                if (arrAcount[i].code === code) {
+                    flag = false;
+                    index = i;
+                    break;
+                }
+                alert("mã sổ tiết kiệm của bạn không có trong danh sách")
+            }
+        } while (flag);
+
+        if (confirm('Bạn có chắc chắn muốn xóa sổ tiết kiệm ' + code)) {
+            arrAcount.splice(index, 1);
+        }
+        showAccount(arrAcount);
+
+    }
+
+    function showAccount(arrAcount) {
+        let str = "";
+        for (let item of arrAcount) {
+            str += ("\n");
+            for (let prop in item) {
+                str += prop + " : " + item[prop];
+                str += ("\n");
+            }
+        }
+        alert(str);
+    }
+
+
+</script>
+</body>
+</html>

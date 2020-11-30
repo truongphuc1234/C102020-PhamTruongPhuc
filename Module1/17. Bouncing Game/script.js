@@ -179,13 +179,13 @@ class Bar {
 
 class Game {
     constructor() {
-        this.board = new Board(500, 250);
-        this.bar = new Bar(80, 175, 240, 20);
-        this.ball = new Ball(60, 125, 1, 30, 10);
+        this.board = new Board(600, 500);
+        this.bar = new Bar(80, 175, 350, 20);
+        this.ball = new Ball(60, 125, 2, 15+Math.random()*60, 10);
         this.score = 0;
 
         let autoMove = setInterval(() => {
-            this.ball.move(0, ((this.ball.x < this.bar.x + this.bar.width) && (this.ball.x > this.bar.x)) ? this.bar.y : this.board.height, 0, this.board.width);
+            this.ball.move(0, ((this.ball.x < this.bar.x + this.bar.width) && (this.ball.x > this.bar.x)&&(this.ball.y <= this.bar.y)) ? this.bar.y : this.board.height, 0, this.board.width);
             if (this.ball.y + this.ball.radius > this.board.height - 1) {
                 alert("Bạn đã thua cuộc");
                 clearInterval(autoMove);
@@ -194,6 +194,9 @@ class Game {
 
         let autoScore = setInterval(()=>{
             this.score ++;
+            if (this.ball.y + this.ball.radius > this.board.height - 1) {
+                clearInterval(autoScore);
+            }
         }, 1000);
     }
 }
@@ -203,7 +206,7 @@ class View {
         this.canvas = document.createElement('canvas');
         this.canvas.width = game.board.width;
         this.canvas.height = game.board.height;
-        this.canvas.style.border = '1px solid yellow';
+        this.canvas.style.border = '1px solid red';
         this.ctx = this.canvas.getContext('2d');
 
         this.display(this.canvas);
@@ -237,7 +240,7 @@ class View {
 let game = new Game();
 const view = new View(game);
 
-window.addEventListener('keyup', (evt) => {
+window.addEventListener('keydown', (evt) => {
     let key;
     switch (evt.code) {
         case 'ArrowRight':

@@ -4,8 +4,8 @@ package bai4_class_object_java.bai_tap.ex_2_stop_watch;
 public class Execution {
     public static void main(String[] args) throws InterruptedException {
         StopWatch stopWatch = new StopWatch();
-        int[] array = new int[10000];
-        for(int i = 0; i < 10000; i++){
+        int[] array = new int[1000000];
+        for(int i = 0; i < 1000000; i++){
             array[i] = (int)(Math.random()*1000);
         }
 

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="458b9b69-8a54-4536-bdfa-98f4cba75674" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/17. Bouncing Game/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/17. Bouncing Game/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/16. OOP 2/BaiTap/1. GameDonGian/simpleGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/16. OOP 2/BaiTap/1. GameDonGian/simpleGame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/out/production/Module2/bai10_dsa_danh_sach/bai_tap/ex_2_linked_list/MyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/out/production/Module2/bai10_dsa_danh_sach/bai_tap/ex_2_linked_list/MyLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/bai10_dsa_danh_sach/bai_tap/ex_2_linked_list/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/bai10_dsa_danh_sach/bai_tap/ex_2_linked_list/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/bai14_thuat_toan_sap_xep/bai_tap/ex_1_sap_xep_chen/InsertSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/bai14_thuat_toan_sap_xep/bai_tap/ex_1_sap_xep_chen/InsertSort.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/React_Learn/2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -115,6 +119,7 @@
       <workItem from="1606184559917" duration="23131000" />
       <workItem from="1606273592489" duration="2939000" />
       <workItem from="1606287600368" duration="305000" />
+      <workItem from="1608527589778" duration="908000" />
     </task>
     <servers />
   </component>

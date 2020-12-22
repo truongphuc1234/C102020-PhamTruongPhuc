@@ -90,7 +90,7 @@ public class MyLinkedList<E> {
         }
 
         if (index == 0) {
-            E removed = (E) new Object();
+            E removed;
             removed = (E) head.getData();
             head = head.next;
             numNodes--;

@@ -4,16 +4,28 @@ public class InsertSort {
     static int[] list = {2, 5, 4, 3, 6, 7, 1, 9, 10, 15, 17, 20, 32, 12, 25};
 
     static void insertSort(int[] list) {
-        for (int i = 0; i < list.length - 1; i++) {
-            for (int j = i; j < list.length - 1; j++) {
-                if (list[j] < list[j + 1]) {
-                    int temp = list[j];
-                    list[j] = list[j + 1];
-                    list[j + 1] = temp;
-
-
-                }
+        for (int i = 1; i < list.length; i++) {
+            int key = list[i];
+            int j = i -1;
+            while(j >= 0 && list[j]> key ){
+                list[j+1] = list[j];
+                j--;
             }
+            list[j+1] = key;
+            display(list);
         }
+    }
+
+
+    public static void main(String[] args) {
+        insertSort(list);
+        display(list);
+    }
+
+    private static void display(int[] list) {
+        for (int i = 0; i < list.length; i++) {
+            System.out.print(list[i] + "\t");
+        }
+        System.out.println();
     }
 }

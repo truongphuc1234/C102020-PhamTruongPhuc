@@ -11,38 +11,40 @@ public class ValidationService {
     }
 
     public double validateUsedArea(String inputString) throws InvalidInputException {
+
+        double areaDouble;
         try {
-            double areaDouble = Double.parseDouble(inputString);
-            if (areaDouble > 30)
-                return areaDouble;
-            throw new InvalidInputException("The area must be large than 30m2");
+            areaDouble = Double.parseDouble(inputString);
         } catch (Exception e) {
             throw new InvalidInputException("The area must be a number");
         }
+        if (areaDouble > 30)
+            return areaDouble;
+        throw new InvalidInputException("The area must be large than 30m2");
     }
 
     public double validateRentCost(String inputString) throws InvalidInputException {
         double rentCostDouble;
         try {
             rentCostDouble = Double.parseDouble(inputString);
-            if (rentCostDouble > 0)
-                return rentCostDouble;
-            throw new InvalidInputException("The area must be a positive");
         } catch (Exception e) {
             throw new InvalidInputException("The area must be a number");
         }
+        if (rentCostDouble > 0)
+            return rentCostDouble;
+        throw new InvalidInputException("The area must be a positive");
     }
 
     public int validateMaximumPeople(String inputString) throws InvalidInputException {
         int maximumPeople;
         try {
             maximumPeople = Integer.parseInt(inputString);
-            if (maximumPeople > 0 && maximumPeople < 20)
-                return maximumPeople;
-            throw new InvalidInputException("Number of people must be positive and small than 20");
         } catch (Exception e) {
             throw new InvalidInputException("Number of people must be an integer number");
         }
+        if (maximumPeople > 0 && maximumPeople < 20)
+            return maximumPeople;
+        throw new InvalidInputException("Number of people must be positive and small than 20");
     }
 
     public String validateServiceType(String inputString) throws InvalidInputException {
@@ -89,26 +91,27 @@ public class ValidationService {
     }
 
     public double validateAreaPool(String inputString) throws InvalidInputException {
+        double areaDouble;
         try {
-            double areaDouble = Double.parseDouble(inputString);
-            if (areaDouble > 30)
-                return areaDouble;
-            throw new InvalidInputException("The pool area must be large than 30m2");
+            areaDouble = Double.parseDouble(inputString);
         } catch (Exception e) {
             throw new InvalidInputException("The pool area must be a number");
         }
+        if (areaDouble > 30)
+            return areaDouble;
+        throw new InvalidInputException("The pool area must be large than 30m2");
     }
 
     public int validateNumberOfFloor(String inputString) throws InvalidInputException {
         int numberOfFloor;
         try {
             numberOfFloor = Integer.parseInt(inputString);
-            if (numberOfFloor > 0)
-                return numberOfFloor;
-            throw new InvalidInputException("Number of floors must be positive");
         } catch (Exception e) {
             throw new InvalidInputException("Number of floors must be an integer number");
         }
+        if (numberOfFloor > 0)
+            return numberOfFloor;
+        throw new InvalidInputException("Number of floors must be positive");
     }
 
     public String validateFreeAddingService(String inputString) throws InvalidInputException {

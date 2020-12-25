@@ -42,7 +42,7 @@ public class ValidationCustomer {
         input = input.toLowerCase();
         boolean isValid = input.equals("unknown") || input.equals("male") || input.equals("female");
         if (isValid)
-            return input.substring(0, 0).toUpperCase() + input.substring(1);
+            return input.substring(0, 1).toUpperCase() + input.substring(1);
         throw new GenderException();
     }
 

@@ -8,7 +8,6 @@ public enum FilePath {
     BOOKING("data/Booking.csv"),
     EMPLOYEE("data/Employee.csv");
 
-
     private final String filePath;
 
     FilePath(String filePath) {

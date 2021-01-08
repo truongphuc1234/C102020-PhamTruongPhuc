@@ -32,7 +32,6 @@ public class ConverterCSV<E> {
                 element = format.getObjectByStringCSV(line);
                 list.add(element);
             }
-            System.out.println("Import file to array list successfully");
             fileReader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,7 +54,6 @@ public class ConverterCSV<E> {
                 fileWriter.write(format.convertToStringCSV(element));
             }
             fileWriter.close();
-            System.out.println("File " + filePath + " has been updated");
         } catch (IOException e) {
             e.printStackTrace();
         }

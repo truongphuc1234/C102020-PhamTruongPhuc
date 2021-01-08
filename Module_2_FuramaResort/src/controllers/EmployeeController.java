@@ -48,7 +48,6 @@ public class EmployeeController {
         } while (choice != 4);
     }
 
-
     public EmployeeController() {
         this.employeeList =  converter.readFileToList(FilePath.EMPLOYEE.getFilePath());
     }

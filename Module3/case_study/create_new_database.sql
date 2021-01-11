@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS furama;
+
 CREATE DATABASE furama;
 USE furama;
 
@@ -24,7 +26,7 @@ id_trinh_do INT,
 id_bo_phan INT,
 ngay_sinh DATE,
 so_cmnd VARCHAR(45),
-luong VARCHAR(45),
+luong INT,
 sdt VARCHAR(45),
 email VARCHAR(45),
 dich_vu VARCHAR(45)
@@ -62,8 +64,8 @@ id_dich_vu INT PRIMARY KEY,
 ten_dich_vu VARCHAR(45),
 dien_tich INT,
 so_tang INT,
-so_nguoi_toi_da VARCHAR(45),
-chi_phi_thue VARCHAR(45),
+so_nguoi_toi_da INT,
+chi_phi_thue INT,
 kieu_thue VARCHAR(45),
 id_loai_dich_vu INT,
 trang_thai VARCHAR(45)

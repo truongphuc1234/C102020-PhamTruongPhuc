@@ -415,16 +415,83 @@ ORDER BY hop_dong.id_hop_dong;
 -- 11 Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng 
 -- có TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.
 
-SELECT *
+SELECT DISTINCT
+    dich_vu_di_kem.id_dich_vu_di_kem,
+    dich_vu_di_kem.ten_dich_vu_di_kem,
+    dich_vu_di_kem.gia,
+    dich_vu_di_kem.don_vi,
+    dich_vu_di_kem.trang_thai_kha_dung
 FROM
     hop_dong_chi_tiet
         INNER JOIN
     dich_vu_di_kem ON dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
-        RIGHT JOIN
+        INNER JOIN
     hop_dong ON hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
-        RIGHT JOIN
+        INNER JOIN
     khach_hang ON khach_hang.id_khach_hang = hop_dong.id_khach_hang
-        LEFT JOIN
+        INNER JOIN
     loai_khach ON loai_khach.id_loai_khach = khach_hang.id_loai_khach
+WHERE
+    khach_hang.dia_chi IN ('vinh' , 'quảng ngãi')
+        AND loai_khach.ten_loai_khach = 'Diamond'
 ;
 
+-- 12 Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
+-- (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt 
+-- vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
+
+SELECT 
+    hop_dong.id_hop_dong AS `ID Hợp đồng`,
+    nhan_vien.ho_ten AS `Họ tên Nhân viên`,
+    khach_hang.ho_ten AS `Họ tên khách hàng`,
+    khach_hang.sdt AS `SDT khách hàng`,
+    dich_vu.ten_dich_vu AS `Tên dịch vụ`,
+    SUM(hop_dong_chi_tiet.so_luong) AS `Số lượng dịch vụ đi kèm`,
+    hop_dong.tien_dat_coc AS `Số tiền cọc`
+FROM
+    hop_dong
+        INNER JOIN
+    nhan_vien ON nhan_vien.id_nhan_vien = hop_dong.id_nhan_vien
+        INNER JOIN
+    khach_hang ON khach_hang.id_khach_hang = hop_dong.id_khach_hang
+        INNER JOIN
+    hop_dong_chi_tiet ON hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+        INNER JOIN
+    dich_vu ON dich_vu.id_dich_vu = hop_dong.id_dich_vu
+WHERE
+    hop_dong.id_dich_vu IN (SELECT 
+            id_dich_vu
+        FROM
+            hop_dong
+        WHERE
+            ngay_lam_hop_dong BETWEEN '2019-10-01' AND '2019-12-31')
+        AND hop_dong.id_dich_vu NOT IN (SELECT 
+            id_dich_vu
+        FROM
+            hop_dong
+        WHERE
+            ngay_lam_hop_dong BETWEEN '2019-01-01' AND '2019-06-30')
+GROUP BY hop_dong.id_hop_dong;
+
+-- 13 Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
+-- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+
+SELECT 
+    dich_vu_di_kem.id_dich_vu_di_kem,
+    dich_vu_di_kem.ten_dich_vu_di_kem,
+    dich_vu_di_kem.gia,
+    dich_vu_di_kem.don_vi,
+    dich_vu_di_kem.trang_thai_kha_dung
+FROM
+    hop_dong_chi_tiet
+        INNER JOIN
+    dich_vu_di_kem ON dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+GROUP BY dich_vu_di_kem.id_dich_vu_di_kem
+HAVING SUM(hop_dong_chi_tiet.so_luong) IN (SELECT 
+        MAX(temp.tong)
+    FROM
+        (SELECT 
+            SUM(hop_dong_chi_tiet.so_luong) AS tong
+        FROM
+            hop_dong_chi_tiet
+        GROUP BY id_dich_vu_di_kem) AS temp);

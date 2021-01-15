@@ -31,7 +31,7 @@ CREATE TABLE nhan_vien (
     luong INT,
     sdt VARCHAR(45),
     email VARCHAR(45),
-    dich_vu VARCHAR(45),
+    dia_chi VARCHAR(45),
     FOREIGN KEY (id_vi_tri)
         REFERENCES vi_tri (id_vi_tri),
     FOREIGN KEY (id_trinh_do)
@@ -149,7 +149,7 @@ VALUE
 ('quản lý');
 
 INSERT INTO nhan_vien(ho_ten, id_vi_tri, id_trinh_do, id_bo_phan, 
-    ngay_sinh, so_cmnd, luong, sdt, email, dich_vu)
+    ngay_sinh, so_cmnd, luong, sdt, email, dia_chi)
 VALUE 
 ('Hoang Lan Hong', 1, 1, 1, '1993-09-12', 123456789, 1234567893, 123456789, 'cho@gmai.com', 'Quảng Trị'),
 ('Nguyen Tien Van', 2, 2, 1, '1990-09-11', 123666789, 123666789, 123666789, 'occho@gmai.com', 'đà nẵng'),
@@ -236,11 +236,11 @@ VALUE
 (2, 2, 13),
 (3, 3, 14),
 (4, 4, 15),
-(5, 5, 20), 
+(5, 2, 20), 
 (6, 1, 21), 
-(7, 2, 22),
+(7, 5, 22),
 (1, 3, 23), 
-(2, 4, 36), 
+(2, 3, 36), 
 (3, 5, 67);
 
 -- 2 Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K”
@@ -499,25 +499,44 @@ HAVING SUM(hop_dong_chi_tiet.so_luong) IN (SELECT
 -- 14 Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 -- Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
 
-SELECT hop_dong.id_hop_dong, dich_vu_di_kem.ten_dich_vu, dich_vu_di_kem.ten_dich_vu_di_kem, count(hop_dong_chi_tiet.id_dich_vu_di_kem) as `So lan su dung`
-FROM dich_vu_di_kem
-join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
-group by dich_vu_di_kem.id_dich_vu_di_kem
-having `So lan su dung` = 1;
-
+SELECT 
+    hop_dong.id_hop_dong,
+    dich_vu_di_kem.ten_dich_vu_di_kem,
+    dich_vu_di_kem.ten_dich_vu_di_kem,
+    COUNT(hop_dong_chi_tiet.id_dich_vu_di_kem) AS `So lan su dung`
+FROM
+    dich_vu_di_kem
+        JOIN
+    hop_dong_chi_tiet ON hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
+        JOIN
+    hop_dong ON hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+GROUP BY dich_vu_di_kem.id_dich_vu_di_kem
+HAVING `So lan su dung` = 1;
 
 -- 15 Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi
 -- mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
 
-select nhan_vien.id_nhan_vien, nhan_vien.ho_ten, nhan_vien.trinh_do, nhan_vien.ten_vi_tri, nhan_vien.sdt, nhan_vien.dia_chi
-FROM nhan_vien
-left join hop_dong on hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien
-where year(hop_dong.ngay_lam_hop_dong) BETWEEN 2018 and 2019
-GROUP by nhan_vien.id_nhan_vien
-having count(hop_dong.id_hop_dong) <= 3;
+SELECT 
+    nhan_vien.id_nhan_vien,
+    nhan_vien.ho_ten,
+    trinh_do.loai_trinh_do,
+    vi_tri.ten_vi_tri,
+    nhan_vien.sdt,
+    nhan_vien.dia_chi
+FROM
+    nhan_vien
+        LEFT JOIN
+    trinh_do ON trinh_do.id_trinh_do = nhan_vien.id_trinh_do
+        LEFT JOIN
+    vi_tri ON vi_tri.id_vi_tri = nhan_vien.id_vi_tri
+        LEFT JOIN
+    hop_dong ON hop_dong.id_nhan_vien = nhan_vien.id_nhan_vien
+WHERE
+    YEAR(hop_dong.ngay_lam_hop_dong) BETWEEN 2018 AND 2019
+GROUP BY nhan_vien.id_nhan_vien
+HAVING COUNT(hop_dong.id_hop_dong) <= 3;
 
 -- 16 Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
-
 delete from nhan_vien
 where nhan_vien.id_nhan_vien not exists(select hop_dong.id_hop_dong from hop_dong where year(hop_dong.ngay_lam_hop_dong) BETWEEN 2017 and 2019 and nhan_vien.id_nhan_vien = hop_dong.id_nhan_vien )
 
@@ -534,12 +553,14 @@ and in (select id_khach_hang from khach_hang join hop_dong on hop_dong.id_khach_
 
 
 -- 19 Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+
 update dich_vu_di_kem
 set dich_vu_di_kem.gia = dich_vu_di_kem.gia *2
 where dich_vu_di_kem.id_dich_vu_di_kem in (select hop_dong_chi_tiet.id_dich_vu_di_kem from hop_dong_chi_tiet join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong where year(hop_dong.ngay_tao_hop_dong) = 2019 group by hop_dong_chi_tiet.id_dich_vu_di_kem having count(hop_dong_chi_tiet.id_dich_vu_di_kem) >10);
 
---20 Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống,
+-- 20 Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống,
 -- thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+
 select nhan_vien.id_nhan_vien as `ID`, nhan_vien.ho_tên as `Họ Tên`, nhan_vien.email as `Email`, nhan_vien.sdt as `Số điện thoại`, nhan_vien.ngay_sinh as `Ngày Sinh`, nhan_vien.dia_chi as `Địa Chỉ`
 from nhan_vien
 UNION

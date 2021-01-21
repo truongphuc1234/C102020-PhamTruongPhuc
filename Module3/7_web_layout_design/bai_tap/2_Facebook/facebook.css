@@ -1,0 +1,141 @@
+body {
+    font-family: Verdana,sans-serif;
+    font-size: 0.9em;
+    background-color: #E9EBEE;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {
+    width: 25%;
+}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {
+    width: 50%;
+}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+* {
+    box-sizing: border-box;
+}
+
+footer {
+    padding: 5px 0;
+    color: white;
+    background-color: #3B5998;
+    height: 30px;
+    text-align: center;
+}
+
+aside {
+    padding: 0 50px;
+    width: 25%;
+    height: 100%;
+    position: fixed;
+    top: 30px
+}
+
+aside li {
+    padding: 10px 10px;
+}
+
+aside li:hover {
+    background-color: #d8dadd;
+    cursor: pointer;
+}
+
+aside li a {
+    text-decoration: none;
+}
+
+.right {
+    right: 0;
+}
+
+
+section {
+    width: 50%;
+    margin: auto;
+}
+
+article {
+    margin: 20px;
+    padding: 10px;
+    text-indent: 20px;
+    border: 1px solid;
+    background-color: white;
+    border-radius: 3%;
+    box-shadow: black;
+}
+
+.margin {
+    margin-left: 600px;
+}
+div {
+    clear: both;
+}
+nav {
+    height: 33px;
+    padding:0;
+    margin:0;
+    background-color: #365899;
+    border: 1px solid #CDCDCD;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav ul, nav li{
+    padding:0;
+    margin:0;
+}
+
+nav li{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+nav li a{
+    width:100px;
+    height: 30px;
+    display: block;
+    text-decoration:none;
+    text-align: center;
+    line-height: 30px;
+    background-color: #365899;
+    color: white;
+}
+
+nav ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+nav li a:hover{
+    background-color: #303f71;
+}
+
+nav ul ul{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    visibility: hidden;
+}
+
+nav ul li:hover ul{
+    visibility: visible;
+}
+
+div {
+    clear: both;
+}

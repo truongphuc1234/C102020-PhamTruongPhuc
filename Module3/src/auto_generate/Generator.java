@@ -36,33 +36,41 @@ public class Generator {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        generateNhanVien(ten, ho, dia_chi, 15, 6, 4, 4);
-        generateKhachHang(ten, ho, dia_chi, 30, 5);
-        generateHopDong(50, 15, 30, 10);
-        generateHopDongChiTiet(100, 50, 4);
+        generateNhanVien(ten, ho, dia_chi, 30, 6, 4, 4);
+        generateKhachHang(ten, ho, dia_chi, 50, 5);
+        generateHopDong(100, 30, 50, 10);
+        generateHopDongChiTiet(200, 100, 5);
 
     }
 
     private static void generateNhanVien(List<String> ten, List<String> ho, List<String> dia_chi, int soNhanVien, int soViTri, int soTrinhDo, int soBoPhan) {
-        try (BufferedWriter bw_nhanvien = new BufferedWriter(new FileWriter("src/auto_generate/nhan_vien.txt"))) {
+        try (BufferedWriter bw_nhanvien = new BufferedWriter(new FileWriter("src/auto_generate/nhan_vien.txt"));
+             BufferedWriter bw_nhanvien_2 = new BufferedWriter(new FileWriter("src/auto_generate/nhan_vien_2.txt"))) {
             for (int i = 0; i < soNhanVien; i++) {
                 bw_nhanvien.write("(");
+                bw_nhanvien_2.write("(");
                 String ho_ten = ho.get((int) (Math.random() * ho.size())) + " " + ten.get((int) (Math.random() * ten.size()));
                 bw_nhanvien.write("'" + ho_ten + "',");
-                bw_nhanvien.write((int) (Math.random() * soViTri + 1) + ",");
-                bw_nhanvien.write((int) (Math.random() * soTrinhDo + 1) + ",");
-                bw_nhanvien.write((int) (Math.random() * soBoPhan + 1) + ",");
+
                 int minDay = (int) LocalDate.of(1961, 1, 1).toEpochDay();
                 int maxDay = (int) LocalDate.of(2003, 1, 1).toEpochDay();
                 long randomDay = minDay + (long) (Math.random() * (maxDay - minDay));
                 LocalDate randomBirthDay = LocalDate.ofEpochDay(randomDay);
                 bw_nhanvien.write("'" + DateTimeFormatter.ofPattern("yyyy-MM-dd").format(randomBirthDay) + "',");
-                bw_nhanvien.write(100_000_000 + (int) (Math.random() * 900_000_000) + ",");
+
+                bw_nhanvien.write("'"+(100_000_000 + (int) (Math.random() * 900_000_000)) + "',");
                 bw_nhanvien.write(10_000_000 + (int) (Math.random() * 50_000_000) + ",");
-                bw_nhanvien.write(100_000_000 + (int) (Math.random() * 900_000_000) + ",");
+                bw_nhanvien.write( "'"+(100_000_000 + (int) (Math.random() * 900_000_000)) + "',");
                 bw_nhanvien.write((removeAccent("'" + ho_ten.replaceAll(" ", "")) + "@furama.com.vn',").toLowerCase());
-                bw_nhanvien.write("'" + dia_chi.get((int) (Math.random() * dia_chi.size())) + "'");
+                bw_nhanvien.write("'" + dia_chi.get((int) (Math.random() * dia_chi.size())) + "',");
+                bw_nhanvien.write((int) (Math.random() * soViTri + 1) + ",");
+                bw_nhanvien.write((int) (Math.random() * soTrinhDo + 1) + ",");
+                bw_nhanvien.write((int) (Math.random() * soBoPhan + 1) + ",");
+                bw_nhanvien.write((removeAccent("'" + ho_ten.replaceAll(" ", ""))+"'").toLowerCase());
+                bw_nhanvien_2.write((removeAccent("'" + ho_ten.replaceAll(" ", ""))+"',").toLowerCase());
+                bw_nhanvien_2.write((removeAccent("'" + ho_ten.replaceAll(" ", ""))+"'").toLowerCase());
                 bw_nhanvien.write("),\n");
+                bw_nhanvien_2.write("),\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,9 +90,10 @@ public class Generator {
                 long randomDay = minDay + (long) (Math.random() * (maxDay - minDay));
                 LocalDate randomBirthDay = LocalDate.ofEpochDay(randomDay);
                 bw_nhanvien.write("'" + DateTimeFormatter.ofPattern("yyyy-MM-dd").format(randomBirthDay) + "',");
+                bw_nhanvien.write((int) (Math.random()  + 0.5) + ",");
                 bw_nhanvien.write(100_000_000 + (int) (Math.random() * 900_000_000) + ",");
                 bw_nhanvien.write(100_000_000 + (int) (Math.random() * 900_000_000) + ",");
-                bw_nhanvien.write((removeAccent("'" + ho_ten.replaceAll(" ", "")) + "@furama.com.vn',").toLowerCase());
+                bw_nhanvien.write((removeAccent("'" + ho_ten.replaceAll(" ", "")) + "@gmail.com',").toLowerCase());
                 bw_nhanvien.write("'" + dia_chi.get((int) (Math.random() * dia_chi.size())) + "'");
                 bw_nhanvien.write("),\n");
             }

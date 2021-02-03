@@ -54,6 +54,7 @@ begin
         end if;
         END IF;
 end; //
+delimiter
 
 -- 25 Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database
 select

@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 1.8
+
+dependencies {
+   testImplementation 'junit:junit:4.13'
+}
+test {
+    testLogging {
+        events "failed"
+        showExceptions true
+        exceptionFormat "full"
+    }
+}

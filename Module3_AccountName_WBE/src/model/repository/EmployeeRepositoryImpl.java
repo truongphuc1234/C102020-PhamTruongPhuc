@@ -12,14 +12,14 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String DELETE_EMPLOYEE = "{CALL delete_employee(?)}";
     private static final String GET_EMPLOYEE_BY_ID = "SELECT * FROM employee" +
-            " JOIN division ON division.division_id = customer.division_id" +
-            " JOIN position ON position.position_id = customer.position_id" +
-            " JOIN education_degree ON education_degree.education_degree_id = customer.education_degree_id" +
-            " WHERE customer_id = ?";
+            " JOIN division ON division.division_id = employee.division_id" +
+            " JOIN position ON position.position_id = employee.position_id" +
+            " JOIN education_degree ON education_degree.education_degree_id = employee.education_degree_id" +
+            " WHERE employee_id = ?";
     private static final String GET_EMPLOYEE_LIST = "SELECT * FROM employee" +
-            " JOIN division ON division.division_id = customer.division_id" +
-            " JOIN position ON position.position_id = customer.position_id" +
-            " JOIN education_degree ON education_degree.education_degree_id = customer.education_degree_id";
+            " JOIN division ON division.division_id = employee.division_id" +
+            " JOIN position ON position.position_id = employee.position_id" +
+            " JOIN education_degree ON education_degree.education_degree_id = employee.education_degree_id";
     private static final String UPDATE_EMPLOYEE = "UPDATE employee SET " +
             "employee_name = ?, " +
             "employee_birthday = ?, " +

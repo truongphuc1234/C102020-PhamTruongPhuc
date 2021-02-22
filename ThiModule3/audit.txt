@@ -1,0 +1,6 @@
++ View truy vấn các select và lưu lại như 1 table và có thể truy vấn dữ liệu từ view giống như table
+    - Không sử dụng các biến local, user hay session
+    - không sử dụng dữ liệu từ view và table tạm cho cấu truy vấn
+    - Không sử dụng đc trigger
+
++

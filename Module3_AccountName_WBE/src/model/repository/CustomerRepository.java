@@ -8,7 +8,7 @@ import java.util.List;
 public interface CustomerRepository extends Repository {
     boolean insertCustomer(Customer customer);
 
-    boolean deleteCustomer(int customerId);
+    boolean deleteCustomer(String customerId);
 
     Customer getCustomer(String customerId);
 

@@ -2,12 +2,12 @@ package model.bean.service;
 
 public class ServiceType {
     private int serviceTypeId;
-    private int serviceTypeName;
+    private String serviceTypeName;
 
     public ServiceType() {
     }
 
-    public ServiceType(int serviceTypeId, int serviceTypeName) {
+    public ServiceType(int serviceTypeId, String serviceTypeName) {
         this.serviceTypeId = serviceTypeId;
         this.serviceTypeName = serviceTypeName;
     }
@@ -20,11 +20,11 @@ public class ServiceType {
         this.serviceTypeId = serviceTypeId;
     }
 
-    public int getServiceTypeName() {
+    public String getServiceTypeName() {
         return serviceTypeName;
     }
 
-    public void setServiceTypeName(int serviceTypeName) {
+    public void setServiceTypeName(String serviceTypeName) {
         this.serviceTypeName = serviceTypeName;
     }
 }

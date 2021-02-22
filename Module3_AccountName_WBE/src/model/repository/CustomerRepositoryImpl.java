@@ -23,7 +23,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             "customer_email, " +
             "customer_address) VALUES (?,?,?,?,?,?,?,?,?)";
 
-    private static final String DELETE_CUSTOMER = "DELETE FROM customer WHERE customer_id = ?";
+    private static final String DELETE_CUSTOMER = "{CALL delete_customer(?)}";
     private static final String GET_CUSTOMER_BY_ID = "SELECT * FROM customer JOIN customer_type ON customer_type.customer_type_id = customer.customer_type_id WHERE customer_id = ?";
     private static final String GET_CUSTOMER_LIST = "SELECT * FROM customer JOIN customer_type ON customer_type.customer_type_id = customer.customer_type_id";
     private static final String GET_CUSTOMER_TYPE_LIST = "SELECT * FROM customer_type";
@@ -62,11 +62,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public boolean deleteCustomer(int customerId) {
+    public boolean deleteCustomer(String customerId) {
         boolean isSuccess = false;
         try (Connection connection = Repository.getConnection();
              PreparedStatement statement = connection.prepareStatement(DELETE_CUSTOMER)) {
-            statement.setInt(1, customerId);
+            statement.setString(1, customerId);
             if (statement.executeUpdate() > 0)
                 isSuccess = true;
         } catch (SQLException | ClassNotFoundException e) {

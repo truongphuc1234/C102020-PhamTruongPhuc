@@ -48,7 +48,7 @@ public class HomeServlet extends HttpServlet {
         request.getRequestDispatcher("/customer").forward(request,response);
     }
 
-    private void showEmployee(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("a");
+    private void showEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/employee").forward(request,response);
     }
 }

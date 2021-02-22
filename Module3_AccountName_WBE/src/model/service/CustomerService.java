@@ -10,7 +10,7 @@ import java.util.Map;
 public interface CustomerService {
     boolean insert(Customer customer);
 
-    boolean delete(int customerId);
+    boolean delete(String customerId);
 
     boolean update(Customer customer);
 

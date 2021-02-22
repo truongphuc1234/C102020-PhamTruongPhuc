@@ -1,5 +1,6 @@
 package model.service;
 
+import common.Validation;
 import model.bean.employee.Division;
 import model.bean.employee.EducationDegree;
 import model.bean.employee.Employee;
@@ -8,6 +9,7 @@ import model.bean.others.ResultValidation;
 import model.repository.EmployeeRepository;
 import model.repository.EmployeeRepositoryImpl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,7 +67,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Map<String, ResultValidation> validate(String id, String birthday, String phone, String idCard, String email) {
-        return null;
+    public Map<String, ResultValidation> validate(String birthday, String phone, String idCard, String email,String salary) {
+        Map<String, ResultValidation> result = new HashMap<>();
+
+        result.put("birthday", Validation.validationDay(birthday));
+        result.put("phone", Validation.validationPhone(phone));
+        result.put("id_card", Validation.validationIdCard(idCard));
+        result.put("email", Validation.validationEmail(email));
+        result.put("salary", Validation.validationSalary(salary));
+
+        boolean totalValidation = result.get("salary").isPass() && result.get("birthday").isPass() && result.get("phone").isPass() && result.get("id_card").isPass() && result.get("email").isPass();
+
+        result.put("total", new ResultValidation(totalValidation,null));
+        return result;
     }
 }

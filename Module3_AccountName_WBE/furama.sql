@@ -123,8 +123,8 @@ CREATE TABLE contract (
     contract_deposit DOUBLE NOT NULL,
     contract_total_money DOUBLE NOT NULL,
     employee_id INT NOT NULL,
-    customer_id INT NOT NULL,
-    service_id INT NOT NULL,
+    customer_id VARCHAR(45) NOT NULL,
+    service_id VARCHAR(45) NOT NULL,
     FOREIGN KEY (employee_id)
         REFERENCES employee (employee_id),
     FOREIGN KEY (customer_id)
@@ -282,8 +282,26 @@ VALUES
 delimiter //
 create procedure delete_employee(in id int)
 begin
-delete contract_details from contract_details join contract on contract.contract_id = contract_details.contract_id where contract.employee_id = id;
+delete contract_detail from contract_detail join contract on contract.contract_id = contract_detail.contract_id where contract.employee_id = id;
 delete from contract where contract.employee_id = id;
 delete from employee where employee.employee_id = id;
 end;
-// delimiter
+//
+
+delimiter //
+create procedure delete_customer(in id VARCHAR(45))
+begin
+delete contract_detail from contract_detail join contract on contract.contract_id = contract_detail.contract_id where contract.customer_id = id;
+delete from contract where contract.customer_id = id;
+delete from customer where customer.customer_id = id;
+end;
+//
+
+delimiter //
+create procedure  delete_service(in id VARCHAR(45))
+begin
+delete contract_detail from contract_detail join contract on contract.contract_id = contract_detail.contract_id where contract.service_id = id;
+delete from contract where contract.service_id = id;
+delete from service where service.service_id = id;
+end;
+//

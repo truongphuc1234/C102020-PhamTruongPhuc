@@ -28,5 +28,5 @@ public interface EmployeeService {
 
     List<String> getListUser();
 
-    Map<String, ResultValidation> validate(String id, String birthday, String phone, String idCard, String email);
+    Map<String, ResultValidation> validate(String birthday, String phone, String idCard, String email, String salary);
 }

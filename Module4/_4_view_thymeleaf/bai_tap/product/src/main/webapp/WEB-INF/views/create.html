@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<p>
+    <a th:href="@{/}">Back to home</a>
+</p>
+<form th:action="@{/product/create}" method="post" th:object="${product}">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Name</label>
+        <input th:type="text" th:field="*{name}"/>
+    </div>
+    <div>
+        <label>Price</label>
+        <input th:type="text" th:field="*{price}"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input th:type="text" th:field="*{description}"/>
+    </div>
+    <div>
+        <label>Manufacturer</label>
+        <input th:type="text" th:field="*{manufacturer}"/>
+    </div>
+    <input type="submit" value="Create"/>
+</form>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

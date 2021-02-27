@@ -1,6 +1,7 @@
 package cg.wbd.grandemonstration;
 
 import cg.wbd.grandemonstration.service.CustomerService;
+import cg.wbd.grandemonstration.service.impl.HibernateCustomerServiceImpl;
 import cg.wbd.grandemonstration.service.impl.SimpleCustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -55,6 +56,6 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 
     @Bean
     public CustomerService customerService() {
-        return new SimpleCustomerServiceImpl();
+        return new HibernateCustomerServiceImpl();
     }
 }

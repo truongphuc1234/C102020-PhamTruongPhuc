@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<p>
+    <a th:href="@{/}">Back to home</a>
+</p>
+<form th:action="@{/product/delete}" method="post" th:object="${product}">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <p>Name:</p>
+        <p th:text="*{name}"></p>
+    </div>
+    <div>
+        <p>Price:</p>
+        <p th:text="*{price}"></p>
+    </div>
+    <div>
+        <p>Description:</p>
+        <p th:text="*{description}"></p>
+    </div>
+    <div>
+        <p>Manufacturer:</p>
+        <p th:text="*{manufacturer}"></p>
+    </div>
+    <input type="submit" value="Delete"/>
+</form>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

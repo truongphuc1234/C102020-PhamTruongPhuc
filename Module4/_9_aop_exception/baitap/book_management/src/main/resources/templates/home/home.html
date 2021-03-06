@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form th:action="@{/management}" method="get">
+    <p>Go to book management page with user</p>
+    <select name="customer_id">
+        <option th:each="customer: ${customers}" th:text="${customer.name}" th:value="${customer.id}"></option>
+    </select>
+    <button type="submit">Go to management page</button>
+</form>
+<a th:href="@{/customer}">Go to customer page</a><br/>
+<a th:href="@{/book}">Go to book page</a>
+
+</body>
+</html>

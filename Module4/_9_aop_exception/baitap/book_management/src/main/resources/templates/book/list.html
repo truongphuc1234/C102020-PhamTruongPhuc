@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of books</title>
+</head>
+<body>
+<h1>List of book</h1>
+<a th:href="@{/book/create}">Create new book</a>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.total}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:if="${books.hasPrevious()}" th:href="@{/book?page=__${(books.number)-1}__}" th:text="${books.number}"></a>
+<span th:text="${books.number +1}"></span>/<span th:text="${books.totalPages}"></span>
+<a th:if="${books.hasNext()}" th:href="@{/book?page=__${(books.number)+1}__}" th:text="${books.number +2}"></a>
+</body>
+</html>

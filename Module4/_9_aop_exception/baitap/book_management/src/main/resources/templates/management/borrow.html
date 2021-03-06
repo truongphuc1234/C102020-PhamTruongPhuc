@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrow a book</title>
+</head>
+<body>
+<h3>Please choose the book to borrow</h3>
+<form th:action="@{/management/borrow}" method="post">
+    <input type="hidden" th:value="${customer.id}" name="customer_id">
+    <button type="submit">Borrow</button>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Total</th>
+            <th>Remains</th>
+            <th>Borrow</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.total}"></td>
+            <th th:text="${remain.get(book.id)}"></th>
+            <th><input type="radio" name="book_id" th:value="${book.id}"></th>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

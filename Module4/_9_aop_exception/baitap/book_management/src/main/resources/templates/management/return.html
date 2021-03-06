@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Return book</title>
+</head>
+<body>
+<form th:action="@{/management/return_book}" method="post">
+    <input type="hidden" th:value="${customer.id}" name="customer_id">
+    <table>
+        <thead>
+        <tr>
+            <th>Borrow id</th>
+            <th>Borrow title</th>
+            <th>Borrow date</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="borrow :${borrows}">
+            <td th:text="${borrow.id}"></td>
+            <td th:text="${borrow.book.title}"></td>
+            <td th:text="${borrow.borrowDate}"></td>
+            <th><input type="checkbox" th:value="${borrow.id}" name="borrow_id_list"></th>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">Return</button>
+</form>
+</body>
+</html>

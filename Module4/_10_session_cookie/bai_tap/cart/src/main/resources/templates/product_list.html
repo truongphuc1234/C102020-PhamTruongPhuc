@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of product</title>
+</head>
+<body>
+<h1>List of products</h1>
+<table>
+    <tr th:each="product: ${products}">
+        <td><a th:href="@{detail/__${product.id}__}" th:text="${product.title}"></a></td>
+        <td>
+            <span th:text="${(product.price)+ ' d'}" th:if="${product.discountRate >0}"
+                  style="text-decoration: line-through"></span>
+            <span th:text="${(product.price - product.price * product.discountRate/100) +' d'}"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

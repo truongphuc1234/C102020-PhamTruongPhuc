@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ABC Shop</title>
+</head>
+<body>
+<form th:action="@{/add_to_cart}" method="post">
+    <input type="hidden" th:value="${product.id}" th:name="product_id">
+    <p th:text="'Product code: '+ ${product.id}"></p>
+    <p th:text="'Origin price' + ${product.price}+ ' d'" th:if="${product.discountRate >0}"
+       style="text-decoration: line-through"></p>
+    <p th:text="'New price'+ ${(product.price - product.price * product.discountRate/100) }+' d'"></p>
+    <button>Add to cart</button>
+</form>
+</body>
+</html>

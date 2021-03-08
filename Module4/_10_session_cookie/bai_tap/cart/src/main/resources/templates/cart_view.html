@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<h1>List chosen products</h1>
+<div>
+    <div th:each="cart: ${carts}">
+        <form th:action="@{/update_cart}" method="post">
+            <input name="product_id" type="hidden" th:value="${cart.key.id}">
+            <span th:text="${cart.key.id}"></span>
+            <span th:text="${cart.key.price}"></span>
+            <span th:text="${cart.value.getCurrentPrice()}"></span>
+            <input th:value="${cart.value.quantity}" name="quantity" type="number"/>
+            <span th:text="${cart.value.getTotal()}"></span>
+            <button type="submit" name="delete" value="">Delete</button>
+            <button type="submit" name="update" value="">Update</button>
+        </form>
+    </div>
+</div>
+<div>
+    <p th:text="'Total: '+${total}"></p>
+</div>
+</body>
+</html>

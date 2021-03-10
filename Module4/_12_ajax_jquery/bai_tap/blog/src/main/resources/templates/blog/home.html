@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<h1>ABC Blog</h1>
+<a th:href="@{/blog/create}">Create new blog</a>
+<form id="search_form">
+    <label>Find By Name</label>
+    <input name="title" type="text">
+    <label>Danh muc</label>
+    <select name="category">
+        <option value="">All</option>
+        <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+    </select>
+    <input type="submit" value="search">
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Blog id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Modified Date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="listBody">
+    </tbody>
+</table>
+<div id="list"></div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        let title;
+        let category;
+        let page = 0;
+        $('#search_form').submit(function (event) {
+            title = $('input[name="title"]').val();
+            category = $('select[name="category"]').val();
+            page = 0;
+            $.ajax({
+                headers: {
+                    'Accept': "application/json",
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                data: {"title": title, "category": category, "page": page},
+                url: "/blog/search",
+                success: function (pageBlog) {
+                    console.log(pageBlog);
+                    let respContent = "";
+                    for (let i = 0; i < pageBlog.content.length; i++) {
+                        let row = "<tr>";
+                        row += "<td>" + pageBlog.content[i].id + "</td>";
+                        row += "<td>" + pageBlog.content[i].title + "</td>";
+                        row += "<td>" + pageBlog.content[i].content + "</td>";
+                        row += "<td>" + pageBlog.content[i].author + "</td>";
+                        row += "<td>" + pageBlog.content[i].category.id + "</td>";
+                        row += "<td>" + pageBlog.content[i].modifiedDate + "</td>";
+                        row += "<td><a href=/blog/edit/" + pageBlog.content[i].id + ">Edit</a></td>";
+                        row += "<td><a href=/blog/delete/" + pageBlog.content[i].id + ">Delete</a></td>";
+                        row += "<td><a href=/blog/view/" + pageBlog.content[i].id + ">View</a></td>";
+                        row += "</tr>";
+                        respContent += row;
+                        $('#listBody').html(respContent);
+                    }
+                    $('#load_more').remove();
+                    if (pageBlog.last == false) {
+                        $('body').append("<button id='load_more'>Load more</button>")
+                    }
+                }
+            });
+            event.preventDefault();
+        });
+
+        $(document).on('click','#load_more', function (event) {
+            page++;
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "GET",
+                data: {"title": title, "category": category, "page": page},
+                url: "/blog/search",
+                success: function (pageBlog) {
+                    console.log(pageBlog);
+                    let respContent = "";
+                    for (let i = 0; i < pageBlog.content.length; i++) {
+                        let row = "<tr>";
+                        row += "<td>" + pageBlog.content[i].id + "</td>";
+                        row += "<td>" + pageBlog.content[i].title + "</td>";
+                        row += "<td>" + pageBlog.content[i].content + "</td>";
+                        row += "<td>" + pageBlog.content[i].author + "</td>";
+                        row += "<td>" + pageBlog.content[i].category.id + "</td>";
+                        row += "<td>" + pageBlog.content[i].modifiedDate + "</td>";
+                        row += "<td><a href=/blog/edit/" + pageBlog.content[i].id + ">Edit</a></td>";
+                        row += "<td><a href=/blog/delete/" + pageBlog.content[i].id + ">Delete</a></td>";
+                        row += "<td><a href=/blog/view/" + pageBlog.content[i].id + ">View</a></td>";
+                        row += "</tr>";
+                        respContent += row;
+                        $('#listBody').append(respContent);
+                    }
+                    $("#load_more").remove();
+                    if (pageBlog.last == false) {
+                        $('body').append("<button id='load_more' type='button'>Load more</button>")
+                    }
+                }
+            });
+            event.preventDefault();
+        });
+    });
+
+
+</script>
+</html>

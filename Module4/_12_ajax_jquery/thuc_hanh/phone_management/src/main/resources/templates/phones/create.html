@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new smartphone</title>
+<!--    <script th:src="@{/static/jquery.min.js}"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('#newSmartphoneForm').submit(function (event){
+                let producer = $('#producer').val();
+                let model = $('#model').val();
+                let price = $('#price').val();
+                let json = {"producer": producer, "model": model, "price": price};
+                $.ajax({
+                    headers: {
+                        'Accept':'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST",
+                    data: JSON.stringify(json),
+                    url: "/smartphones/createNew",
+                    success: function (smartphone){
+                        let respContent = "";
+                        respContent += "<span class='success'>Smartphone was created: [";
+                        respContent += smartphone.producer + " : ";
+                        respContent += smartphone.model + " : ";
+                        respContent += smartphone.price + "]</span>";
+                        $("#smartphoneFromResponse").html(respContent);
+                    }
+                });
+                event.preventDefault();
+            });
+        })
+    </script>
+</head>
+<body>
+<div id="container">
+    <h1>Create new smartphone</h1>
+    <div>
+        <p>Here you can create new smartphone</p>
+        <div id="smartphoneFromResponse"></div>
+    </div>
+    <form id="newSmartphoneForm" th:object="${smartphone}" method="post">
+        <table>
+            <tbody>
+            <tr>
+                <td>Producer:</td>
+                <td>
+                    <select id="producer">
+                        <option value="NOKIA">Nokia</option>
+                        <option selected="selected" value="IPHONE">iPhone</option>
+                        <option value="HTC">HTC</option>
+                        <option value="SAMSUNG">Samsung</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td><input th:field="*{model}"/></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input th:field="*{price}"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create"/></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <a th:href="@{/smartphones}">List</a>
+</div>
+</body>
+</html>

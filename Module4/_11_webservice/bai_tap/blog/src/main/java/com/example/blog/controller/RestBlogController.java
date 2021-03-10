@@ -3,6 +3,9 @@ package com.example.blog.controller;
 import com.example.blog.model.Blog;
 import com.example.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,6 +49,16 @@ public class RestBlogController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(blog, HttpStatus.OK);
+    }
+
+    @GetMapping("/api/blog/listPage")
+    public ResponseEntity<Page<Blog>> getListPageBlog(){
+        Pageable pageable = PageRequest.of(0,5);
+        Page<Blog> blogs = blogService.findAll(pageable,null,0);
+        if (blogs.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
 
 }

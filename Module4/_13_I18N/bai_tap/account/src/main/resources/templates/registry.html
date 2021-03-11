@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{title.title_name}"></title>
+</head>
+<body>
+<a href="?lang=en">EN</a>
+<a href="?lang=vi">VI</a>
+<form th:object="${user}" th:action="@{/registry}" method="post">
+    <label th:text="#{registry.first_name}"></label>
+    <input type="text" th:field="*{firstName}"/>
+    <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+    <label th:text="#{registry.last_name}"></label>
+    <input type="text" th:field="*{lastName}"/>
+    <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+    <label th:text="#{registry.phone_number}"></label>
+    <input type="number" th:field="*{phoneNumber}"/>
+    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
+    <label th:text="#{registry.age}">Age</label>
+    <input type="text" th:field="*{age}"/>
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+    <label th:text="#{registry.email}"></label>
+    <input type="text" th:field="*{email}"/>
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+    <button type="submit" th:text="#{registry.registry}"></button>
+</form>
+</body>
+</html>

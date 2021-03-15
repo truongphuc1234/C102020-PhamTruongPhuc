@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Customer Menu')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-customer"></div>
+    <div class="col-sm-10">
+        <h3>List of customers</h3>
+        <hr/>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>ID Card</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="customer : ${customerList}">
+                <td th:text="${customer.customerId}"></td>
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.customerType.customerTypeName}"></td>
+                <td th:text="${customer.customerBirthday}"></td>
+                <td th:text="${customer.customerGender? 'Male': 'Female'}"></td>
+                <td th:text="${customer.customerIdCard}"></td>
+                <td th:text="${customer.customerPhone}"></td>
+                <td th:text="${customer.customerEmail}"></td>
+                <td th:text="${customer.customerAddress}"></td>
+                <td><a href="#" data-action="/customer/delete" th:attr="data-id=${customer.customerId}"
+                       data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+                <td><a th:href="@{/customer/edit/__${customer.customerId}__}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="page-nav">
+            <ul class="pagination">
+                <li th:class="${customerList.hasPrevious()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${customerList.hasPrevious()}? 0 :1"
+                       th:href="@{/customer?page=__${customerList.number -1}__}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${customerList.hasPrevious()}">
+                    <a class="page-link" th:href="@{/customer?page=__${customerList.number -1}__}"
+                       th:text="${customerList.number}"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" th:href="@{/customer?page=__${customerList.number}__}"
+                       th:text="${customerList.number+1}"></a>
+                </li>
+                <li class="page-item" th:if="${customerList.hasNext()}">
+                    <a class="page-link" th:href="@{/customer?page=__${customerList.number +1}__}"
+                       th:text="${customerList.number+2}"></a>
+                </li>
+                <li th:class="${customerList.hasNext()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${customerList.hasNext()}? 0 :1"
+                       th:href="@{/customer?page=__${customerList.number +1}__}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
+</html>

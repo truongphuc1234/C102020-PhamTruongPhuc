@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Service Menu')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-service"></div>
+    <div class="col-sm-10">
+        <h3>List of services</h3>
+        <hr/>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Area</th>
+                <th>Max People</th>
+                <th>Rent Type</th>
+                <th>Service Type</th>
+                <th>Standard Room</th>
+                <th>Convenience</th>
+                <th>Pool Area</th>
+                <th>Floors</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${serviceList}">
+                <td th:text="${service.serviceId}"></td>
+                <td th:text="${service.serviceName}"></td>
+                <td th:text="${service.serviceArea}"></td>
+                <td th:text="${service.serviceMaxPeople}"></td>
+                <td th:text="${service.rentType.rentTypeName}"></td>
+                <td th:text="${service.serviceType.serviceTypeName}"></td>
+                <td th:text="${service.standardRoom}"></td>
+                <td th:text="${service.descriptionOtherConvenience}"></td>
+                <td th:text="${service.poolArea}"></td>
+                <td th:text="${service.numberOfFloors}"></td>
+                <td><a href="#" data-action="/service/delete" th:attr="data-id=${service.serviceId}"
+                       data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+                <td><a th:href="@{/service/edit/__${service.serviceId}__}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="page-nav">
+            <ul class="pagination">
+                <li th:class="${serviceList.hasPrevious()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${serviceList.hasPrevious()}? 0 :1"
+                       th:href="@{/service?page=__${serviceList.number -1}__}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${serviceList.hasPrevious()}">
+                    <a class="page-link" th:href="@{/service?page=__${serviceList.number -1}__}"
+                       th:text="${serviceList.number}"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" th:href="@{/service?page=__${serviceList.number}__}"
+                       th:text="${serviceList.number+1}"></a>
+                </li>
+                <li class="page-item" th:if="${serviceList.hasNext()}">
+                    <a class="page-link" th:href="@{/service?page=__${serviceList.number +1}__}"
+                       th:text="${serviceList.number+2}"></a>
+                </li>
+                <li th:class="${serviceList.hasNext()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${serviceList.hasNext()}? 0 :1"
+                       th:href="@{/service?page=__${serviceList.number +1}__}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
+</html>

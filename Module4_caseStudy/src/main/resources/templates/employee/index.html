@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Employee Menu')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-employee"></div>
+    <div class="col-sm-10">
+        <h3>List of employees</h3>
+        <hr/>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Id card</th>
+                <th>Salary</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Position</th>
+                <th>Degree</th>
+                <th>Division</th>
+                <th>Username</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${employeeList}">
+                <td th:text="${employee.employeeId}"></td>
+                <td th:text="${employee.employeeName}"></td>
+                <td th:text="${employee.employeeBirthday}"></td>
+                <td th:text="${employee.employeeIdCard}"></td>
+                <td th:text="${employee.employeeSalary}"></td>
+                <td th:text="${employee.employeePhone}"></td>
+                <td th:text="${employee.employeeEmail}"></td>
+                <td th:text="${employee.employeeAddress}"></td>
+                <td th:text="${employee.position.positionName}"></td>
+                <td th:text="${employee.educationDegree.educationDegreeName}"></td>
+                <td th:text="${employee.division.divisionName}"></td>
+                <td th:text="${(employee.userAccount==null)? '-':employee.userAccount.username}"></td>
+                <td><a href="#" data-action="/employee/delete" th:attr="data-id=${employee.employeeId}"
+                       data-toggle="modal" data-target="#deleteModal">Delete</a></td>
+                <td><a th:href="@{/employee/edit/__${employee.employeeId}__}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="page-nav">
+            <ul class="pagination">
+                <li th:class="${employeeList.hasPrevious()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${employeeList.hasPrevious()}? 0 :1"
+                       th:href="@{/employee?page=__${employeeList.number -1}__}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${employeeList.hasPrevious()}">
+                    <a class="page-link" th:href="@{/employee?page=__${employeeList.number -1}__}"
+                       th:text="${employeeList.number}"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" th:href="@{/employee?page=__${employeeList.number}__}"
+                       th:text="${employeeList.number+1}"></a>
+                </li>
+                <li class="page-item" th:if="${employeeList.hasNext()}">
+                    <a class="page-link" th:href="@{/employee?page=__${employeeList.number +1}__}"
+                       th:text="${employeeList.number+2}"></a>
+                </li>
+                <li th:class="${employeeList.hasNext()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${employeeList.hasNext()}? 0 :1"
+                       th:href="@{/employee?page=__${employeeList.number +1}__}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
+</html>

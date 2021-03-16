@@ -1,4 +1,4 @@
-package spring.furama.model;
+package spring.furama.model.customer;
 
 import javax.persistence.*;
 
@@ -11,7 +11,7 @@ public class Customer {
     private String customerId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_type_id", nullable = false)
+    @JoinColumn(name = "customer_type_id",referencedColumnName = "customer_type_id", nullable = false)
     private CustomerType customerType;
 
     @Column(name = "customer_name")

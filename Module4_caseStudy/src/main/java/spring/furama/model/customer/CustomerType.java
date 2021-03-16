@@ -1,4 +1,4 @@
-package spring.furama.model;
+package spring.furama.model.customer;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "customer_type")
 public class CustomerType {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_type_id")
     private int customerTypeId;
 

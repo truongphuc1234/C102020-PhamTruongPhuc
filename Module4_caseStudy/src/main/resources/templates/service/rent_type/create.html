@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('New rent type')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-service"></div>
+    <div class="col-sm-5">
+        <h3>New service type</h3>
+        <hr>
+        <form method="post" th:action="@{/service/create_rent_type}" th:object="${rentType}">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Rent type:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:field="*{rentTypeName}" type="text" required/>
+                </div>
+            </div> <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Rent cost:</label>
+                <div class="col-sm-8">
+                    <input class="form-control" th:field="*{rentTypeCost}" type="number" required/>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import spring.furama.model.Customer;
-import spring.furama.model.CustomerType;
+import spring.furama.model.customer.Customer;
+import spring.furama.model.customer.CustomerType;
 import spring.furama.service.CustomerService;
 import spring.furama.service.CustomerTypeService;
 
@@ -46,7 +46,7 @@ public class CustomerController {
     @GetMapping("/create_type")
     public String createTypeCustomer(Model model) {
         model.addAttribute("customerType", new CustomerType());
-        return "customer_type/create";
+        return "customer/customer_type/create";
     }
 
     @PostMapping("/create_type")
@@ -73,7 +73,7 @@ public class CustomerController {
     }
 
     @PostMapping("/delete")
-    public String deleteCustomer(@RequestParam("customerId") String customerId){
+    public String deleteCustomer(@RequestParam("id") String customerId){
         customerService.delete(customerId);
         return "redirect:/customer";
     }

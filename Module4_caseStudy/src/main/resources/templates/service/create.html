@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Create new service')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-service"></div>
+    <div class="col-sm-10">
+        <form method="post" th:action="@{/service/create}" th:object="${resortService}">
+            <div class="container-fluid row">
+                <div class="col-sm-6">
+                    <h3>Create new service</h3>
+                    <hr>
+                    <em>Please input all field below: </em><br>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">ID:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceId}" class="form-control" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceName}" class="form-control" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Area:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceArea}" class="form-control" type="number" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Max People:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceMaxPeople}" class="form-control" type="number" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Area:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceCost}" class="form-control" type="number" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Max People:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceMaxPeople}" class="form-control" type="number" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Rent type:</label>
+                        <div class="col-sm-9">
+                            <select th:field="*{rentType}" class="form-control" required>
+                                <option selected value="" hidden>Select rent type</option>
+                                <option th:each="rent: ${rentTypes}" th:value="${rent.rentTypeId}"
+                                        th:text="${rent.rentTypeName +' - '+ rent.rentTypeCost+'$'}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Service type:</label>
+                        <div class="col-sm-9">
+                            <select th:field="*{serviceType}" class="form-control" required>
+                                <option selected value="" hidden>Select service type</option>
+                                <option th:each="item2: ${serviceTypes}" th:value="${item2.serviceTypeId}"
+                                        th:text="${item2.serviceTypeName}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+                <div class="col-sm-6 d-none" id="additional-info">
+                    <h3>Additional Information</h3>
+                    <hr>
+                    <em>Please input field below if necessary (optional): </em><br>
+                    <div class="form-group row d-none" id="standard_room_div">
+                        <label class="col-sm-3 col-form-label">Standard room:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{standardRoom}" class="form-control" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row d-none" id="convenience_div">
+                        <label class="col-sm-3 col-form-label">Other convenience:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{descriptionOtherConvenience}" class="form-control" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form-group row d-none" id="pool_area_div">
+                        <label class="col-sm-3 col-form-label">Pool area:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{poolArea}" class="form-control" type="number"/>
+                        </div>
+                    </div>
+                    <div class="form-group row d-none" id="number_of_floor_div">
+                        <label class="col-sm-3 col-form-label">Number of floors:</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{numberOfFloors}" class="form-control" type="number"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<script>
+    $(document).ready(function () {
+        $("select[name='serviceType']").change(function (event) {
+            let serviceType = $("select[name='serviceType']").val();
+            switch (serviceType) {
+                case "3":
+                    $("#additional-info").removeClass("d-none");
+                    $("#number_of_floor_div").removeClass("d-none");
+                    $("#convenience_div").removeClass("d-none");
+                    $("#pool_area_div").removeClass("d-none");
+                    $("#standard_room_div").removeClass("d-none");
+                    break;
+                case "2":
+                    $("#additional-info").removeClass("d-none");
+                    $("#number_of_floor_div").removeClass("d-none");
+                    $("#convenience_div").removeClass("d-none");
+                    $("#pool_area_div").addClass("d-none");
+                    $("#standard_room_div").removeClass("d-none");
+                    break;
+                default:
+                    $("#additional-info").addClass("d-none");
+                    break;
+            }
+        });
+    });
+</script>
+</body>
+</html>

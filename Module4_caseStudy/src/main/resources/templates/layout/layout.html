@@ -7,7 +7,7 @@
     <title th:text="${title}"></title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Quicksand', sans-serif;
@@ -17,7 +17,7 @@
 
 <body>
 //footer layout
-<footer th:fragment="footer">
+<footer th:fragment="footer" style="position: absolute;right: 0;bottom: 0; left: 0; padding: 0rem;">
     <p>This is footer</p>
 </footer>
 
@@ -80,6 +80,40 @@
         </li>
     </ul>
 </div>
+
+//left-nav-service
+<div th:fragment="left-nav-service" class="col-sm-2" style="border-right: #0c5460">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/service/create}">New service</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/service/create_service_type}">New service Type</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/service/create_rent_type}">New rent Type</a>
+        </li>
+    </ul>
+</div>
+
+//left-nav-employee
+<div th:fragment="left-nav-employee" class="col-sm-2" style="border-right: #0c5460">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create}">New service</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create_division}">New division</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create_position}">New Position</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create_education_degree}">New education degree</a>
+        </li>
+    </ul>
+</div>
+
 //delete popup
 <th:block th:fragment="delete-popup">
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
@@ -98,7 +132,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <form method="post" id="form-delete">
-                        <input type="hidden" id="id" name="customerId">
+                        <input type="hidden" id="id" name="id">
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
                 </div>

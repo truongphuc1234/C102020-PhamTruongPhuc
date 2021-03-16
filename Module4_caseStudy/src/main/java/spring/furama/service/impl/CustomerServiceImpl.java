@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import spring.furama.model.Customer;
+import spring.furama.model.customer.Customer;
 import spring.furama.repository.CustomerRepository;
 import spring.furama.service.CustomerService;
 

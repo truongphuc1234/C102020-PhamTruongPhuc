@@ -2,7 +2,7 @@ package spring.furama.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spring.furama.model.CustomerType;
+import spring.furama.model.customer.CustomerType;
 import spring.furama.repository.CustomerTypeRepository;
 import spring.furama.service.CustomerTypeService;
 

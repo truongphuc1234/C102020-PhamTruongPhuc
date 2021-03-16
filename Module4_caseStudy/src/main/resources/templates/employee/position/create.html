@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('New position')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-employee"></div>
+    <div class="col-sm-10">
+        <h3>New position</h3>
+        <hr>
+        <form method="post" th:action="@{/employee/create_position}" th:object="${position}">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Position:</label>
+                <div class="col-sm-10">
+                    <input th:field="*{positionName}" type="text" required/>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

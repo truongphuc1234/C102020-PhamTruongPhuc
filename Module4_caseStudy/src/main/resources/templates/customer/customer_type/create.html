@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout.html :: header('Create new customer')"></head>
+<head th:replace="layout/layout.html :: header('Create new customer type')"></head>
 <body>
 <div th:replace="layout/layout.html :: logo"></div>
 <nav th:replace="layout/layout.html :: menu"></nav>
 <div class="container-fluid row">
     <div th:replace="layout/layout.html :: left-nav-customer"></div>
     <div class="col-sm-10">
-        <h3>Create new Type Customer</h3>
-        <hr>
-        <form method="post" th:action="@{/customer/create_type}" th:object="${customerType}">
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Customer Type:</label>
-                <div class="col-sm-10">
-                    <input th:field="*{customerTypeName}" type="text" required/>
-                </div>
+        <div class="container-fluid row">
+            <div class="col-sm-6">
+                <h3>Create new Type customer</h3>
+                <hr>
+                <form method="post" th:action="@{/customer/create_type}" th:object="${customerType}">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Customer Type:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{customerTypeName}" type="text" required/>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary align-self-end" type="submit">Registry</button>
+                </form>
             </div>
-            <button class="btn btn-primary" type="submit">Registry</button>
-        </form>
+        </div>
     </div>
 </div>
 <div th:replace="layout/layout.html :: footer"></div>

@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void update(Employee employee) {
         Employee originEmployee = findById(employee.getEmployeeId());
-        employee.setUserAccount(originEmployee.getUserAccount());
+        employee.setAppUser(originEmployee.getAppUser());
         employeeRepository.save(employee);
     }
 

@@ -5,11 +5,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import spring.furama.model.customer.Customer;
 import spring.furama.model.customer.CustomerType;
 import spring.furama.service.CustomerService;
 import spring.furama.service.CustomerTypeService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/customer")
@@ -38,7 +41,10 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(@ModelAttribute("customer") Customer customer) {
+    public String createCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
+        if(bindingResult.hasFieldErrors()){
+            return "customer/create";
+        }
         customerService.save(customer);
         return "redirect:/customer";
     }
@@ -62,9 +68,12 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String modifyCustomer(@ModelAttribute("customer") Customer customer){
+    public String modifyCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
+        if(bindingResult.hasFieldErrors()){
+            return "customer/edit";
+        }
         customerService.save(customer);
-        return "redirect:/customer/";
+        return "redirect:/customer";
     }
 
     @ModelAttribute("customerTypes")

@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import spring.furama.model.service.RentType;
 import spring.furama.model.service.ResortService;
@@ -12,6 +13,8 @@ import spring.furama.model.service.ServiceType;
 import spring.furama.service.RentTypeService;
 import spring.furama.service.ResortServiceService;
 import spring.furama.service.ServiceTypeService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/service")
@@ -66,7 +69,10 @@ public class ResortServiceController {
     }
 
     @PostMapping("/create")
-    public String createService(@ModelAttribute("resortService") ResortService resortService){
+    public String createService(@Valid @ModelAttribute("resortService") ResortService resortService, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "service/create";
+        }
         service.save(resortService);
         return "redirect:/service";
     }

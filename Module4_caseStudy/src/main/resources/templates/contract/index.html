@@ -39,7 +39,7 @@
                     <ul>
                         <li th:each="detail: ${contract.contractDetailList}">
                             <a th:href="@{contract/contract_detail_view/__${detail.contractDetailId}__}"
-                            th:text="${detail.contractDetailId +':'+contract.contractId+'-'+detail.attachService.attachServiceName}"></a>
+                            th:text="${detail.attachService.attachServiceName+ ' - quantity:'+detail.quantity}"></a>
                         </li>
                     </ul>
                 </td>

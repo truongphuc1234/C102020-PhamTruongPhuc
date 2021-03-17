@@ -8,6 +8,7 @@
     <div th:replace="layout/layout.html :: left-nav-contract"></div>
     <div class="col-sm-10">
         <form method="post" th:action="@{/contract/create}" th:object="${contract}">
+            <input type="hidden" th:field="*{contractId}">
             <div class="container-fluid row">
                 <div class="col-sm-6">
                     <h3>Edit contract</h3>

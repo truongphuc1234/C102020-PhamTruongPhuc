@@ -14,63 +14,84 @@
                     <hr>
                     <em>Please input all field below: </em><br>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">ID:</label>
+                        <label class="col-sm-3 col-form-label">ID(*):</label>
                         <div class="col-sm-9">
-                            <input th:field="*{serviceId}" class="form-control" type="text" required/>
+                            <input th:field="*{serviceId}" class="form-control" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceId')}"
+                                 th:errors="*{serviceId}">Id error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Name:</label>
+                        <label class="col-sm-3 col-form-label">Name(*):</label>
                         <div class="col-sm-9">
-                            <input th:field="*{serviceName}" class="form-control" type="text" required/>
+                            <input th:field="*{serviceName}" class="form-control" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceName')}"
+                                 th:errors="*{serviceName}">Name error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Area:</label>
                         <div class="col-sm-9">
-                            <input th:field="*{serviceArea}" class="form-control" type="number" required/>
+                            <input th:field="*{serviceArea}" class="form-control" type="text" step=0.01/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceArea')}"
+                                 th:errors="*{serviceArea}">Cost error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Cost(*):</label>
+                        <div class="col-sm-9">
+                            <input th:field="*{serviceCost}" class="form-control" type="text" step=0.01/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceCost')}"
+                                 th:errors="*{serviceCost}">Cost error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Max People:</label>
                         <div class="col-sm-9">
-                            <input th:field="*{serviceMaxPeople}" class="form-control" type="number" required/>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Area:</label>
-                        <div class="col-sm-9">
-                            <input th:field="*{serviceCost}" class="form-control" type="number" required/>
+                            <input th:field="*{serviceMaxPeople}" class="form-control" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceMaxPeople')}"
+                                 th:errors="*{serviceMaxPeople}">Email error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Max People:</label>
+                        <label class="col-sm-3 col-form-label">Rent type(*):</label>
                         <div class="col-sm-9">
-                            <input th:field="*{serviceMaxPeople}" class="form-control" type="number" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Rent type:</label>
-                        <div class="col-sm-9">
-                            <select th:field="*{rentType}" class="form-control" required>
+                            <select th:field="*{rentType}" class="form-control">
                                 <option selected value="" hidden>Select rent type</option>
                                 <option th:each="rent: ${rentTypes}" th:value="${rent.rentTypeId}"
                                         th:text="${rent.rentTypeName +' - '+ rent.rentTypeCost+'$'}"></option>
                             </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('rentType')}"
+                                 th:errors="*{rentType}">Rent type error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Service type:</label>
+                        <label class="col-sm-3 col-form-label">Service type(*):</label>
                         <div class="col-sm-9">
-                            <select th:field="*{serviceType}" class="form-control" required>
+                            <select th:field="*{serviceType}" class="form-control">
                                 <option selected value="" hidden>Select service type</option>
                                 <option th:each="item2: ${serviceTypes}" th:value="${item2.serviceTypeId}"
                                         th:text="${item2.serviceTypeName}"></option>
                             </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceType')}"
+                                 th:errors="*{serviceType}">Email error>
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Create</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create</button>
                 </div>
                 <div class="col-sm-6 d-none" id="additional-info">
                     <h3>Additional Information</h3>
@@ -91,13 +112,21 @@
                     <div class="form-group row d-none" id="pool_area_div">
                         <label class="col-sm-3 col-form-label">Pool area:</label>
                         <div class="col-sm-9">
-                            <input th:field="*{poolArea}" class="form-control" type="number"/>
+                            <input th:field="*{poolArea}" class="form-control" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('poolArea')}"
+                                 th:errors="*{poolArea}">Pool area error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row d-none" id="number_of_floor_div">
                         <label class="col-sm-3 col-form-label">Number of floors:</label>
                         <div class="col-sm-9">
-                            <input th:field="*{numberOfFloors}" class="form-control" type="number"/>
+                            <input th:field="*{numberOfFloors}" class="form-control" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('numberOfFloors')}"
+                                 th:errors="*{numberOfFloors}">Email error>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +159,7 @@
                     $("#additional-info").addClass("d-none");
                     break;
             }
-        });
+        }).change();
     });
 </script>
 </body>

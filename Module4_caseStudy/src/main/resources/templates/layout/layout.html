@@ -114,6 +114,21 @@
     </ul>
 </div>
 
+//left-nav-contract
+<div th:fragment="left-nav-contract" class="col-sm-2" style="border-right: #0c5460">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/contract/create}">New contract</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/contract/create_attach_service}">New attach service</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/contract/create_contract_detail}">New contract detail</a>
+        </li>
+    </ul>
+</div>
+
 //delete popup
 <th:block th:fragment="delete-popup">
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"

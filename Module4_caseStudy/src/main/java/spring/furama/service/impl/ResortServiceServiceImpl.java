@@ -37,4 +37,9 @@ public class ResortServiceServiceImpl implements ResortServiceService {
     public void delete(String serviceId) {
         resortServiceRepository.deleteById(serviceId);
     }
+
+    @Override
+    public Iterable<ResortService> findAll() {
+        return resortServiceRepository.findAll();
+    }
 }

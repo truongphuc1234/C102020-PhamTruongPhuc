@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('New contract detail')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-contract"></div>
+    <div class="col-sm-10">
+        <h3>New contract detail</h3>
+        <hr>
+        <form method="post" th:action="@{/contract/create_contract_detail}" th:object="${contractDetail}">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Attach Service:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" required th:field="*{attachService}" type="text">
+                        <option selected hidden value="">Choose attach service</option>
+                        <option th:each="attachServiceItem :${attachServiceList}"
+                                th:text="${attachServiceItem.attachServiceName}"
+                                th:value="${attachServiceItem.attachServiceId}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Contract:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" required th:field="*{contract}" type="text">
+                        <option selected hidden value="">Choose contract</option>
+                        <option th:each="contractItem :${contractList}"
+                                th:value="${contractItem.contractId}"
+                                th:text="${contractItem.contractId}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Quantity:</label>
+                <div class="col-sm-8">
+                    <input th:field="*{quantity}" type="number" required/>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

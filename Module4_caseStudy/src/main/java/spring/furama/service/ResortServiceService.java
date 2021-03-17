@@ -12,4 +12,6 @@ public interface ResortServiceService {
     ResortService findById(String serviceId);
 
     void delete(String serviceId);
+
+    Iterable<ResortService> findAll();
 }

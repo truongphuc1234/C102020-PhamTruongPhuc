@@ -37,4 +37,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void delete(String customerId) {
         customerRepository.deleteById(customerId);
     }
+
+    @Override
+    public Iterable<Customer> findAll() {
+        return customerRepository.findAll();
+    }
 }

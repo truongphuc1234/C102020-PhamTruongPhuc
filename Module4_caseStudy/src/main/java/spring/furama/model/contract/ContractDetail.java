@@ -9,21 +9,21 @@ public class ContractDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contract_detail_id")
-    private String contractDetailId;
+    private int contractDetailId;
     @ManyToOne
-    @JoinColumn(name = "contract_id")
+    @JoinColumn(name = "contract_id", referencedColumnName = "contract_id")
     private Contract contract;
     @ManyToOne
-    @JoinColumn(name = "attach_service_id")
+    @JoinColumn(name = "attach_service_id", referencedColumnName = "attach_service_id")
     private AttachService attachService;
     @Column(name = "quantity")
     private int quantity;
 
-    public String getContractDetailId() {
+    public int getContractDetailId() {
         return contractDetailId;
     }
 
-    public void setContractDetailId(String contractDetailId) {
+    public void setContractDetailId(int contractDetailId) {
         this.contractDetailId = contractDetailId;
     }
 

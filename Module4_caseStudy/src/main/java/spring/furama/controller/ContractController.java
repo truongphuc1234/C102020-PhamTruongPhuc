@@ -1,0 +1,105 @@
+package spring.furama.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import spring.furama.model.contract.AttachService;
+import spring.furama.model.contract.Contract;
+import spring.furama.model.contract.ContractDetail;
+import spring.furama.service.*;
+
+@Controller
+@RequestMapping("/contract")
+public class ContractController {
+
+    private final ContractService contractService;
+    private final AttachServiceService attachServiceService;
+    private final ContractDetailService contractDetailService;
+    private final ResortServiceService resortServiceService;
+    private final CustomerService customerService;
+    private final EmployeeService employeeService;
+
+    @Autowired
+    public ContractController(ContractService contractService, AttachServiceService attachServiceService, ContractDetailService contractDetailService, ResortServiceService resortServiceService, CustomerService customerService, EmployeeService employeeService) {
+        this.contractService = contractService;
+        this.attachServiceService = attachServiceService;
+        this.contractDetailService = contractDetailService;
+        this.resortServiceService = resortServiceService;
+        this.customerService = customerService;
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping
+    public String contractIndex(Model model,
+                                @RequestParam(value = "page", defaultValue = "0", required = false) int page) {
+        Pageable pageable = PageRequest.of(page, 5);
+        model.addAttribute("contractList", contractService.findAll(pageable));
+        return "contract/index";
+    }
+
+    @GetMapping("/create")
+    public String createNewContract(Model model) {
+        model.addAttribute("contract", new Contract());
+        model.addAttribute("employeeList", employeeService.findAll());
+        model.addAttribute("customerList", customerService.findAll());
+        model.addAttribute("serviceList", resortServiceService.findAll());
+        return "contract/create";
+    }
+
+    @PostMapping("/create")
+    public String createNewContract(@ModelAttribute("contract") Contract contract) {
+        contractService.save(contract);
+        return "redirect:/contract";
+    }
+
+    @GetMapping("/create_attach_service")
+    public String createNewAttachService(Model model) {
+        model.addAttribute("attachService", new AttachService());
+        return "contract/attach_service/create";
+    }
+
+    @PostMapping("/create_attach_service")
+    public String createNewAttachService(@ModelAttribute("attachService") AttachService attachService) {
+        attachServiceService.save(attachService);
+        return "redirect:/contract";
+    }
+
+    @GetMapping("/create_contract_detail")
+    public String createNewContractDetail(Model model) {
+        model.addAttribute("contractDetail", new ContractDetail());
+        model.addAttribute("contractList", contractService.findAll());
+        model.addAttribute("attachServiceList", attachServiceService.findAll());
+        return "contract/contract_detail/create";
+    }
+
+    @PostMapping("/create_contract_detail")
+    public String createNewContractDetail(@ModelAttribute("contract_detail") ContractDetail contractDetail) {
+        contractDetailService.save(contractDetail);
+        return "redirect:/contract";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String modifyContract(@PathVariable("id") int contractId, Model model) {
+        model.addAttribute("contract", contractService.findById(contractId));
+        model.addAttribute("employeeList", employeeService.findAll());
+        model.addAttribute("customerList", customerService.findAll());
+        model.addAttribute("serviceList", resortServiceService.findAll());
+        return "contract/edit";
+    }
+
+    @PostMapping("/edit")
+    public String modifyContract(@ModelAttribute("contract") Contract contract) {
+        contractService.update(contract);
+        return "redirect:/contract/";
+    }
+
+    @PostMapping("/delete")
+    public String deleteContract(@RequestParam("id") int contractId) {
+        contractService.deleteById(contractId);
+        return "redirect:/contract";
+    }
+
+}

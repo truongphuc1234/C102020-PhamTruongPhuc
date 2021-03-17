@@ -14,4 +14,6 @@ public interface EmployeeService {
     Employee findById(int employeeId);
 
     void deleteById(int employeeId);
+
+    Iterable<Employee> findAll();
 }

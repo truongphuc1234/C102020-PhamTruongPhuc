@@ -13,4 +13,6 @@ public interface CustomerService {
     Customer findById(String customerId);
 
     void delete(String customerId);
+
+    Iterable<Customer> findAll();
 }

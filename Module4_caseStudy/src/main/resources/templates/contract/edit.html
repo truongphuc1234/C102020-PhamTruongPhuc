@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Edit contract')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-contract"></div>
+    <div class="col-sm-10">
+        <form method="post" th:action="@{/contract/create}" th:object="${contract}">
+            <div class="container-fluid row">
+                <div class="col-sm-6">
+                    <h3>Edit contract</h3>
+                    <hr>
+                    <p>Please input all field below: </p>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Contract start date:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{contractStartDate}" type="date" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <label class="col-sm-4 col-form-label">Contract end date:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{contractEndDate}" type="date" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Deposit</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{contractDeposit}" type="number" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Total Money:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{contractTotalMoney}" type="number" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Employee:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" required th:field="*{employee}" type="text">
+                                <option selected hidden value="">Choose employee</option>
+                                <option th:each="employeeItem :${employeeList}" th:text="${employeeItem.employeeName}"
+                                        th:value="${employeeItem.employeeId}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Customer:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" required th:field="*{customer}" type="text">
+                                <option selected hidden value="">Choose customer</option>
+                                <option th:each="customerItem :${customerList}"
+                                        th:text="${customerItem.customerName}"
+                                        th:value="${customerItem.customerId}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Service:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" required th:field="*{service}" type="text">
+                                <option selected hidden value="">Choose service</option>
+                                <option th:each="serviceItem :${serviceList}" th:text="${serviceItem.serviceName}"
+                                        th:value="${serviceItem.serviceId}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Edit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

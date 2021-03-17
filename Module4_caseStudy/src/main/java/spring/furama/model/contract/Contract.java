@@ -5,6 +5,7 @@ import spring.furama.model.employee.Employee;
 import spring.furama.model.service.ResortService;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "contract")
@@ -31,6 +32,9 @@ public class Contract {
     @ManyToOne
     @JoinColumn(name = "service_id",referencedColumnName = "service_id")
     private ResortService service;
+
+    @OneToMany(mappedBy = "contract")
+    private List<ContractDetail> contractDetailList;
 
     public int getContractId() {
         return contractId;
@@ -94,5 +98,13 @@ public class Contract {
 
     public void setService(ResortService service) {
         this.service = service;
+    }
+
+    public List<ContractDetail> getContractDetailList() {
+        return contractDetailList;
+    }
+
+    public void setContractDetailList(List<ContractDetail> contractDetailList) {
+        this.contractDetailList = contractDetailList;
     }
 }

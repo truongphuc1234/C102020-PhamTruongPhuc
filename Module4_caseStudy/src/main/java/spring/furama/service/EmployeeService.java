@@ -9,7 +9,7 @@ public interface EmployeeService {
 
     void update(Employee employee);
 
-    void save(Employee employee, String username, String password);
+    void save(Employee employee);
 
     Employee findById(int employeeId);
 

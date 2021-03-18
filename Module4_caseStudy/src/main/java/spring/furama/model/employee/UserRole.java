@@ -6,24 +6,23 @@ import javax.persistence.*;
 @Table(name = "user_role")
 public class UserRole {
 
-    @EmbeddedId
-    private UserRoleKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
-    @MapsId("roleId")
     @JoinColumn(name = "role_id")
     private AppRole role;
 
     @ManyToOne
-    @MapsId("username")
     @JoinColumn(name = "username")
     private AppUser appUser;
 
-    public UserRoleKey getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UserRoleKey id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,11 +34,11 @@ public class UserRole {
         this.role = role;
     }
 
-    public AppUser getUserAccount() {
+    public AppUser getAppUser() {
         return appUser;
     }
 
-    public void setUserAccount(AppUser appUser) {
+    public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
     }
 }

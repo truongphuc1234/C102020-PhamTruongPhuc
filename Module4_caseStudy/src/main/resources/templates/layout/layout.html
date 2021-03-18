@@ -64,7 +64,9 @@
     <a class="navbar-brand" th:href="@{/}">
         <img src="/image/cropped-fa-icon.png" width="50px" height="auto"></imp>
     </a>
-    <a>Pham Truong Phuc</a>
+    <a th:text="${#request.userPrincipal?.name}">No Login</a>
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+    <a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a>
 </div>
 
 //Menu layout
@@ -141,6 +143,12 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" th:href="@{/employee/create_education_degree}">New education degree</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create_role}">New role</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/employee/create_user}">New user</a>
         </li>
     </ul>
 </div>

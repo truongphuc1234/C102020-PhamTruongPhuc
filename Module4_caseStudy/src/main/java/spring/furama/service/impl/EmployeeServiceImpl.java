@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import spring.furama.model.employee.AppUser;
 import spring.furama.model.employee.Employee;
 import spring.furama.repository.AppUserRepository;
 import spring.furama.repository.EmployeeRepository;
@@ -35,12 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void save(Employee employee, String username, String password) {
-        AppUser user = new AppUser();
-        user.setUsername(username);
-        user.setPassword(password);
-        appUserRepository.save(user);
-        employee.setUserAccount(user);
+    public void save(Employee employee) {
         employeeRepository.save(employee);
     }
 

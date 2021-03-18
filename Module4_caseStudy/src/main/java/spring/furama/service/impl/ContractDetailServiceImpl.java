@@ -9,7 +9,7 @@ import spring.furama.service.ContractDetailService;
 @Service
 public class ContractDetailServiceImpl implements ContractDetailService {
 
-    private ContractDetailRepository contractDetailRepository;
+    private final ContractDetailRepository contractDetailRepository;
 
     @Autowired
     public ContractDetailServiceImpl(ContractDetailRepository contractDetailRepository) {

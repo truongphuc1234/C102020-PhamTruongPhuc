@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Add user')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-employee"></div>
+    <div class="col-sm-10">
+        <form method="post" th:action="@{/employee/create_user}" th:object="${user}">
+            <div class="container-fluid row">
+                <div class="col-sm-6">
+                    <h3>Add user</h3>
+                    <hr>
+                    <p>Please input all field below: </p>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Employee:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="employeeId" type="text">
+                                <option selected hidden value="">Choose employee</option>
+                                <option th:each="employeeItem :${employeeList}" th:text="${employeeItem.employeeName}"
+                                        th:value="${employeeItem.employeeId}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Username:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{username}" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('username')}"
+                                 th:errors="*{username}">Username error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Password:</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{password}" type="password"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('password')}"
+                                 th:errors="*{password}">Password error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Role:</label>
+                        <div class="col-sm-8">
+                            <div th:each="role :${roleList}">
+                                <input type="checkbox" th:value="${role.roleId}" name="roles"/>
+                                <label th:text="${role.roleName}"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

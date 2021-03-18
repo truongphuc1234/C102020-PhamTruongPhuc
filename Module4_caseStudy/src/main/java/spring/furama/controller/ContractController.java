@@ -5,11 +5,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import spring.furama.model.contract.AttachService;
 import spring.furama.model.contract.Contract;
 import spring.furama.model.contract.ContractDetail;
 import spring.furama.service.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/contract")
@@ -50,7 +53,11 @@ public class ContractController {
     }
 
     @PostMapping("/create")
-    public String createNewContract(@ModelAttribute("contract") Contract contract) {
+    public String createNewContract(@Valid @ModelAttribute("contract") Contract contract, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "contract/create";
+        }
+        contract.calculateTotalMoney();
         contractService.save(contract);
         return "redirect:/contract";
     }

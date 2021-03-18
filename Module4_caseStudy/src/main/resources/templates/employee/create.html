@@ -16,7 +16,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Name:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeName}" type="text" required/>
+                            <input class="form-control" th:field="*{employeeName}" type="text"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeeName')}"
                                  th:errors="*{employeeName}">Name error>
@@ -26,7 +26,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Birthday:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeBirthday}" type="date" required/>
+                            <input class="form-control" th:field="*{employeeBirthday}" type="date"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeeBirthday')}"
                                  th:errors="*{employeeBirthday}">Email error>
@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Id card:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeIdCard}" type="text" required/>
+                            <input class="form-control" th:field="*{employeeIdCard}" type="text"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeeIdCard')}"
                                  th:errors="*{employeeIdCard}">Id card error>
@@ -46,7 +46,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Salary:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeSalary}" type="number" required/>
+                            <input class="form-control" th:field="*{employeeSalary}" type="text"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeeSalary')}"
                                  th:errors="*{employeeSalary}">Salary error>
@@ -56,7 +56,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Phone:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeePhone}" type="number" required/>
+                            <input class="form-control" th:field="*{employeePhone}" type="text"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeePhone')}"
                                  th:errors="*{employeePhone}">Phone error>
@@ -66,7 +66,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Email:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeEmail}" type="number" required/>
+                            <input class="form-control" th:field="*{employeeEmail}" type="text"/>
                             <div class="alert alert-danger" role="alert"
                                  th:if="${#fields.hasErrors('employeeEmail')}"
                                  th:errors="*{employeeEmail}">Email error>
@@ -76,13 +76,13 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Address:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{employeeAddress}" type="number" required/>
+                            <input class="form-control" th:field="*{employeeAddress}" type="text"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Position:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{position}" type="text">
+                            <select class="form-control" th:field="*{position}" type="text">
                                 <option selected hidden value="">Choose position</option>
                                 <option th:each="positionItem :${positionList}" th:text="${positionItem.positionName}"
                                         th:value="${positionItem.positionId}"></option>
@@ -96,7 +96,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Education degree:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{educationDegree}" type="text">
+                            <select class="form-control" th:field="*{educationDegree}" type="text">
                                 <option selected hidden value="">Choose degree</option>
                                 <option th:each="educationDegreeItem :${educationDegreeList}"
                                         th:text="${educationDegreeItem.educationDegreeName}"
@@ -111,7 +111,7 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Division:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{division}" type="text">
+                            <select class="form-control" th:field="*{division}" type="text">
                                 <option selected hidden value="">Choose division</option>
                                 <option th:each="divisionItem :${divisionList}" th:text="${divisionItem.divisionName}"
                                         th:value="${divisionItem.divisionId}"></option>
@@ -120,23 +120,6 @@
                                  th:if="${#fields.hasErrors('division')}"
                                  th:errors="*{division}">Email error>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <h3>Username and password</h3>
-                    <hr>
-                    <p>Fill your username and password here </p>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Username:</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" name="username" type="number" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Password:</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" name="password" type="password" required/>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Create</button>

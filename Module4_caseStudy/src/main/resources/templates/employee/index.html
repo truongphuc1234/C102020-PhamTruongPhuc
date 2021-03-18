@@ -41,7 +41,7 @@
                 <td th:text="${employee.position.positionName}"></td>
                 <td th:text="${employee.educationDegree.educationDegreeName}"></td>
                 <td th:text="${employee.division.divisionName}"></td>
-                <td th:text="${(employee.userAccount==null)? '-':employee.userAccount.username}"></td>
+                <td th:text="${(employee.appUser==null)? '-':employee.appUser.username}"></td>
                 <td><a href="#" data-action="/employee/delete" th:attr="data-id=${employee.employeeId}"
                        data-toggle="modal" data-target="#deleteModal">Delete</a></td>
                 <td><a th:href="@{/employee/edit/__${employee.employeeId}__}">Edit</a></td>

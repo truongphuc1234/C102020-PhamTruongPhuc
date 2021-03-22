@@ -7,7 +7,7 @@
 <div class="container-fluid row">
     <div th:replace="layout/layout.html :: left-nav-contract"></div>
     <div class="col-sm-10">
-        <form method="post" th:action="@{/contract/create}" th:object="${contract}">
+        <form method="post" th:action="@{/contract/edit}" th:object="${contract}">
             <input type="hidden" th:field="*{contractId}">
             <div class="container-fluid row">
                 <div class="col-sm-6">
@@ -17,56 +17,74 @@
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Contract start date:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{contractStartDate}" type="date" required/>
+                            <input class="form-control" th:field="*{contractStartDate}" type="date" />
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('contractStartDate')}"
+                                 th:errors="*{contractStartDate}">Start date error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row" >
                         <label class="col-sm-4 col-form-label">Contract end date:</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{contractEndDate}" type="date" required/>
+                            <input class="form-control" th:field="*{contractEndDate}" type="date" />
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('contractEndDate')}"
+                                 th:errors="*{contractEndDate}">End date error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Deposit</label>
                         <div class="col-sm-8">
-                            <input class="form-control" th:field="*{contractDeposit}" type="number" required/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-4 col-form-label">Total Money:</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" th:field="*{contractTotalMoney}" type="number" required/>
+                            <input class="form-control" th:field="*{contractDeposit}" type="text" />
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('contractDeposit')}"
+                                 th:errors="*{contractDeposit}">Deposit error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Employee:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{employee}" type="text">
+                            <select class="form-control"  th:field="*{employee}" type="text">
                                 <option selected hidden value="">Choose employee</option>
                                 <option th:each="employeeItem :${employeeList}" th:text="${employeeItem.employeeName}"
                                         th:value="${employeeItem.employeeId}"></option>
                             </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('employee')}"
+                                 th:errors="*{employee}">Employee error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Customer:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{customer}" type="text">
+                            <select class="form-control"  th:field="*{customer}" type="text">
                                 <option selected hidden value="">Choose customer</option>
                                 <option th:each="customerItem :${customerList}"
                                         th:text="${customerItem.customerName}"
                                         th:value="${customerItem.customerId}"></option>
                             </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('customer')}"
+                                 th:errors="*{customer}">Customer error>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Service:</label>
                         <div class="col-sm-8">
-                            <select class="form-control" required th:field="*{service}" type="text">
+                            <select class="form-control"  th:field="*{service}" type="text">
                                 <option selected hidden value="">Choose service</option>
                                 <option th:each="serviceItem :${serviceList}" th:text="${serviceItem.serviceName}"
                                         th:value="${serviceItem.serviceId}"></option>
                             </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('service')}"
+                                 th:errors="*{service}">Service error>
+                            </div>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Edit</button>

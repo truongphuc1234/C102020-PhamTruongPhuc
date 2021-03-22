@@ -11,8 +11,6 @@ import spring.furama.model.employee.*;
 import spring.furama.service.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/employee")
@@ -126,7 +124,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String modifyCustomer(@ModelAttribute("employee") Employee employee) {
+    public String modifyCustomer(@Valid @ModelAttribute("employee") Employee employee,BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "employee/edit";
+        }
         employeeService.update(employee);
         return "redirect:/employee/";
     }
@@ -140,7 +141,6 @@ public class EmployeeController {
     @GetMapping("/create_user")
     public String createNewUser(Model model) {
         model.addAttribute("user", new AppUser());
-        Map<AppRole, Boolean> roleMap = new HashMap<>();
         model.addAttribute("roleList", appUserService.findAllRole());
         model.addAttribute("employeeList", employeeService.findAll());
         return "/employee/user";

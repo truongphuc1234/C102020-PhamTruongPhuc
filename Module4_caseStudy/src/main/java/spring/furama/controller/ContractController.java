@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import spring.furama.model.contract.AttachService;
 import spring.furama.model.contract.Contract;
 import spring.furama.model.contract.ContractDetail;
+import spring.furama.model.customer.Customer;
+import spring.furama.model.employee.Employee;
+import spring.furama.model.service.ResortService;
 import spring.furama.service.*;
 
 import javax.validation.Valid;
@@ -46,15 +49,12 @@ public class ContractController {
     @GetMapping("/create")
     public String createNewContract(Model model) {
         model.addAttribute("contract", new Contract());
-        model.addAttribute("employeeList", employeeService.findAll());
-        model.addAttribute("customerList", customerService.findAll());
-        model.addAttribute("serviceList", resortServiceService.findAll());
         return "contract/create";
     }
 
     @PostMapping("/create")
     public String createNewContract(@Valid @ModelAttribute("contract") Contract contract, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "contract/create";
         }
         contract.calculateTotalMoney();
@@ -91,14 +91,15 @@ public class ContractController {
     @GetMapping("/edit/{id}")
     public String modifyContract(@PathVariable("id") int contractId, Model model) {
         model.addAttribute("contract", contractService.findById(contractId));
-        model.addAttribute("employeeList", employeeService.findAll());
-        model.addAttribute("customerList", customerService.findAll());
-        model.addAttribute("serviceList", resortServiceService.findAll());
         return "contract/edit";
     }
 
     @PostMapping("/edit")
-    public String modifyContract(@ModelAttribute("contract") Contract contract) {
+    public String modifyContract(@Valid @ModelAttribute("contract") Contract contract, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "contract/edit";
+        }
+        contract.calculateTotalMoney();
         contractService.update(contract);
         return "redirect:/contract/";
     }
@@ -107,6 +108,21 @@ public class ContractController {
     public String deleteContract(@RequestParam("id") int contractId) {
         contractService.deleteById(contractId);
         return "redirect:/contract";
+    }
+
+    @ModelAttribute("employeeList")
+    public Iterable<Employee> employeeList() {
+        return employeeService.findAll();
+    }
+
+    @ModelAttribute("customerList")
+    public Iterable<Customer> customerList() {
+        return customerService.findAll();
+    }
+
+    @ModelAttribute("serviceList")
+    public Iterable<ResortService> serviceList() {
+        return resortServiceService.findAll();
     }
 
 }

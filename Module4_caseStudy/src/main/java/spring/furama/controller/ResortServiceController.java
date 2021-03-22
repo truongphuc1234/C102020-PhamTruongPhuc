@@ -88,13 +88,13 @@ public class ResortServiceController {
     }
 
     @GetMapping("/edit/{id}")
-    public String modifyCustomer(@PathVariable("id") String serviceId, Model model){
+    public String modifyCustomer( @PathVariable("id") String serviceId, Model model){
         model.addAttribute("resortService", service.findById(serviceId));
         return "service/edit";
     }
 
     @PostMapping("/edit")
-    public String modifyCustomer(@ModelAttribute("resortService") ResortService resortService){
+    public String modifyCustomer(@Valid @ModelAttribute("resortService") ResortService resortService){
         service.save(resortService);
         return "redirect:/service/";
     }

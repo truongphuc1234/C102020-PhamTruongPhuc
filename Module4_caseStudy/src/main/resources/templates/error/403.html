@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Login')"></head>
 <body>
-
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<p>You dont have permission</p>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
 </body>
 </html>

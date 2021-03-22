@@ -20,12 +20,12 @@ public class Contract {
     private Integer contractId;
 
     @Column(name = "contract_start_date", nullable = false)
-    @Pattern(regexp = "^(19|20)\\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",message = "Date must be format YYYY-MM-DD")
+    @Pattern(regexp = "^(19|20)\\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$", message = "Date must be format YYYY-MM-DD")
     @NotNull(message = "Date must be not empty")
     private String contractStartDate;
 
     @Column(name = "contract_end_date", nullable = false)
-    @Pattern(regexp = "^(19|20)\\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",message = "Date must be format YYYY-MM-DD")
+    @Pattern(regexp = "^(19|20)\\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$", message = "Date must be format YYYY-MM-DD")
     @NotNull(message = "Date must be not empty")
     private String contractEndDate;
 
@@ -38,17 +38,17 @@ public class Contract {
     private Double contractTotalMoney;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id",referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     @NotNull(message = "Employee must not be empty")
     private Employee employee;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id",referencedColumnName = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     @NotNull(message = "Customer must not be empty")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "service_id",referencedColumnName = "service_id")
+    @JoinColumn(name = "service_id", referencedColumnName = "service_id")
     @NotNull(message = "Service must not be empty")
     private ResortService service;
 
@@ -127,10 +127,12 @@ public class Contract {
         this.contractDetailList = contractDetailList;
     }
 
-    public double calculateTotalMoney(){
+    public double calculateTotalMoney() {
         contractTotalMoney = service.getServiceCost();
-        for(ContractDetail contractDetail: contractDetailList){
-            contractTotalMoney += contractDetail.getQuantity()* contractDetail.getAttachService().getAttachServiceCost();
+        if (contractDetailList != null) {
+            for (ContractDetail contractDetail : contractDetailList) {
+                contractTotalMoney += contractDetail.getQuantity() * contractDetail.getAttachService().getAttachServiceCost();
+            }
         }
         return contractTotalMoney;
     }

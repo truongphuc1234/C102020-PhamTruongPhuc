@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import spring.furama.model.contract.ContractDetail;
 import spring.furama.repository.ContractDetailRepository;
 import spring.furama.service.ContractDetailService;
+import spring.furama.service.ContractService;
 
 @Service
 public class ContractDetailServiceImpl implements ContractDetailService {
@@ -18,6 +19,13 @@ public class ContractDetailServiceImpl implements ContractDetailService {
 
     @Override
     public void save(ContractDetail contractDetail) {
-        contractDetailRepository.save(contractDetail);
+        ContractDetail contractDetailOrigin = contractDetailRepository.findContractDetailByAttachServiceAndContract(contractDetail.getAttachService(), contractDetail.getContract());
+        if (contractDetailOrigin == null) {
+            contractDetailRepository.save(contractDetail);
+            return;
+        }
+        int newQuantity = contractDetailOrigin.getQuantity() + contractDetail.getQuantity();
+        contractDetailOrigin.setQuantity(newQuantity);
+        contractDetailRepository.save(contractDetailOrigin);
     }
 }

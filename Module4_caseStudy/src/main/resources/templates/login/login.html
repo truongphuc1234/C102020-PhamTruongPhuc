@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-
-<div th:if="${#request.getParameter('error') == 'true'}">
+<head th:replace="layout/layout.html :: header('Login')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="alert alert-info" th:if="${#request.getParameter('error') == true}">
     Login Failed!!!<br/>
     Reason :
     <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
@@ -13,24 +12,36 @@
                 Static summary
          </span>
 </div>
-<h3>Enter user name and password:</h3>
-<form name='f' th:action="@{/j_spring_security_check}" method='POST'>
-    <table>
-        <tr>
-            <td>User:</td>
-            <td><input type='text' name='username' value=''></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password'/></td>
-        </tr>
-        <tr>
-            <td>Remember Me?</td>
-            <td><input type="checkbox" name="remember-me"/></td>
-        </tr>
-        <tr>
-            <td><input name="submit" type="submit" value="submit"/></td>
-        </tr>
-    </table>
+<form class="" name='f' th:action="@{/j_spring_security_check}" method='POST'>
+    <div class="container-fluid row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10">
+            <h3>Login:</h3>
+            <hr>
+            <div class="container-fluid row">
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">User:</label>
+                        <input class="form-control" type='text' name='username' value=''>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Password:</label>
+                        <input class="form-control" type='password' name='password'/>
+                    </div>
+                    <div class="form-check row">
+                        <input class="form-check-input" type="checkbox" name="remember-me"/>
+                        <label class="form-check-label">Remember Me? </label>
+                    </div>
+                    <div class="form-group row">
+                        <input class="btn btn-outline-success my-2 my-sm-0" name="submit" type="submit" value="submit"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
 </html>

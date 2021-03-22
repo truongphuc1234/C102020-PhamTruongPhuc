@@ -36,7 +36,8 @@
                 <td th:text="${customer.customerPhone}"></td>
                 <td th:text="${customer.customerEmail}"></td>
                 <td th:text="${customer.customerAddress}"></td>
-                <td><a href="#" data-action="/customer/delete" th:attr="data-id=${customer.customerId}"
+                <td><a href="#" data-action="/customer/delete"
+                       th:attr="data-id=${customer.customerId},data-message=${'customer '+customer.customerName}"
                        data-toggle="modal" data-target="#deleteModal">Delete</a></td>
                 <td><a th:href="@{/customer/edit/__${customer.customerId}__}">Edit</a></td>
             </tr>

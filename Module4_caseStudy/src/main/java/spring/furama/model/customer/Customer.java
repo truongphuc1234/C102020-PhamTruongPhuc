@@ -1,5 +1,7 @@
 package spring.furama.model.customer;
 
+import spring.furama.annotation.UniqueEmailCustomer;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -44,6 +46,7 @@ public class Customer {
 
     @Column(name = "customer_email")
     @Email(message = "Email must be format abc@xyz.abc")
+    @UniqueEmailCustomer
     private String customerEmail;
 
     @Column(name = "customer_address")

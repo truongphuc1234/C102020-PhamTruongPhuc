@@ -1,0 +1,238 @@
+1	Vẽ và trình bày cách Spring MVC xử lý request
+- Bất kì request nào sẽ được gửi đến front controller
+- Front controller sẽ sử dụng handlerMapping để biết controller nào sẽ xử lý request
+- Controller nhận request và gọi tới các class thích hợp để xử lý yêu cầu
+- Sau khi xử lý xong thì controller sẽ nhận được lại model từ service hoặc DAO
+- Controller gửi model mới nhận được đến Front Controller
+- Front Controller sẽ dựa vào view resolver tìm được view xử lý và truyền model vào nó
+- View sẽ build và trả lại cho Front Controller
+- Front Controller gửi page view đến client
+--------------------------------------------------------------------
+2	Trình bày cơ chế Dependency Injection trong Spring
+- Dependency Injection là 1 cơ chế triển khai IoC
+- DI được cung cấp và điều khiển bởi container hoặc framework
+- Thao tác tiêm đối tượng vào đối tượng khác sẽ được thực hiện bởi container và framework
+
+Các bước thực hiện
+
+--------------------------------------------------------------------
+3	Có bao nhiêu cách để thực hiện Dependency Injection? Trình bày?
+- Có 3 cách tiêm phụ thuộc trong Spring:
+    + Thông qua constructor
+    + Thông qua setter
+    
+--------------------------------------------------------------------
+4	Framework là gì ? Framework khác Library chỗ nào ?
+- Framework là các úng dụng phần mềm có tính trườu tượng, cung cấp các tính năng chung và thông dụng, có thể tùy biến để tạo các ứng dụng cụ thể khác nhau
+- Mỗi framework cũng cấp 1 phương pháp riêng biệt để xây dựng ứng dụng và triển khai ứng dụng
+- Framework bao gồm 1 môi trường tổng thể, tái sử dụng được nhằm cũng cấp các chức năng và ứng dụng để hỗ trợ quá trình phát triển ứng dụng
+
+Điểm khác nhau giữa library và framework:
+    + Library: ứng dụng nắm quyền điều kiển
+    + Framework: Framework nắm quyền điều khiển ứng dụng
+
+Lợi ích:
+    + Giải quyết các vấn đề thông dụng, giúp LTV tập trung vào xử lý vấn đề nghiệp vụ
+    + Tăng tốc độ phát triển
+    + Cung cấp môi trường làm việc tiêu chuẩn, dễ giao tiếp giữa các bên
+    + Có cộng đồng phát triển lớn, có các công cụ đánh giá và thử nghiệm, hệ sinh thái đầy đủ
+    
+-------------------------------------------------------------------
+5	Spring Framework là gì ?
+- Sprng framework là 1 thư viện mã nguồn mở, để phát triển các ứng dụng doanh nghiệp, dựa trên các quan điểm:
+    + Đơn giản hóa việc phát triển bằng cách Sử dụng POJO
+    + Nới lỏng ràng bộ giữa các thành phần thông qua DI
+    + Giảm thiểu mã code thông qua sử dụng template và aspect
+    
+    
+- Spring bao gồm nhiều module:
+    + Core: IoC container, AOP, SpEL, i18n, DataBinding
+    + Testing: Spring MVC test
+    + DataAccess: Transaction, JDBC, ORM
+    + Webservlet: Spring MVC
+    + Spring boot
+    + Spring Security
+    + Spring data
+    
+--------------------------------------------------------------------
+6	Lợi ích của Spring Framework?
+- Spring giúp xây dựng các ứng dụng đơn giản, tiên gọn, nhanh chóng và mềm dẻo
+--------------------------------------------------------------------
+7	Nguyên lý đảo ngược quyền điều khiển (Inversion of Control) là gì?
+- IoC là 1 nguyên lý phát triển phầm mềm, trong đó việc điều khiển các đối tượng hoặc các thành phần của hệ thống được thực hiện bởi framework hoặc các container
+- IoC cho phép framework nắm quyền điều khiển luồng thực thi của hệ thống và gọi các mã nguồn khác
+
+- Lợi ích:
+    + Tách rời thực thi (execution) và triển khai(implementation)
+    + Dễ chuyển đổi giữa các implementation
+    + Dễ phân tách các module hơn
+    + Dễ kiểm thử, bằng cách tách rời các thành phần riêng lẻ
+--------------------------------------------------------------------
+8	Bean là gì?
+- Bean là các object trong spring framework, được khởi tạo thông qua spring container. Bất kì class Java POJO nào cũng có thể làm Spring bean nếu được cấu hình và khởi tạo thông qua container bằng việc cung cấp các thông tin cấu hình
+--------------------------------------------------------------------
+9	Trong Spring có bao nhiêu Bean Scope?
+- Singleton: Chỉ duy nhất 1 thể hiện của bean sẽ được tạo cho mỗi container(mặc định)
+- Prototype: Mỗi thể hiện của bean sẽ được tạo cho mỗi lần yêu cầu
+- Request: tương tự prototype scope, tuy nhiên chỉ dùng cho ứng dụng web, mỗi thể hiện của bean chỉ được tạo cho mỗi HTTP request
+- Session: mỗi thể hiện của bean sẽ được tạo cho mỗi HTTP session
+--------------------------------------------------------------------
+10	@Autowired là gì?
+Autowired cho phép Spring tự động tìm kiếm và tiêm các bean tương ứng đã được khai báo trong class
+--------------------------------------------------------------------
+11	@Component có ý nghĩa gì?
+@Component đánh dấu các class cho phép IoC Container tự động phát hiện và tiêm vào các class cần sử dụng
+--------------------------------------------------------------------
+12	Trình bày ý nghĩa của Front Controller
+- Front controller nhận request và lý request
+- Front controller kế thừa HttpServlet 
+- Front controller gửi các request đến controller và quyết định hồi đáp bằng cách gửi lại các view
+--------------------------------------------------------------------
+13	Trình bày ý nghĩa của ModelAndView Interface
+- ModelAndView đại diện cho 1 view cùng các dữ liệu sử dụng trong view đó. ModelAndView có thể kèm theo status của Response.
+
+--------------------------------------------------------------------
+14	Trình bày ý nghĩa của ModelMap Interface
+- Là lớp con của LinkedHashMap được sử dụng trong việc xây dựng data model bằng cách sử dụng dữ liệu cặp key-value
+- Sử dụng phương thức addAttribute để tạo liên kết giữa model và tên logic trong model
+
+--------------------------------------------------------------------
+15	Trình bày ý nghĩa của ViewResolver Interface
+- View Controller là cơ chế xử lý tầng view của Spring MVC
+- View Resolver ánh xạ tên của view sang đối tượng view tương ứng
+- ViewResolver là bộ phận quyết định xem front controller sẽ trả về view thực tế nào
+- Front cotroller sẽ xây dựng view trả về bằng cách truy xuất các giá trj đã được gắn cho dữ liệu ở model, kết quả sau đó sẽ được trả về cho người dùng
+--------------------------------------------------------------------
+
+17	Phân biệt POST với PUT thường sử dụng để làm gì?
+- PUT là phương thức bảo toàn dữ liệu, nên khi submit nhiều lần thì cũng chỉ trả về 1 giá trị
+- POST là phương thức không bảo toàn dữ liệu nên khi submit nhiều lần thì có nhiều giá trị khác nhau
+=> PUT được dùng để cập nhât dữ liệu trong khi POST được dùng để tạo dữ liệu mới
+--------------------------------------------------------------------
+18	@RequestMapping làm gì?
+@RequestMapping được dùng để ánh xạ các request tới các action tương ứng của controller
+@Request bao gồm các thuộc tính để ánh xạ đến:
+    + URL
+    + HTTPMethod
+    + Các tham số
+    + Header
+    + MediaType
+--------------------------------------------------------------------
+19	Trình bày cơ chế Data Binding?
+- Laf cơ chế liên kết dữ liệu đầu vào và đầu ra với các đối tượng model. Khi sử dụng databinding thì mọi form đều liên kết với 1 đối tượng biểu diễn phía sau.
+- Khi tương tác với form thì các dữ liệu trên form sẽ được tự động chuyển đổi thành các thuộc tính của đối tượng liên kết
+
+Cơ chế: Dữ liệu dạng text đi qua data binder. Trong đó sẽ có :
+    + formatter: để chuyển các trường dữ liệu từ dạng string thành kiểu dữ liệu phù hợp với đối tượng
+    + PropertyEditor: gọi các setter và getter của đối tượng để truyền các dữ liệu vào
+    + Validator: kiểm tra tính hợp lệ của dữ liệu
+    => Nếu xuất hiện lỗi thì sẽ trả lại dữ liệu lỗi vào BindingResult
+    => Nếu không xuất hiện lỗi thì trả lại đối tượng dưới dạng 1 bean
+--------------------------------------------------------------------
+20	Thuộc tính consumes trong các Request Mapping là gì ?
+Consumes để ánh xạ đến Content-Type của request
+Produces ánh xạ đến Accept của request
+--------------------------------------------------------------------
+21	Thymeleaf là gì?
+- Thymeleaf là 1 bộ xử lý view được dử dụng cho các ứng dụng web và các ứng dụng độc lập
+- Có thể xử lý HTML,XML, JS,CSS và text
+- Cung cấp 1 cách thức xây dựng template hiện đại và dễ bảo trì
+- Xây dựng phù hợp với các tiêu chuẩn của web, đặc biêt là HTML5
+
+- Thymeleaf hỗ trợ xử lý 6 loại template mode:
+    + HTML
+    + XML
+    + TEXT
+    + JS
+    + CSS
+    + RAW
+----------------------------------------------------------------------
+22	Sử dụng lặp trong Thymeleaf như thế nào? Sử dụng điều kiện trong Thymeleaf như thế nào?
++ Lăp: sử dụng th:each
++ Điều kiên: + th:if
+            + th:switch và th:case  
+----------------------------------------------------------------------
+23	Formatter là gì? Converter là gì?
+
+----------------------------------------------------------------------
+24	ORM là gì ?
+Là kĩ thuật liên kết giữa các đối tượng trong lập trình với các đối tượng trong csdl
+ Ưu điểm:
+    + Quản lý dữ liệu tập trung trong code
+    + Thao tác với csdl được thực hiện tự động
+    + Tránh các lỗi cú pháp SQL
+    + Hỗ trợ các transaction
+    + Có thể cache để truy xuất dữ liệu nhanh hơn
+ Nhược điểm
+    + Hạn chế về hiệu năng
+    + Rơi vào bẫy truy xuất quá nhiều
+    + Các thao tác phức tạp vẫn phải sử dụng SQL thuần
+----------------------------------------------------------------------
+25	JPA là gì? Spring Data JPA là gì ?
+- JPA là tập hợp các đặc tả mô tả các thao tác quản lý dữ liệu quan hệ trong các ứng dụng Java, cung cấp 1 mô hình cho phép ánh xạ đối tượng và table
+- Spring Data JPA là 1 phần của dự án Spring Data, giúp cho vịệc sử dụng JPA trong ứng dụng Spring trở nên dễ dàng hơn
+----------------------------------------------------------------------
+26	Hibernate là gì ? Hibernate làm gì với database
+Hibernate là 1 framework java giúp đơn giản hóa quá
+----------------------------------------------------------------------
+27	Liệt kê một số annotation của hibernate?
+----------------------------------------------------------------------
+28	Entity là gì?
+- Entity là đối tượng đại diện cho dữ liệu trong ứng dụng
+- Entity thường là POJO- các lớp đơn giản chỉ dùng để mô tả dữ liệu chứ ko xử lý logic nghiệp vụ
+- Entity sẽ được ánh xa đến 1 bảng trong csdl
+- 1 class được sử dụng để làm entity:
+    + @Entity
+    + Có 1 constructor không tham số
+    + Không khai báo final
+    + đối tượng cần khai báo private, protected, default
+----------------------------------------------------------------------
+29	Persistence Context & Entity Manager là gì?
+PersistentContext là tập các thể hiện của entity được quản lý, tồn tại trong 1 kho dữ liệu
+EntityManager là đối tượng quản lý các entity. Thực hiện các công việc sau:
+    + Khai báo các phương thức để tương tác với persistence context
+    + Tạo hoặc xoá các thể hiện của entity
+    + Tìm kiếm entity theo khóa chính
+    + Thưc thi các câu lệnh truy vấn lên entity
+Có 2 cách lấy EntityManager:
+- Sử dụng @PersistenceContext để lấy entityManager quản lý bởi container
+- Sử dụng @PersistenceUnt để lấy entityManager được quản lý bởi ứng dụng
+
+----------------------------------------------------------------------
+30	Câu lệnh truy vấn động là gì? Câu lệnh truy vấn tĩnh là gì?
+
+31	Trạng thái của Entity bao gồm những gì?
+32	Có bao nhiêu loại mapping trong Hibernate?
+33	SessionFactory là gì?
+34	Validation dữ liệu là gì?
+35	Trình bày cách triển khai validate dữ liệu trong Spring
+36	BindingResult là gì?
+37	AOP là gì? AOP gồm những yếu tố nào?
+38	Các loại Advice?
+39	JoinPoint là gì?
+40	Nêu cách triển khai AOP mà bạn dùng trong dự án
+41	Xử lý ngoại lệ trong Spring Web MVC như thế nào?
+42	Cookie là gì?
+43	Phân biệt Session và Cookie
+44	Nêu cách triển khai Session mà bạn dùng trong dự án
+45	Web Service là gì? Lấy ví dụ về web service
+46	Phân biệt Web Service và Web truyền thông
+47	SOAP là gì? RESTful là gì?
+48	jQuery là gì? Ajax là gì?
+49	Nêu ví dụ về cách bạn triển khai Ajax trong dự án của bạn
+50	@RequestHeader và @ResponseHeader có ý nghĩa gì
+51	I18n và L10n là gì?
+52	Nêu cách triển khai I18N và I10N trong dự án Spring
+53	Interceptor là gì?
+54	Bảo mật là gì? Cơ chế bảo mật trong Spring như thế nào?
+55	Authentication là gì ? Authorization là gì ?
+56	Liệt kê các cơ chế xác thực
+57	CSRF là gì
+58	CORS là gì
+59	Spring Boot là gì?
+60	Sự khác nhau giữa SpringBoot và SpringMVC là gì?
+61	Cấu hình cho Spring Boot Tìm kiếm các Bean ở nhiều package khác nhau bằng cách nào?
+62	Trình bày Spring Security? @EnableWebSecurity làm gì?
+63	Trình bày Spring Boot JPA? Cài đặt?
+64	Để sử dụng interface JpaRepository cần cung cấp những thông tin nào?
+65	Bạn có biết annotation @ConfigurationProperties? Trình bày?

@@ -175,7 +175,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete?</h5>
+                    <h5 class="modal-title" id="deleteModalLabel">Do you want to delete <span id="delete_message"></span>?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -199,9 +199,11 @@
                 let link = $(event.relatedTarget);
                 let action = link.data('action');
                 let id = link.data('id');
+                let msg = link.data('message')
                 let modal = $(this);
                 modal.find('#form-delete').attr("action", action);
                 modal.find('#id').val(id);
+                modal.find("#delete_message").text(msg);
             });
         });
     </script>

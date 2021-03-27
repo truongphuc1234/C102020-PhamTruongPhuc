@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Transaction Menu')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-customer"></div>
+    <div class="col-sm-10">
+        <div>
+            <form th:action="@{/transaction/search}" method="get">
+                <label>Loai Bat dong san</label>
+                <select class="form-control" name="searchServiceType" type="text">
+                    <option value="">Choose BDS</option>
+                    <option value="dat">Dat</option>
+                    <option value="nha_dat">Nha va Dat</option>
+                </select>
+                <input class="form-control" name="searchCustomerName" type="text">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Tim kiem</button>
+            </form>
+        </div>
+        <h3>Danh sách giao dịch nhà đất</h3>
+        <hr/>
+        <table class="table table-striped table-responsive-xl">
+            <thead class="thead-dark">
+            <tr>
+                <th>Mã giao dịch</th>
+                <th>Tên khách hàng</th>
+                <th>Ngày giao dịch</th>
+                <th>Loại dịch vụ</th>
+                <th>Đơn giá</th>
+                <th>Diện tích</th>
+                <th>Action</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.transactionId}"></td>
+                <td th:text="${transaction.customer.customerName}"></td>
+                <td th:text="${transaction.transactionDate}"></td>
+                <td th:text="${transaction.serviceType}"></td>
+                <td th:text="${transaction.price}"></td>
+                <td th:text="${transaction.area}"></td>
+                <!--                <td><a href="#" data-action="/customer/delete"-->
+                <!--                       th:attr="data-id=${customer.customerId},data-message=${'customer '+customer.customerName}"-->
+                <!--                       data-toggle="modal" data-target="#deleteModal">Delete</a></td>-->
+                <td><a th:href="@{/transaction/detail/__${transaction.transactionId}__}">Chi tiết</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="page-nav">
+            <ul class="pagination">
+                <li th:class="${transactions.hasPrevious()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${transactions.hasPrevious()}? 0 :1"
+                       th:href="@{/transaction?page=__${transactions.number -1}__}">Previous</a>
+                </li>
+                <li class="page-item" th:if="${transactions.hasPrevious()}">
+                    <a class="page-link" th:href="@{/transaction?page=__${transactions.number -1}__}"
+                       th:text="${transactions.number}"></a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" th:href="@{/transaction?page=__${transactions.number}__}"
+                       th:text="${transactions.number+1}"></a>
+                </li>
+                <li class="page-item" th:if="${transactions.hasNext()}">
+                    <a class="page-link" th:href="@{/transaction?page=__${transactions.number +1}__}"
+                       th:text="${transactions.number+2}"></a>
+                </li>
+                <li th:class="${transactions.hasNext()}? 'page-item': 'page-item disabled'">
+                    <a class="page-link" th:tabindex="${transactions.hasNext()}? 0 :1"
+                       th:href="@{//transaction?page=__${transactions.number +1}__}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
+</html>

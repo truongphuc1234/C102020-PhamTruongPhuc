@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Create transaction')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-customer"></div>
+    <div class="col-sm-10">
+        <div class="container-fluid row">
+            <div class="col-sm-6">
+                <h3>Thêm mới giao dịch</h3>
+                <hr>
+                <form method="post" th:action="@{/transaction/create}" th:object="${transaction}">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Mã giao dịch(*):</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{transactionId}" type="text"/>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('transactionId')}"
+                                 th:errors="*{transactionId}">Customer id error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Tên khách hàng(*):</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" th:field="*{customer}" type="text">
+                                <option hidden value="">Tên khách hàng</option>
+                                <option th:each="customerItem :${customers}"
+                                        th:text="${customerItem.customerName}"
+                                        th:value="${customerItem.customerId}"></option>
+                            </select>
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('customer')}"
+                                 th:errors="*{customer}">Customer error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Loại bất động sản(*):</label>
+                        <div class="col-sm-8">
+                            <label for="male">Đất</label>
+                            <input id="male" th:field="*{serviceType}" type="radio" value="dat">
+                            <label for="female">Nhà và đất</label>
+                            <input id="female" th:field="*{serviceType}" type="radio" value="nha_dat">
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('serviceType')}"
+                                 th:errors="*{serviceType}">Service error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Ngày giao dichj(*):</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{transactionDate}" type="date">
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('transactionDate')}"
+                                 th:errors="*{transactionDate}">transaction date error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Đơn giá(*):</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{price}" type="number">
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('price')}"
+                                 th:errors="*{price}">price error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">Diện tích(*):</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="*{area}" type="text">
+                            <div class="alert alert-danger" role="alert"
+                                 th:if="${#fields.hasErrors('area')}"
+                                 th:errors="*{area}">area error
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+</body>
+</html>

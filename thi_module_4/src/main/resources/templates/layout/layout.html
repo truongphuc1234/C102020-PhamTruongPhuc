@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+//Head layout
+<head th:fragment="header(title)">
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Quicksand', sans-serif;
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            margin-bottom: 60px; /* Margin bottom by footer height */
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px; /* Set the fixed height of the footer here */
+            line-height: 30px; /* Vertically center the text there */
+            background-color: #f5f5f5;
+        }
+
+        :root {
+            --primary: #8c0cba;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --info: #17a2b8;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+
+    </style>
+</head>
+
+<body>
+
+//footer layout
+<footer th:fragment="footer" class="footer bg-light text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <span class="text-dark">truongphucdn@gmail.com</span>
+    </div>
+</footer>
+
+//Js bootstrap layout
+<th:block th:fragment="bootstrap_js">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</th:block>
+
+//Logo layout
+<div th:fragment="logo">
+    <a class="navbar-brand" th:href="@{/}">
+        <img src="/image/cropped-fa-icon.png" width="50px" height="auto"></imp>
+    </a>
+    <a th:text="${#request.userPrincipal?.name}">No Login</a>
+    <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+    <a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a>
+</div>
+
+//Menu layout
+<nav th:fragment="menu" class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/transaction/list}">Transaction</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
+//left-nav-customer
+<div th:fragment="left-nav-customer" class="col-sm-2" style="border-right: #0c5460">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/transaction/create}">New transaction</a>
+        </li>
+    </ul>
+</div>
+
+//delete popup
+<th:block th:fragment="delete-popup">
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Do you want to delete <span id="delete_message"></span>?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Delete confirm?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form method="post" id="form-delete">
+                        <input type="hidden" id="id" name="id">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                let link = $(event.relatedTarget);
+                let action = link.data('action');
+                let id = link.data('id');
+                let msg = link.data('message')
+                let modal = $(this);
+                modal.find('#form-delete').attr("action", action);
+                modal.find('#id').val(id);
+                modal.find("#delete_message").text(msg);
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

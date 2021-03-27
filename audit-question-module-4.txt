@@ -153,7 +153,8 @@ Produces ánh xạ đến Accept của request
             + th:switch và th:case  
 ----------------------------------------------------------------------
 23	Formatter là gì? Converter là gì?
-
+Đểu được sử dụng để chuyển đổi dữ liệu
+Converter có thể chuyển đổi
 ----------------------------------------------------------------------
 24	ORM là gì ?
 Là kĩ thuật liên kết giữa các đối tượng trong lập trình với các đối tượng trong csdl
@@ -176,6 +177,11 @@ Là kĩ thuật liên kết giữa các đối tượng trong lập trình với
 Hibernate là 1 framework java giúp đơn giản hóa quá
 ----------------------------------------------------------------------
 27	Liệt kê một số annotation của hibernate?
+@Entity: đánh dấu class làm 1 entity bean
+@Table
+@Column
+@Id
+@GenerateValue
 ----------------------------------------------------------------------
 28	Entity là gì?
 - Entity là đối tượng đại diện cho dữ liệu trong ứng dụng
@@ -200,11 +206,30 @@ Có 2 cách lấy EntityManager:
 
 ----------------------------------------------------------------------
 30	Câu lệnh truy vấn động là gì? Câu lệnh truy vấn tĩnh là gì?
+Câu truy vấn động là câu truy vấn được cập nhật mỗi lần gọi truy vấn. Câu truy vấn tĩnh chỉ được tạo 1 lần ngay khi được gọi lần đầu tiên, những lần gọi truy vấn sau thì sẽ lấy từ lần gọi đầu tiên
+Truy vấn động được tạo từ entityManager.createQuery
+Truy vấn tĩnh được tạo từ entityManager.createNamedQuery
+----------------------------------------------------------------------
 
 31	Trạng thái của Entity bao gồm những gì?
+- Gồm 4 loại trạng thái:
+    + Transient: 1 entity vừa mới được khởi tạo thì sẽ có trạng thái transient, và không tương ứng với bất kì dữ liệu nào trong database. Để chuyển trạng thái thành persistence cần gọi phương thức persist của EM
+    + 1 entity ở trạng thái persistence tương ứng với 1 dòng dữ liệu trong database và được quản lý bởi persistence context. Bất kì thay đổi tác động lên entity sẽ được ghi nhận và được ghi trong csdl bằng session.flush
+    + Khi 1 persistence context bị đóng lại thì tất cả các entity được quản lý trước đó sẽ chuyển sang trạng thái detached. Các thay đổi tiếp theo không được theo dõi và đồng bộ hóa trong database. Để kết nối lại các entity đã bị tách thì có thể merge hoặc reattaching:
+        - reattaching: hỗ trợ hoạt động liên kết trở lại thông qua method update của session
+    + removed: entity được dừa vào hàng đợi cho đến khi phương thức flush được gọi
+----------------------------------------------------------------------
 32	Có bao nhiêu loại mapping trong Hibernate?
+
+---------------------------------------------------------------------
 33	SessionFactory là gì?
+Session trong hibernate được sử dụng để có 1 kết nối vật lý đến csdl. Các đối tượng session nhẹ và được thiết kế được khởi tạo mỗi khi cần tương tác với csdl. Các đối tượng persistence được lưu và truy xuất thông qua 1 đối tượng session
+Chức năng của session là cung cấp các thao tác create, update,read,delete
+SesionFactory được dungfg để tạo 1 session làm việc với database
+--------------------------------------------------------------------
 34	Validation dữ liệu là gì?
+Là xác minh, đánh giá tính hợp lệ của dữ liệu đầu vào
+----------------------------------------------------------------------
 35	Trình bày cách triển khai validate dữ liệu trong Spring
 36	BindingResult là gì?
 37	AOP là gì? AOP gồm những yếu tố nào?
@@ -212,25 +237,74 @@ Có 2 cách lấy EntityManager:
 39	JoinPoint là gì?
 40	Nêu cách triển khai AOP mà bạn dùng trong dự án
 41	Xử lý ngoại lệ trong Spring Web MVC như thế nào?
+-error-page: Xử lý bởi appliction server
+            Xử lý các lỗi fatal và các lỗi ngoài phạm vi ệ thống
+- HandlerExceptionHanlder : xử lý bởi container
+----------------------------------------------------------------------
 42	Cookie là gì?
+----------------------------------------------------------------------
 43	Phân biệt Session và Cookie
+----------------------------------------------------------------------
 44	Nêu cách triển khai Session mà bạn dùng trong dự án
+----------------------------------------------------------------------
 45	Web Service là gì? Lấy ví dụ về web service
+- Là các thành phần ứng dụng và được tích hợp các ngôn ngữ khác nhau trên các nền tảng khác nhau
+- Xây dựng các chuẩn mở và sử dụng các chuẩn mở để giao tiếp
+- Hoạt động như 1 webserver, xử lý và trả dữ liệu đầu ra theo chuẩn đảm bảo mọi ứng dụng có thể hiểu và sử dụng không liên quan đến thiết bị
+----------------------------------------------------------------------
 46	Phân biệt Web Service và Web truyền thông
+Web service: không có giao diện người dùng
+    + Được sử dụng bởi ứng dụng khác
+    + đc truy cập thông qua các phương thức GET POST PUT DELETE
+    + độc lập nền tảng
+----------------------------------------------------------------------
 47	SOAP là gì? RESTful là gì?
+SOAP: định nghĩa văn bản thuần và truyền dữ liệu thông qua HTTP thông qua giao thức XML
+REST: 1 kiểu kiến trúc cung cấp các quy tắc phát triển web
+- Sử dụng XML hoặc JSON
+- Chủ yếu xử lý các hoạt động CRUD
+----------------------------------------------------------------------
 48	jQuery là gì? Ajax là gì?
+----------------------------------------------------------------------
 49	Nêu ví dụ về cách bạn triển khai Ajax trong dự án của bạn
+----------------------------------------------------------------------
 50	@RequestHeader và @ResponseHeader có ý nghĩa gì
+@RequestHeader để lấy các tham số trong header của request 
+@ResponseHeader để lấy các tham số trong header của response
+----------------------------------------------------------------------
 51	I18n và L10n là gì?
+I18N :Là quá trình phát triển phần mềm mà có thể đáp ứng được nhiều ngôn ngữ khác nhau mà không cần thay đổi kỹ thuật
+L11N: là quá trình điều chỉnh phần mềm đã được quốc tế hóa cho 1 ngôn ngữ cụ thể nào đó
+----------------------------------------------------------------------
 52	Nêu cách triển khai I18N và I10N trong dự án Spring
+- Tạo 1 messageResource (.properties trong đó có các key-value)
+- Tạo MessageSource Bean 
+- Trong thymeleaf sử dụng #{}
+
+- Tron cấu hình spring thêm LocaleChangeInterceptor
+- Tạo bean LocaleResolver để phân giải message dựa trên thông tin về locale trong cookie, session 
 53	Interceptor là gì?
+- Là các thành phần trong spring có thể xử lý tiền/hậu kì của request
+- Thường được đính kèm vào request
+- trong 
+----------------------------------------------------------------------
 54	Bảo mật là gì? Cơ chế bảo mật trong Spring như thế nào?
 55	Authentication là gì ? Authorization là gì ?
 56	Liệt kê các cơ chế xác thực
 57	CSRF là gì
 58	CORS là gì
-59	Spring Boot là gì?
-60	Sự khác nhau giữa SpringBoot và SpringMVC là gì?
+----------------------------------------------------------------------
+59 +	Spring Boot là gì?
+- Là 1 module trong Spring framework cung cấp các tính năng để phát triển phần mềm sử dụng ngay mà không cầ phải cấu hình thêm
+- Sử dụng quy ước về thiết kế phần mềm, giảm tải công việc cho lập trình viên
+----------------------------------------------------------------------
+60 +	Sự khác nhau giữa SpringBoot và SpringMVC là gì?
+- Spring boot cung cấp các thư viện starter -> đơn giản hóa cấu hình / Spring MVC phải khai báo các phụ thuộc bằng tay
+- Spring boot được nhúng tomcat sẵn, spring MVC không được cấu hình sẵn
+- Spring boot có thể triển khai bằng JAR/WAR trong khi spring MVC triển khai bằng WAR
+- Spring boot không yêu cầu cấu hình bằng XML
+- Thời gian phát triển phần mềm của Spring boot nhanh hơn
+----------------------------------------------------------------------
 61	Cấu hình cho Spring Boot Tìm kiếm các Bean ở nhiều package khác nhau bằng cách nào?
 62	Trình bày Spring Security? @EnableWebSecurity làm gì?
 63	Trình bày Spring Boot JPA? Cài đặt?

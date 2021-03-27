@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout.html :: header('Transaction detail')"></head>
+<body>
+<div th:replace="layout/layout.html :: logo"></div>
+<nav th:replace="layout/layout.html :: menu"></nav>
+<div class="container-fluid row">
+    <div th:replace="layout/layout.html :: left-nav-customer"></div>
+    <div class="col-sm-10">
+        <h3>Chi tiet giao dịch nhà đất</h3>
+        <hr/>
+        <table class="table table-striped table-responsive-xl">
+            <tbody class="thead-dark">
+            <tr>
+                <td>Mã giao dịch</td>
+                <td th:text="${transaction.transactionId}"></td>
+            </tr>
+            <tr>
+                <td>Loại dịch vụ</td>
+                <td th:text="${transaction.serviceType}"></td>
+            </tr>
+            <tr>
+                <td>Ngày giao dịch</td>
+                <td th:text="${transaction.transactionDate}"></td>
+            </tr>
+            <tr>
+                <td>Đơn giá</td>
+                <td th:text="${transaction.price}"></td>
+            </tr>
+            <tr>
+                <td>Diện tích</td>
+                <td th:text="${transaction.area}"></td>
+            </tr>
+            <tr>
+                <td>Tên khách hàng</td>
+                <td th:text="${transaction.customer.customerName}"></td>
+            </tr>
+            <tr>
+                <td>Số điện thoai</td>
+                <td th:text="${transaction.customer.customerPhone}"></td>
+            </tr>
+            <tr>
+                <td>Email khách hàng</td>
+                <td th:text="${transaction.customer.customerEmail}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <button><a href="#" data-action="/transaction/delete"
+                   th:attr="data-id=${transaction.transactionId},data-message=${'transaction '+transaction.transactionId}"
+                   data-toggle="modal" data-target="#deleteModal">Delete</a></button>
+    </div>
+</div>
+<div th:replace="layout/layout.html :: footer"></div>
+<th:block th:replace="layout/layout.html :: bootstrap_js"/>
+<th:block th:replace="layout/layout.html :: delete-popup"/>
+</body>
+</html>

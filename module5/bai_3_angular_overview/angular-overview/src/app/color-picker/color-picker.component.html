@@ -1,0 +1,9 @@
+<h2>Color picker</h2>
+<div>
+  <label>Choose:</label>
+  <input [value]="background" type="color" (change)="onChange($event.target.value)"/>
+</div>
+<div>
+  <p>Output:</p>
+  <div [style.background]="background">basfsdgfdhgfjhgjhkhjkhgjgfhdfgdfasds</div>
+</div>

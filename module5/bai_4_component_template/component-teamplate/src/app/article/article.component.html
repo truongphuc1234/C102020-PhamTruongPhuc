@@ -1,0 +1,16 @@
+<hr>
+<!--<div>-->
+<!--  <a href="{{article.url}}" target="_blank">{{article.title}}</a>-->
+<!--</div>-->
+<!--<textarea [value]="article.title" cols="70" id="article-title"></textarea>-->
+<!--<textarea [value]="article.url" cols="70" id="article-url"></textarea>-->
+<!--<input (click)="updateArticle()" type="button" value="Update">-->
+<textarea #title cols="70"></textarea>
+<textarea #url cols="70"></textarea>
+<br>
+<button (click)="addArticle(title,url)">Add</button>
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>
+  <app-likes></app-likes>
+</div>
+<hr>

@@ -2,15 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { StudentInfoComponent } from './student-info/student-info.component';
 import {FormsModule} from '@angular/forms';
-import { StudentListComponent } from './student-list/student-list.component';
+import { LikesComponent } from './likes/likes.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentInfoComponent,
-    StudentListComponent
+    LikesComponent,
+    NavbarComponent,
+    FooterComponent,
+    ArticleComponent
   ],
     imports: [
         BrowserModule,

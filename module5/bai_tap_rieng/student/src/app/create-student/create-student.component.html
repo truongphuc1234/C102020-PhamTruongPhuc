@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-outline-primary mx-3 my-2" data-toggle="modal" data-target="#createStudent">
+  Add new student
+</button>
+
+<div class="modal fade" id="createStudent" tabindex="-1" role="dialog" aria-labelledby="createStudentLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createStudentLabel">Create new student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="createStudentForm" (ngSubmit)="onSubmit()">
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="inputId" class="col-sm-3 col-form-label">Id</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputId" placeholder="Enter id" formControlName="id">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-3 col-form-label">Name</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputName" placeholder="Enter name" formControlName="name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputAge" class="col-sm-3 col-form-label">Age</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputAge" placeholder="Enter age" formControlName="age">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputMark" class="col-sm-3 col-form-label">Mark</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputMark" placeholder="Enter mark" formControlName="mark">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputImage" class="col-sm-3 col-form-label">Image Url</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputImage" placeholder="Enter url" formControlName="image">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

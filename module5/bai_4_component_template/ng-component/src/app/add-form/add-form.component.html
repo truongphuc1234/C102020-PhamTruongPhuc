@@ -1,0 +1,16 @@
+<div class="my-1">
+  <button class="btn btn-outline-primary" (click)="toggle()">Create</button>
+</div>
+<div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+  <div class="row my-3">
+    <div class="col-5">
+      <label for="article-title">Title</label><textarea #title cols="70" id="article-title" class="form-control"></textarea>
+    </div>
+    <div class="col-5">
+      <label for="article-url">Url</label><textarea #url cols="70" id="article-url" class="form-control"></textarea>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-outline-success my-3" (click)="addArticle(title.value, url.value)">Add</button>
+  </div>
+</div>

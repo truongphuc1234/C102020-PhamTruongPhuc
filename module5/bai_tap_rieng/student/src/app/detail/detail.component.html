@@ -1,0 +1,35 @@
+<div class="card" style="min-width: 20rem;" *ngIf="student != null">
+  <img src="{{student.image}}" class="card-img-top img-thumbnail" alt="{{student.image}}">
+  <div class="card-body">
+    <div class="form-group row">
+      <label for="id" class="col-4 col-form-label">Id</label>
+      <div class="col-8">
+        <input [readonly]="!isEdit" [class.form-control]="isEdit" [class.form-control-plaintext]="!isEdit" id="id"
+               [(ngModel)]="student.id"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-4 col-form-label">Name</label>
+      <div class="col-8">
+        <input [readonly]="!isEdit" [class.form-control]="isEdit" [class.form-control-plaintext]="!isEdit" id="name"
+               [(ngModel)]="student.name"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="age" class="col-4 col-form-label">Age</label>
+      <div class="col-8">
+        <input [readonly]="!isEdit" [class.form-control]="isEdit" [class.form-control-plaintext]="!isEdit" id="age"
+               [(ngModel)]="student.age"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="mark" class="col-4 col-form-label">Mark</label>
+      <div class="col-8">
+        <input [readonly]="!isEdit" [class.form-control]="isEdit" [class.form-control-plaintext]="!isEdit" id="mark"
+               [(ngModel)]="student.mark"/>
+      </div>
+    </div>
+    <button href="#" class="btn btn-primary float-left" (click)="editToggle()">Edit</button>
+    <button href="#" class="btn btn-danger float-right">Delete</button>
+  </div>
+</div>

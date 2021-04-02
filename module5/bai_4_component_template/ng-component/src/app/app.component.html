@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    Today's article
+  </a>
+</nav>
+<div class="card" *ngFor="let article of articles">
+  <div class="card-body">
+    <a href="{{article.url}}" target="_blank">{{article.title}}</a>
+    <app-likes class="ml-2"></app-likes>
+  </div>
+</div>
+<app-add-form (addNewArticle)="addNewArticle($event)"></app-add-form>
+<nav class="navbar navbar-light bg-dark">
+  @Codegym, 2019
+</nav>

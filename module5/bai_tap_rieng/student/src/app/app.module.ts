@@ -1,21 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentInfoComponent } from './student-info/student-info.component';
-import {FormsModule} from '@angular/forms';
-import { StudentListComponent } from './student-list/student-list.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { FooterBarComponent } from './footer-bar/footer-bar.component';
+import { TableComponent } from './table/table.component';
+import { DetailComponent } from './detail/detail.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CreateStudentComponent } from './create-student/create-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentInfoComponent,
-    StudentListComponent
+    HeaderBarComponent,
+    FooterBarComponent,
+    TableComponent,
+    DetailComponent,
+    CreateStudentComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

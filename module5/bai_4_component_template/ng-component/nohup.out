@@ -1,0 +1,4 @@
+OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+2021-04-01 08:48:27,796 [  14748]   WARN - .ExternalResourceManagerExImpl - Cannot find standard resource. filename:/standardSchemas/jspxml.dtd class=class com.intellij.jsp.impl.JspResourcesProvider, classLoader:null 
+[0401/084831.356026:FATAL:gpu_data_manager_impl_private.cc(439)] GPU process isn't usable. Goodbye.
+Trace/breakpoint trap (core dumped)

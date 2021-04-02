@@ -12,7 +12,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form [formGroup]="createStudentForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="createStudentForm">
         <div class="modal-body">
           <div class="form-group row">
             <label for="inputId" class="col-sm-3 col-form-label">Id</label>
@@ -47,7 +47,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="addStudent()">Create</button>
         </div>
       </form>
     </div>

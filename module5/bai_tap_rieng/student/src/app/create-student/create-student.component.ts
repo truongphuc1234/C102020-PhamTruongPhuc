@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {students} from '../student/student.repository';
 
 @Component({
   selector: 'app-create-student',
@@ -21,7 +22,7 @@ export class CreateStudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    st
+  addStudent() {
+    students.push(this.createStudentForm.value);
   }
 }

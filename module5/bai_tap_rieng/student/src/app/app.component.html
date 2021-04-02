@@ -4,7 +4,7 @@
     <app-create-student></app-create-student>
   </div>
   <div class="row">
-    <app-table [students]="students" (showDetailEvent)="changeStudentDetail($event)" class="col-8"></app-table>
+    <app-table (showDetailEvent)="changeStudentDetail($event)" class="col-8"></app-table>
     <app-detail [student]="detailStudent" class="col-4"></app-detail>
   </div>
 </div>

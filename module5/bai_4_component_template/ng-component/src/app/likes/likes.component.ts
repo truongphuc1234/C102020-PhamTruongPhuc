@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faThumbsUp} from '@fortawesome/free-solid-svg-icons'
+import {faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-likes',

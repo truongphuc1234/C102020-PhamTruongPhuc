@@ -1,0 +1,64 @@
+<div class="container-fluid p-3">
+  <div class="row d-flex align-items-center">
+    <div class="col-8">
+      <h3>List of employees</h3>
+    </div>
+    <div class="col-3">
+      <mat-form-field class="form-field-create py-2" appearance="standard">
+        <mat-label>Tìm kiếm</mat-label>
+        <input type="text" matInput placeholder="Tìm kiếm theo tên" [(ngModel)]="term"/>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-1">
+      <button mat-mini-fab color="primary" [routerLink]="['/employee-create']">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row container-fluid p-auto">
+    <table class="table table-striped table-responsive table-hover align-middle p-0 w-100 d-block d-md-table">
+      <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Id card</th>
+        <th>Salary</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Position</th>
+        <th>Degree</th>
+        <th>Division</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees | filter:term |paginate: { itemsPerPage: 2, currentPage: p }">
+        <td>{{employee.id}}</td>
+        <td>{{employee.employeeName}}</td>
+        <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+        <td>{{employee.identityNumber}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.educationDegree}}</td>
+        <td>{{employee.division}}</td>
+        <td>
+          <button mat-icon-button color="primary" (click)="openDialog(employee.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" [routerLink]="['/employee-edit' +'/'+employee.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

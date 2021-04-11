@@ -1,0 +1,62 @@
+{
+  "product": [
+    {
+      "id": "1",
+      "productName": "product_1",
+      "price": "10000",
+      "unit": "piece"
+    },
+    {
+      "id": "2",
+      "productName": "product_2",
+      "price": "20000",
+      "unit": "case"
+    },
+    {
+      "id": "3",
+      "productName": "product_3",
+      "price": "15000",
+      "unit": "set"
+    },
+    {
+      "id": "4",
+      "productName": "product_4",
+      "price": "20000",
+      "unit": "case"
+    }
+  ],
+  "stock": [
+    {
+      "id": "5",
+      "productId": "2",
+      "quantity": "2",
+      "dateInbound": "2021-04-06T17:00:00.000Z",
+      "dateProduct": "2021-04-06T17:00:00.000Z",
+      "dateExpired": "2021-04-05T17:00:00.000Z"
+    },
+    {
+      "id": "LH-0001",
+      "productId": "2",
+      "quantity": "4",
+      "dateInbound": "2021-04-13T17:00:00.000Z",
+      "dateProduct": "2021-04-08T17:00:00.000Z",
+      "dateExpired": "2021-04-14T17:00:00.000Z"
+    },
+    {
+      "id": "LH-0002",
+      "productId": "2",
+      "quantity": "10",
+      "dateInbound": "2021-04-25T17:00:00.000Z",
+      "dateProduct": "2021-04-08T17:00:00.000Z",
+      "dateExpired": "2021-04-09T17:00:00.000Z"
+    },
+    {
+      "id": "LH-0003",
+      "productId": "3",
+      "quantity": "2",
+      "dateInbound": "2021-04-22T17:00:00.000Z",
+      "dateProduct": "2021-04-16T17:00:00.000Z",
+      "dateExpired": "2021-04-16T17:00:00.000Z"
+    }
+  ]
+}

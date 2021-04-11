@@ -1,0 +1,85 @@
+<div class="container-fluid row p-2">
+  <div class="col-sm-10 mx-auto">
+    <form [formGroup]="formCreateStock" class="create-form">
+      <div class="container-fluid row">
+        <div class="col-sm-6">
+          <h3>Create new stock</h3>
+          <hr>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+            <mat-label>Id Stock</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="id"
+                   placeholder="Please input stock id">
+            <mat-error
+              *ngIf="formCreateStock.controls.id.errors?.required && formCreateStock.controls.id.touched">
+              Stock Id is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="formCreateStock.controls.id.errors?.pattern && formCreateStock.controls.id.touched">
+              Stock Id is <strong>wrong format</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+          <mat-label>Select Product</mat-label>
+          <mat-select formControlName="productId" required [errorStateMatcher]="matcher">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let product of products" [value]="product.id">{{product.productName}}</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="formCreateStock.controls.productId.errors?.required && formCreateStock.controls.productId.touched">
+            Position is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+            <mat-label>Quantity</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="quantity"
+                   placeholder="Please input quantity">
+            <mat-error
+              *ngIf="formCreateStock.controls.quantity.errors?.required && formCreateStock.controls.quantity.touched">
+              Quantity is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="formCreateStock.controls.quantity.errors?.pattern && formCreateStock.controls.quantity.touched">
+              Quantity is <strong>positive</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+            <mat-label>Inbound date</mat-label>
+            <input matInput [matDatepicker]="picker1" [min]="minDate"  placeholder="Choose a date"
+                   formControlName="dateInbound">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error
+              *ngIf="formCreateStock.controls.dateInbound.errors?.required && formCreateStock.controls.dateInbound.touched">
+              Date inbound is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+            <mat-label>Product date</mat-label>
+            <input matInput [matDatepicker]="picker2" [min]="minDate" placeholder="Choose a date"
+                   formControlName="dateProduct">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error
+              *ngIf="formCreateStock.controls.dateProduct.errors?.required && formCreateStock.controls.dateProduct.touched">
+              Date product is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create py-2" appearance="standard">
+            <mat-label>Expired date</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Choose a date"
+                   formControlName="dateExpired">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="formCreateStock.controls.dateExpired.errors?.required && formCreateStock.controls.dateExpired.touched">
+              Date expired is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <button [disabled]="formCreateStock.invalid" type="submit" mat-raised-button color="primary" class="my-2"
+                  (click)="createNewStock()">Create
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

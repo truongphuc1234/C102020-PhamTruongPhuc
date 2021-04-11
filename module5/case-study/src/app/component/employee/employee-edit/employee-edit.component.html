@@ -1,0 +1,136 @@
+<div class="container-fluid row p-2">
+  <div class="col-sm-10 mx-auto">
+    <form [formGroup]="editFormEmployee" class="create-form">
+      <div class="container-fluid row">
+        <div class="col-sm-6">
+          <h3>Edit employee</h3>
+          <hr>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Your name</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="employeeName"
+                   placeholder="Please input your name">
+            <mat-error
+              *ngIf="editFormEmployee.controls.employeeName.errors?.required && editFormEmployee.controls.employeeName.touched">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Birthday</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" placeholder="Choose a date"
+                   formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="editFormEmployee.controls.dateOfBirth.errors?.required && editFormEmployee.controls.dateOfBirth.touched">
+              Birthday is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Id card</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="identityNumber"
+                   placeholder="Please input id card">
+            <mat-error
+              *ngIf="editFormEmployee.controls.identityNumber.errors?.required && editFormEmployee.controls.identityNumber.touched">
+              Id card is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="editFormEmployee.controls.identityNumber.errors?.pattern && editFormEmployee.controls.identityNumber.touched">
+              <strong>Wrong</strong> format identity card
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Salary</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="salary"
+                   placeholder="Please enter your salary">
+            <mat-error
+              *ngIf="editFormEmployee.controls.salary.errors?.required && editFormEmployee.controls.salary.touched">
+              Salary is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="editFormEmployee.controls.salary.errors?.pattern && editFormEmployee.controls.salary.touched">
+              Salary must be <strong>positive</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Phone number</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="phoneNumber"
+                   placeholder="Please enter your phone number">
+            <mat-error
+              *ngIf="editFormEmployee.controls.phoneNumber.errors?.required && editFormEmployee.controls.phoneNumber.touched">
+              Phone number is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="editFormEmployee.controls.phoneNumber.errors?.pattern && editFormEmployee.controls.phoneNumber.touched">
+              <strong>Wrong</strong> format phone number
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [errorStateMatcher]="matcher" formControlName="email"
+                   placeholder="Please enter your email">
+            <mat-error
+              *ngIf="editFormEmployee.controls.email.errors?.required && editFormEmployee.controls.email.touched">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="editFormEmployee.controls.email.errors?.email && editFormEmployee.controls.email.touched">
+              <strong>Wrong</strong> format email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput [errorStateMatcher]="matcher" formControlName="address"
+                   placeholder="Please enter your address">
+            <mat-error
+              *ngIf="editFormEmployee.controls.address.errors?.required && editFormEmployee.controls.address.touched">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Select Position</mat-label>
+            <mat-select formControlName="position" required [errorStateMatcher]="matcher">
+              <mat-option>--</mat-option>
+              <mat-option value="manager">Manager</mat-option>
+              <mat-option value="leader">Leader</mat-option>
+              <mat-option value="staff">Staff</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="editFormEmployee.controls.position.errors?.required && editFormEmployee.controls.position.touched">
+              Position is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Select education degree</mat-label>
+            <mat-select formControlName="educationDegree" required [errorStateMatcher]="matcher">
+              <mat-option>--</mat-option>
+              <mat-option value="university">University</mat-option>
+              <mat-option value="college">College</mat-option>
+              <mat-option value="high scholl">High school</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="editFormEmployee.controls.educationDegree.errors?.required && editFormEmployee.controls.educationDegree.touched">
+              Position is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field-create " appearance="standard">
+            <mat-label>Select division</mat-label>
+            <mat-select formControlName="division" required [errorStateMatcher]="matcher">
+              <mat-option>--</mat-option>
+              <mat-option value="sale-marketing">Sale-Marketing</mat-option>
+              <mat-option value="accounting">Accounting</mat-option>
+              <mat-option value="administration">Administration</mat-option>
+              <mat-option value="management">Management board</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="editFormEmployee.controls.division.errors?.required && editFormEmployee.controls.division.touched">
+              Position is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <button [disabled]="editFormEmployee.invalid" type="submit" mat-raised-button color="primary" class="my-2"
+                  (click)="editEmployee()">Edit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

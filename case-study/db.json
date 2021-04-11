@@ -1,0 +1,56 @@
+{
+  "employees": [
+    {
+      "employeeName": "Pham Truong Phuc 123",
+      "position": "manager",
+      "educationDegree": "high scholl",
+      "division": "accounting",
+      "dateOfBirth": "2021-03-01T17:00:00.000Z",
+      "identityNumber": "123456789",
+      "salary": "50000",
+      "email": "truongphucdn@gmail.com",
+      "phoneNumber": "0901111111",
+      "address": "193 Nguyen Luong bang",
+      "id": 1
+    },
+    {
+      "employeeName": "son",
+      "position": "leader",
+      "educationDegree": "high scholl",
+      "division": "administration",
+      "dateOfBirth": "2021-04-01T17:00:00.000Z",
+      "identityNumber": "111111111",
+      "salary": "111",
+      "email": "son@111.co",
+      "phoneNumber": "0901111111",
+      "address": "1343546",
+      "id": 2
+    },
+    {
+      "employeeName": "Pham Truong Phuc",
+      "position": "staff",
+      "educationDegree": "college",
+      "division": "administration",
+      "dateOfBirth": "2021-03-22T17:00:00.000Z",
+      "identityNumber": "201633269",
+      "salary": "1000000",
+      "email": "truongphucdn@gmail.com",
+      "phoneNumber": "0900989898",
+      "address": "193 Nguyen Luong Bang",
+      "id": 3
+    },
+    {
+      "employeeName": "Pham Truong Phuc",
+      "position": "leader",
+      "educationDegree": "university",
+      "division": "administration",
+      "dateOfBirth": "2021-04-06T17:00:00.000Z",
+      "identityNumber": "111111111",
+      "salary": "1111",
+      "email": "t@sadfsgfg",
+      "phoneNumber": "0901111111",
+      "address": "dfsgdhgfhg",
+      "id": 4
+    }
+  ]
+}

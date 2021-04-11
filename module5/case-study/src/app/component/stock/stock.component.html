@@ -1,0 +1,54 @@
+<div class="container-fluid p-3">
+  <div class="row d-flex align-items-center">
+    <div class="col-8">
+      <h3>List of employees</h3>
+    </div>
+    <div class="col-3">
+      <mat-form-field class="form-field-create py-2" appearance="standard">
+        <mat-label>Tìm kiếm</mat-label>
+        <input type="text" matInput placeholder="Tìm kiếm theo tên" [(ngModel)]="term"/>
+      </mat-form-field>
+    </div>
+    <div class="col-1">
+      <button mat-mini-fab color="primary" [routerLink]="['/stock-create']">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row container-fluid p-auto">
+    <table class="table table-striped table-responsive table-hover align-middle p-0 w-100 d-block d-md-table">
+      <thead class="thead-dark">
+      <tr>
+        <th>Id stock</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Unit</th>
+        <th>Quantity</th>
+        <th>Inbound date</th>
+        <th>Producted date</th>
+        <th>Expired date</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stock of stocks | filter:term |paginate: { itemsPerPage: 2, currentPage: p }">
+        <td>{{stock.id}}</td>
+        <td>{{stock.productId}}</td>
+        <td>{{stock.productId}}</td>
+        <td>{{stock.productId}}</td>
+        <td>{{stock.quantity}}</td>
+        <td>{{stock.dateInbound | date:"dd/MM/yyyy"}}</td>
+        <td>{{stock.dateProduct | date:"dd/MM/yyyy"}}</td>
+        <td>{{stock.dateExpired | date:"dd/MM/yyyy"}}</td>
+        <td>
+          <button mat-button color="primary" (click)="openDialog(stock.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
